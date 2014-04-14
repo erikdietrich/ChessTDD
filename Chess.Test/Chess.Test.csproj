@@ -56,10 +56,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BoardCoordinate.cs" />
+    <Compile Include="RookTest.cs" />
+    <Compile Include="Production\Board.cs" />
+    <Compile Include="BoardCoordinateTest.cs" />
     <Compile Include="BoardTest.cs" />
     <Compile Include="ExtendedAssert.cs" />
+    <Compile Include="Production\Rook.cs" />
+    <Compile Include="Production\Pawn.cs" />
     <Compile Include="PawnTest.cs" />
+    <Compile Include="Production\BoardCoordinate.cs" />
+    <Compile Include="Production\Piece.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

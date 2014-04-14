@@ -1,9 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Chess.Test.Production;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chess.Test
 {
@@ -29,7 +28,7 @@ namespace Chess.Test
             {
                 Target.AddPiece(Piece, new BoardCoordinate(1, 1));
 
-                Assert.AreEqual<Pawn>(Piece, Target.GetPiece(new BoardCoordinate(1, 1)));
+                Assert.AreEqual<Piece>(Piece, Target.GetPiece(new BoardCoordinate(1, 1)));
             }
         }
 
@@ -65,27 +64,14 @@ namespace Chess.Test
 
                 ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), coordinate));
             }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Accepts_Rook_As_Argument_For_Piece()
+            {
+                var coordinate = new BoardCoordinate(1, 2);
+
+                Target.AddPiece(new Rook(), coordinate);
+            }
         }
-    }
-
-    public class Board
-    {
-        private const int BoardSize = 8;
-        private readonly Pawn[,] _pieces = new Pawn[BoardSize,BoardSize];
-
-        public void AddPiece(Pawn piece, BoardCoordinate moveTarget)
-        {
-            if (!moveTarget.IsCoordinateValidForBoardSize(BoardSize))
-                throw new ArgumentException("moveTarget");
-
-            _pieces[moveTarget.X, moveTarget.Y] = piece;
-        }
-
-        public Pawn GetPiece(BoardCoordinate squareInQuestion)
-        {
-            return _pieces[squareInQuestion.X, squareInQuestion.Y];
-        }
-
-        
     }
 }
