@@ -46,6 +46,14 @@ namespace Chess.Test
 
                 Assert.AreEqual<int>(0, moves.Where(bc => bc.X == 0 || bc.Y == 0).Count());
             }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_7_4_From_7_1()
+            {
+                var moves = Target.GetMovesFrom(new BoardCoordinate(7, 1), DefaultBoardSize);
+
+                Assert.IsTrue(moves.Any(bc => bc.X == 7 && bc.Y == 4));
+            }
         }
     }
 }

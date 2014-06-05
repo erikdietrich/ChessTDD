@@ -108,6 +108,9 @@ _TeamCity*
 *.ncrunch*
 .*crunch*.local.xml
 
+#Visual Studio pukes on this
+*.ide
+
 # Installshield output folder
 [Ee]xpress/
 

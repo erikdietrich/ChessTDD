@@ -8,13 +8,15 @@ namespace Chess.Test.Production
     {
         public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize)
         {
-            for (int index = 1; index <= boardSize; index++)
-            {
-                if (index != startingLocation.Y)
-                    yield return new BoardCoordinate(startingLocation.X, index);
-                if (index != startingLocation.X)
-                    yield return new BoardCoordinate(index, startingLocation.Y);
-            }
+            var availableCoordinates = Enumerable.Range(1, boardSize);
+
+            var verticalMoves = availableCoordinates.Where(y => startingLocation.Y != y).
+                Select(y => new BoardCoordinate(startingLocation.X, y));
+
+            var horizontalMoves = availableCoordinates.Where(x => startingLocation.X != x).
+                Select(x => new BoardCoordinate(x, startingLocation.Y));
+
+            return verticalMoves.Union(horizontalMoves);
         }
     }
 }
