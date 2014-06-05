@@ -3,8 +3,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chess.Test
 {
@@ -53,34 +51,18 @@ namespace Chess.Test
             {
                 Assert.IsFalse(Target.GetMovesFrom(new BoardCoordinate(1, 2), DefaultBoardSize).Any(bc => bc.Y < 0 || bc.X < 0));
             }
-        }
-    }
 
-
-    public class Bishop : Piece
-    {
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize)
-        {
-            var moves = new List<BoardCoordinate>();
-            for (int index = 1; index <= boardSize; index++)
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_8_8_For_1_1()
             {
-                var upOneOverOne = new BoardCoordinate(startingLocation.X + index, startingLocation.Y + index);
-                if (upOneOverOne.IsCoordinateValidForBoardSize(boardSize))
-                    moves.Add(upOneOverOne);
-
-                var downOneOverOne = new BoardCoordinate(startingLocation.X + index, startingLocation.Y - index);
-                if (downOneOverOne.IsCoordinateValidForBoardSize(boardSize))
-                    moves.Add(downOneOverOne);
-
-                var upOneBackOne = new BoardCoordinate(startingLocation.X - index, startingLocation.Y + index);
-                if (upOneBackOne.IsCoordinateValidForBoardSize(boardSize))
-                    moves.Add(upOneBackOne);
-
-                var downOneBackOne = new BoardCoordinate(startingLocation.X - index, startingLocation.Y - index);
-                if(downOneBackOne.IsCoordinateValidForBoardSize(boardSize))
-                    moves.Add(downOneBackOne);
+                Assert.IsTrue(Target.GetMovesFrom(new BoardCoordinate(1, 1), DefaultBoardSize).Any(bc => bc.Y == 8 && bc.X == 8));
             }
-            return moves;
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_8_1_For_1_8()
+            {
+                Assert.IsTrue(Target.GetMovesFrom(new BoardCoordinate(1, 8), DefaultBoardSize).Any(bc => bc.Y == 1 && bc.X == 8));
+            }
         }
     }
 }

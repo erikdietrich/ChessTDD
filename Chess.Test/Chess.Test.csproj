@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BishopTest.cs" />
+    <Compile Include="Production\Bishop.cs" />
     <Compile Include="RookTest.cs" />
     <Compile Include="Production\Board.cs" />
     <Compile Include="BoardCoordinateTest.cs" />
