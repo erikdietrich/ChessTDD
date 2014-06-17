@@ -13,13 +13,5 @@ namespace Chess.Test.Production
             var legalBoardCoordinates = allPossibleBoardCoordinates.Where(bc => bc.IsCoordinateValidForBoardSize(boardSize));
             return legalBoardCoordinates;
         }
-
-        private static IEnumerable<BoardCoordinate> GetRadialDiagonalFrom(BoardCoordinate startingPosition, int distance)
-        {
-            yield return new BoardCoordinate(startingPosition.X + distance, startingPosition.Y + distance);
-            yield return new BoardCoordinate(startingPosition.X + distance, startingPosition.Y - distance);
-            yield return new BoardCoordinate(startingPosition.X - distance, startingPosition.Y + distance);
-            yield return new BoardCoordinate(startingPosition.X - distance, startingPosition.Y - distance);
-        }
     }
 }
