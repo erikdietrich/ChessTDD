@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BishopTest.cs" />
+    <Compile Include="QueenTest.cs" />
     <Compile Include="KingTest.cs" />
     <Compile Include="Production\Bishop.cs" />
     <Compile Include="Production\King.cs" />

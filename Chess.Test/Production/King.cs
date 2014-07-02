@@ -8,7 +8,7 @@ namespace Chess.Test.Production
     {
         public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize)
         {
-            var oneSquareAwayMoves = GetRadialAdjacentFrom(startingLocation, 1).Union(GetRadialDiagonalFrom(startingLocation, 1));
+            var oneSquareAwayMoves = GetAllRadialMovesFrom(startingLocation, boardSize);
             return oneSquareAwayMoves.Where(bc => bc.IsCoordinateValidForBoardSize(boardSize));
         }
     }
