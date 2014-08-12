@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test.Production
+namespace Chess
 {
     public class Rook : Piece
     {
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize)
+        public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
         {
             var availableCoordinates = Enumerable.Range(1, boardSize);
 

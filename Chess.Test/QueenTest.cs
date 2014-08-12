@@ -1,4 +1,4 @@
-﻿using Chess.Test.Production;
+﻿using Chess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -13,14 +13,12 @@ namespace Chess.Test
 
         private IEnumerable<BoardCoordinate> MovesFrom11;
 
-        private const int DefaultBoardSize = 8;
-
         [TestInitialize]
         public void BeforeEachTest()
         {
             Target = new Queen();
 
-            MovesFrom11 = Target.GetMovesFrom(new BoardCoordinate(1, 1), DefaultBoardSize);
+            MovesFrom11 = Target.GetMovesFrom(new BoardCoordinate(1, 1));
         }
 
         [TestClass]
@@ -50,15 +48,6 @@ namespace Chess.Test
             {
                 Assert.IsFalse(MovesFrom11.Any(bc => bc.X == 0 || bc.Y == 0));
             }
-        }
-    }
-
-    public class Queen : Piece
-    {
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize)
-        {
-            var movesWithinABoardSize = GetAllRadialMovesFrom(startingLocation, boardSize);
-            return movesWithinABoardSize.Where(bc => bc.IsCoordinateValidForBoardSize(boardSize));
         }
     }
 }

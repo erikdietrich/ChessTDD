@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test.Production
+namespace Chess
 {
     public struct BoardCoordinate
     {

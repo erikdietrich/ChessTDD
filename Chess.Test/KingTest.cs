@@ -1,4 +1,4 @@
-﻿using Chess.Test.Production;
+﻿using Chess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,23 +11,23 @@ namespace Chess.Test
     {
         private King Target { get; set; }
 
-        private const int DefaultBoardSize = 8;
         private IEnumerable<BoardCoordinate> MovesFrom3_3;
 
         [TestInitialize]
         public void BeforeEachTest()
         {
             Target = new King();
-            MovesFrom3_3 = Target.GetMovesFrom(new BoardCoordinate(3, 3), DefaultBoardSize);
+            MovesFrom3_3 = Target.GetMovesFrom(new BoardCoordinate(3, 3));
         }
 
         [TestClass]
         public class GetMovesFrom : KingTest
         {
+
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_1_2_For_1_1()
             {
-                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1), DefaultBoardSize);
+                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1));
 
                 Assert.IsTrue(moves.Any(bc => bc.X == 1 && bc.Y == 2));
             }
@@ -35,7 +35,7 @@ namespace Chess.Test
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_2_2_For_1_1()
             {
-                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1), DefaultBoardSize);
+                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1));
 
                 Assert.IsTrue(moves.Any(bc => bc.X == 2 && bc.Y == 2));
             }
@@ -43,7 +43,6 @@ namespace Chess.Test
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_3_4_For_3_3()
             {
-
                 Assert.IsTrue(MovesFrom3_3.Any(bc => bc.X == 3 && bc.Y == 4));
             }
 
@@ -62,7 +61,7 @@ namespace Chess.Test
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Does_Not_Return_0_0_From_1_1()
             {
-                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1), 8);
+                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1));
 
                 Assert.IsFalse(moves.Any(bc => bc.Y == 0 || bc.X == 0));
             }

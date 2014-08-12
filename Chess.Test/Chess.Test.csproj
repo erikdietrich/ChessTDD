@@ -57,24 +57,24 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BishopTest.cs" />
+    <Compile Include="KnightTest.cs" />
     <Compile Include="QueenTest.cs" />
     <Compile Include="KingTest.cs" />
-    <Compile Include="Production\Bishop.cs" />
-    <Compile Include="Production\King.cs" />
     <Compile Include="RookTest.cs" />
-    <Compile Include="Production\Board.cs" />
     <Compile Include="BoardCoordinateTest.cs" />
     <Compile Include="BoardTest.cs" />
     <Compile Include="ExtendedAssert.cs" />
-    <Compile Include="Production\Rook.cs" />
-    <Compile Include="Production\Pawn.cs" />
     <Compile Include="PawnTest.cs" />
-    <Compile Include="Production\BoardCoordinate.cs" />
-    <Compile Include="Production\Piece.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chess\Chess.csproj">
+      <Project>{c7c30538-e2f7-4e69-a910-b7c8cca26265}</Project>
+      <Name>Chess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

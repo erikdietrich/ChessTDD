@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test.Production
+namespace Chess
 {
     public class King : Piece
     {
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize)
+        public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
         {
             var oneSquareAwayMoves = GetAllRadialMovesFrom(startingLocation, boardSize);
             return oneSquareAwayMoves.Where(bc => bc.IsCoordinateValidForBoardSize(boardSize));

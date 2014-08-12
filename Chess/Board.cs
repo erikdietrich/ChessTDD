@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test.Production
+namespace Chess
 {
     public class Board
     {
+        public const int DefaultBoardSize = 8;
+
         private const int BoardSize = 8;
         private readonly Piece[,] _pieces = new Piece[BoardSize, BoardSize];
 

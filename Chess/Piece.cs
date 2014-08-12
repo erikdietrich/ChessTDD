@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test.Production
+namespace Chess
 {
     public abstract class Piece
     {
-        public abstract IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize);
+        public abstract IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize);
 
         protected static IEnumerable<BoardCoordinate> GetAllRadialMovesFrom(BoardCoordinate startingLocation, int distance)
         {

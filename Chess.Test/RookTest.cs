@@ -1,4 +1,4 @@
-﻿using Chess.Test.Production;
+﻿using Chess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -11,13 +11,13 @@ namespace Chess.Test
     {
         private Rook Target { get; set; }
 
-        private static readonly BoardCoordinate DefaultCoordinate = new BoardCoordinate(1, 1);
-        private const int DefaultBoardSize = 8;
+        private IEnumerable<BoardCoordinate> MovesFrom11;
 
         [TestInitialize]
         public void BeforeEachTest()
         {
             Target = new Rook();
+            MovesFrom11 = Target.GetMovesFrom(new BoardCoordinate(1, 1));
         }
 
         [TestClass]
@@ -26,31 +26,25 @@ namespace Chess.Test
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_7_Vertical_Moves_With_Board_Size_8()
             {
-                var moves = Target.GetMovesFrom(DefaultCoordinate, DefaultBoardSize);
-
-                Assert.AreEqual<int>(7, moves.Where(bc => bc.X == 1).ToList().Count());
+                Assert.AreEqual<int>(7, MovesFrom11.Where(bc => bc.X == 1).ToList().Count());
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_7_Horizontal_Moves_With_Board_Size_8()
             {
-                var moves = Target.GetMovesFrom(DefaultCoordinate, DefaultBoardSize);
-
-                Assert.AreEqual<int>(7, moves.Where(bc => bc.Y == 1).Count());
+                Assert.AreEqual<int>(7, MovesFrom11.Where(bc => bc.Y == 1).Count());
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_No_Moves_That_Contain_A_Zero()
             {
-                var moves = Target.GetMovesFrom(DefaultCoordinate, DefaultBoardSize);
-
-                Assert.AreEqual<int>(0, moves.Where(bc => bc.X == 0 || bc.Y == 0).Count());
+                Assert.AreEqual<int>(0, MovesFrom11.Where(bc => bc.X == 0 || bc.Y == 0).Count());
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_7_4_From_7_1()
             {
-                var moves = Target.GetMovesFrom(new BoardCoordinate(7, 1), DefaultBoardSize);
+                var moves = Target.GetMovesFrom(new BoardCoordinate(7, 1));
 
                 Assert.IsTrue(moves.Any(bc => bc.X == 7 && bc.Y == 4));
             }

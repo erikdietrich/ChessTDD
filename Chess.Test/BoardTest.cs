@@ -1,4 +1,4 @@
-﻿using Chess.Test.Production;
+﻿using Chess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
