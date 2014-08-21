@@ -18,6 +18,11 @@ namespace Chess
             _y = y;
         }
 
+        public static BoardCoordinate For(int x, int y)
+        {
+            return new BoardCoordinate(x, y);
+        }
+
         public bool IsCoordinateValidForBoardSize(int boardSize)
         {
             return IsDimensionValidForBoardSize(X, boardSize) && IsDimensionValidForBoardSize(Y, boardSize);
