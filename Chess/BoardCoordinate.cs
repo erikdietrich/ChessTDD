@@ -23,6 +23,11 @@ namespace Chess
             return IsDimensionValidForBoardSize(X, boardSize) && IsDimensionValidForBoardSize(Y, boardSize);
         }
 
+        public bool Matches(int x, int y)
+        {
+            return _x == x && _y == y;
+        }
+
         private static bool IsDimensionValidForBoardSize(int dimensionValue, int boardSize)
         {
             return dimensionValue > 0 && dimensionValue <= boardSize;

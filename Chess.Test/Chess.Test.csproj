@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BishopTest.cs" />
+    <Compile Include="Board_GetMovesFrom_Given_NormalChessboardSetup_Should.cs" />
     <Compile Include="KnightTest.cs" />
     <Compile Include="QueenTest.cs" />
     <Compile Include="KingTest.cs" />
