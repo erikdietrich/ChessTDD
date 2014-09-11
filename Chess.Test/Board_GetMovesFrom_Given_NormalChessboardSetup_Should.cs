@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chess.Test
 {
@@ -17,19 +15,20 @@ namespace Chess.Test
             var xCoordinates = Enumerable.Range(1, 8).ToList();
             xCoordinates.ForEach(xc => Target.AddPiece(new Pawn(), new BoardCoordinate(xc, row)));
         }
-        private void SetupStandardPieces(int row)
+
+        public static void SetupStandardPieces(Board target, int row)
         {
-            Target.AddPiece(new Rook(), new BoardCoordinate(1, row));
-            Target.AddPiece(new Rook(), new BoardCoordinate(8, row));
+            target.AddPiece(new Rook(), new BoardCoordinate(1, row));
+            target.AddPiece(new Rook(), new BoardCoordinate(8, row));
 
-            Target.AddPiece(new Knight(), new BoardCoordinate(2, row));
-            Target.AddPiece(new Knight(), new BoardCoordinate(7, row));
+            target.AddPiece(new Knight(), new BoardCoordinate(2, row));
+            target.AddPiece(new Knight(), new BoardCoordinate(7, row));
 
-            Target.AddPiece(new Bishop(), new BoardCoordinate(3, row));
-            Target.AddPiece(new Bishop(), new BoardCoordinate(6, row));
+            target.AddPiece(new Bishop(), new BoardCoordinate(3, row));
+            target.AddPiece(new Bishop(), new BoardCoordinate(6, row));
 
-            Target.AddPiece(new Queen(), new BoardCoordinate(4, row));
-            Target.AddPiece(new King(), new BoardCoordinate(5, row));
+            target.AddPiece(new Queen(), new BoardCoordinate(4, row));
+            target.AddPiece(new King(), new BoardCoordinate(5, row));
         }
 
         [TestInitialize]
@@ -38,10 +37,10 @@ namespace Chess.Test
             Target = new Board();
 
             SetupStandardPawns(2);
-            SetupStandardPieces(1);
+            SetupStandardPieces(Target, 1);
 
             SetupStandardPawns(7);
-            SetupStandardPieces(8);
+            SetupStandardPieces(Target, 8);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
