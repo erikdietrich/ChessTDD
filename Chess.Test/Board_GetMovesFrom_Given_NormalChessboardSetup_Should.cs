@@ -52,7 +52,7 @@ namespace Chess.Test
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Returns_A_Set_Of_Moves_For_A_Pawn_Containing_Space_Two_Ahead()
+        public void Return_A_Set_Of_Moves_For_A_Pawn_Containing_Space_Two_Ahead()
         {
             var moves = Target.GetMovesFrom(new BoardCoordinate(1, 2));
 
@@ -60,7 +60,7 @@ namespace Chess.Test
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Returns_Empty_Set_For_Rook_At_1_1()
+        public void Return_Empty_Set_For_Rook_At_1_1()
         {
             var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1));
 
@@ -68,7 +68,7 @@ namespace Chess.Test
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Returns_Empty_Set_For_Rook_At_8_1()
+        public void Return_Empty_Set_For_Rook_At_8_1()
         {
             var moves = Target.GetMovesFrom(BoardCoordinate.For(8, 1));
 
@@ -76,9 +76,10 @@ namespace Chess.Test
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Returns_Empty_Set_For_Rook_At_8_8()
+        public void Return_Empty_Set_For_Rook_At_8_8()
         {
             Assert.IsFalse(Target.GetMovesFrom(BoardCoordinate.For(8, 8)).Any());
         }
+
     }
 }

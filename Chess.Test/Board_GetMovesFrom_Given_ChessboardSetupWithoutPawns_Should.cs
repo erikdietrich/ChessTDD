@@ -18,7 +18,7 @@ namespace Chess.Test
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Rook_Moves_Contains_1_2()
+        public void Should_Return_Rook_Moves_Containing_1_2()
         {
             var moves = Target.GetMovesFrom(BoardCoordinate.For(1, 1));
 
@@ -26,7 +26,7 @@ namespace Chess.Test
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Rook_Moves_Does_Not_Contain_2_1()
+        public void Should_Return_Rook_Moves_Not_Containing_2_1()
         {
             var moves = Target.GetMovesFrom(BoardCoordinate.For(1, 1));
 
@@ -34,11 +34,31 @@ namespace Chess.Test
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void King_Moves_Contains_5_2()
+        public void Should_Return_King_Moves_Containing_5_2()
         {
             var moves = Target.GetMovesFrom(BoardCoordinate.For(5, 1));
 
             Assert.IsTrue(moves.Any(bc => bc.Matches(5, 2)));
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_Empty_For_Bishop_After_Blocking_Pawns_Are_Added()
+        {
+            Target.AddPiece(new Pawn(), BoardCoordinate.For(2, 2));
+            Target.AddPiece(new Pawn(), BoardCoordinate.For(4, 2));
+
+            var moves = Target.GetMovesFrom(BoardCoordinate.For(3, 1));
+
+            Assert.IsFalse(moves.Any());
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_Moves_For_Bishop_That_Is_Not_Blocked()
+        {
+            Target.AddPiece(new Pawn(), BoardCoordinate.For(2, 2));
+            var moves = Target.GetMovesFrom(BoardCoordinate.For(3, 1));
+
+            Assert.IsTrue(moves.Any());
         }
     }
 }

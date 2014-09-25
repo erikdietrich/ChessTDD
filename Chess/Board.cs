@@ -33,23 +33,56 @@ namespace Chess
 
         private bool IsBlocked(BoardCoordinate origin, BoardCoordinate destination)
         {
-            return IsBlockedHorizontalMove(destination, origin) || IsBlockedVerticalMove(destination, origin);
+            if (IsHorizontalPath(origin, destination))
+                return IsHorizontalPathBlocked(origin, destination);
+            else if (IsVerticalPath(origin, destination))
+                return IsVerticalPathBlocked(origin, destination);
+            else
+                return IsDiagonalPathBlocked(origin, destination);
         }
 
-        private bool IsBlockedHorizontalMove(BoardCoordinate origin, BoardCoordinate destination)
+        private static bool IsHorizontalPath(BoardCoordinate origin, BoardCoordinate destination)
         {
-            var startX = Math.Min(origin.X, destination.X);
-            var endX = Math.Max(origin.X, destination.X);
-
-            return Enumerable.Range(startX + 1, endX - startX).Any(i => GetPiece(BoardCoordinate.For(i, origin.Y)) != null);
+            return origin.Y == destination.Y;
         }
 
-        private bool IsBlockedVerticalMove(BoardCoordinate origin, BoardCoordinate destination)
+        private static bool IsVerticalPath(BoardCoordinate origin, BoardCoordinate destination)
         {
-            var startY = Math.Min(origin.Y, destination.Y);
-            var endY = Math.Max(origin.Y, destination.Y);
+            return origin.X == destination.X;
+        }
 
-            return Enumerable.Range(startY + 1, endY - startY). Any(i => GetPiece(BoardCoordinate.For(origin.X, i)) != null);
+        private bool IsHorizontalPathBlocked(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            var least = Math.Min(origin.X, destination.X);
+            var most = Math.Max(origin.X, destination.X);
+            var xCoordinatesToCheck = Enumerable.Range(least + 1, most - least);
+            return xCoordinatesToCheck.Any(x => GetPiece(BoardCoordinate.For(x, origin.Y)) != null);
+        }
+
+        private bool IsVerticalPathBlocked(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            var least = Math.Min(origin.Y, destination.Y);
+            var most = Math.Max(origin.Y, destination.Y);
+            var yCoordinatesToCheck = Enumerable.Range(least + 1, most - least);
+            return yCoordinatesToCheck.Any(y => GetPiece(BoardCoordinate.For(origin.X, y)) != null);
+        }
+
+        private bool IsDiagonalPathBlocked(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            var spacesToCheck = destination.X - origin.X;
+            for(int index = 1; index <= spacesToCheck; index++)
+            {
+                if (GetPiece(BoardCoordinate.For(origin.X + index, origin.Y + index)) != null)
+                    return true;
+            }
+
+            spacesToCheck = origin.X - destination.X;
+            for (int index = 1; index <= spacesToCheck; index++ )
+            {
+                if(GetPiece(BoardCoordinate.For(origin.X - index, origin.Y + index)) != null)
+                    return true;
+            }
+                return false;
         }
 
     }
