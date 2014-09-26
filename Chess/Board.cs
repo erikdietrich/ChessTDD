@@ -69,20 +69,19 @@ namespace Chess
 
         private bool IsDiagonalPathBlocked(BoardCoordinate origin, BoardCoordinate destination)
         {
-            var spacesToCheck = destination.X - origin.X;
-            for(int index = 1; index <= spacesToCheck; index++)
-            {
-                if (GetPiece(BoardCoordinate.For(origin.X + index, origin.Y + index)) != null)
-                    return true;
-            }
+            var absoluteDistance = Math.Abs(origin.X - destination.X);
+            var xDirection = (destination.X - origin.X) / absoluteDistance;
+            var yDirection = (destination.Y - origin.Y) / absoluteDistance;
 
-            spacesToCheck = origin.X - destination.X;
-            for (int index = 1; index <= spacesToCheck; index++ )
-            {
-                if(GetPiece(BoardCoordinate.For(origin.X - index, origin.Y + index)) != null)
-                    return true;
-            }
-                return false;
+            return DunnoYet(origin, absoluteDistance, xDirection, yDirection);
+        }
+
+        private bool DunnoYet(BoardCoordinate origin, int spacesToCheck, int xDirection, int yDirection)
+        {
+            var spacesOnTheBoardToCheck = Enumerable.Range(1, spacesToCheck).
+                Select(i => BoardCoordinate.For(origin.X + i * xDirection, origin.Y + i * yDirection));
+
+            return spacesOnTheBoardToCheck.Any(bc => GetPiece(bc) != null);
         }
 
     }

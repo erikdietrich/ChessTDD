@@ -15,6 +15,7 @@ namespace Chess.Test
         {
             Target = new Board();
             Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(Target, 1);
+            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(Target, 8);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -59,6 +60,25 @@ namespace Chess.Test
             var moves = Target.GetMovesFrom(BoardCoordinate.For(3, 1));
 
             Assert.IsTrue(moves.Any());
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_NonEmpty_For_Bishop_At_3_8()
+        {
+            var moves = Target.GetMovesFrom(BoardCoordinate.For(3, 8));
+
+            Assert.IsTrue(moves.Any());
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_Empty_For_Bishop_at_3_8_When_Blocked()
+        {
+            Target.AddPiece(new Pawn(), BoardCoordinate.For(2, 7));
+            Target.AddPiece(new Pawn(), BoardCoordinate.For(4, 7));
+
+            var moves = Target.GetMovesFrom(BoardCoordinate.For(3, 8));
+
+            Assert.IsFalse(moves.Any());
         }
     }
 }
