@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.JustMock.Container</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.JustMock.Container.Abstraction.IContainer">
+            <summary>
+            Provides an abstraction between service locator and IOC container.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.Abstraction.IContainer.Register(System.Type,System.Object)">
+            <summary>
+            Registers the specified instance for its corresponding type.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.Abstraction.IContainer.Resolve(System.Type)">
+            <summary>
+            Resolves the target instance with dependencies.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.Abstraction.IContainer.ResolveAll(System.Type)">
+            <summary>
+            Resolves all registered instances for a specific service type.
+            </summary>
+        </member>
+        <member name="T:Telerik.JustMock.Container.AutoMockException">
+            <summary>
+            The exception thrown by the mocking container.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.AutoMockException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.JustMock.Container.AutoMockException"/> class.
+            </summary>
+            <param name="message">The message of the exception.</param>
+        </member>
+        <member name="T:Telerik.JustMock.Container.JustMockServiceLocator">
+            <summary>
+            JustMockServiceLocator class.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.JustMockServiceLocator.#ctor(Telerik.JustMock.Container.Abstraction.IContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.JustMock.Container.JustMockServiceLocator"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.JustMockServiceLocator.DoGetAllInstances(System.Type)">
+            <summary>
+            Gets all the instances for a target type.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.JustMockServiceLocator.DoGetInstance(System.Type,System.String)">
+            <summary>
+            Gets the specific instance for target type.
+            </summary>
+        </member>
+        <member name="P:Telerik.JustMock.Container.JustMockServiceLocator.Container">
+            <summary>
+            Gets the container associated with this locator.
+            </summary>
+        </member>
+        <member name="T:Telerik.JustMock.Container.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Telerik.JustMock.Container.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Telerik.JustMock.Container.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Telerik.JustMock.Container.Messages.ProfilerMustBeEnabled">
+            <summary>
+              Looks up a localized string similar to Profiler must enabled to auto mock concrete dependencies.
+            </summary>
+        </member>
+        <member name="T:Telerik.JustMock.Container.MockingContainer`1">
+            <summary>
+            Entry-point class for auto mocking.
+            </summary>
+            <typeparam name="T">The type of the mocked class.</typeparam>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.#ctor(System.Type[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.JustMock.Container.MockingContainer`1"/> class.
+            <param name="dependenciesType">Specifies the type(s) on which the constructor is dependent.
+            <remarks>Empty for resolving container with default/first constructor.</remarks></param>
+            </summary>
+            <param name="dependenciesType">Type of the dependencies.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Arrange``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Entry-point for setting expectations.
+            </summary>
+            <typeparam name="TInterface">Mocking interface</typeparam>
+            <param name="expression">Target expression</param>
+            <returns>
+            Reference to <see cref="T:Telerik.JustMock.Expectations.FuncExpectation`1"/> to setup the mock.
+            </returns>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Arrange``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},Telerik.JustMock.Container.Take)">
+            <summary>
+            Entry-point for setting expectations.
+            </summary>
+            <typeparam name="TInterface">Mocking interface</typeparam>
+            <param name="expression">Target expression</param>
+            <param name="take">Specifics the instance to resolve.</param>
+            <returns>
+            Reference to <see cref="T:Telerik.JustMock.Expectations.FuncExpectation`1"/> to setup the mock.
+            </returns>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Arrange``1(System.Linq.Expressions.Expression{System.Action{``0}})">
+            <summary>
+            Entry-point for setting expectations.
+            </summary>
+            <typeparam name="TInterface">
+            Mocking interface
+            </typeparam>
+            <param name="expression">Target expression</param>
+            <param name="take">Specifics the instance to resolve</param>
+            <returns>
+            Reference to <see cref="T:Telerik.JustMock.Expectations.ActionExpectation"/> to setup the mock.
+            </returns>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Arrange``1(System.Linq.Expressions.Expression{System.Action{``0}},Telerik.JustMock.Container.Take)">
+            <summary>
+            Entry-point for setting expectations.
+            </summary>
+            <typeparam name="TInterface">
+            Mocking interface
+            </typeparam>
+            <param name="expression">Target expression</param>
+            <param name="take">Specifics the instance to resolve.</param>
+            <returns>
+            Reference to <see cref="T:Telerik.JustMock.Expectations.ActionExpectation"/> to setup the mock.
+            </returns>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.AssertAll">
+            <summary>
+            Asserts all expected setups.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert">
+            <summary>
+            Asserts all expected calls that are marked as must or
+            to be occurred a certain number of times.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(System.Linq.Expressions.Expression{System.Action{``0}})">
+            <summary>
+            Asserts the specific call
+            </summary>
+            <typeparam name="TService">Service type.</typeparam>
+            <param name="expression">Target expression.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Asserts the specific call
+            </summary>
+            <typeparam name="TService">Service type.</typeparam>
+            <param name="expression">Target expression</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1">
+            <summary>
+            Asserts a specific dependency
+            </summary>
+            <typeparam name="TService">Service type.</typeparam>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(Telerik.JustMock.Container.Take)">
+            <summary>
+            Asserts a specific dependency
+            </summary>
+            <typeparam name="TService">Service Type.</typeparam>
+            <param name="take">Specifies the instance to resolve.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},Telerik.JustMock.Occurs)">
+            <summary>
+            Asserts the specific call
+            </summary>
+            <typeparam name="TService">Service Type.</typeparam>
+            <param name="expression">Target expression.</param>
+            <param name="occurs">Specifies the number of times a mock call should occur.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(System.Linq.Expressions.Expression{System.Action{``0}},Telerik.JustMock.Occurs)">
+            <summary>
+            Asserts the specific call
+            </summary>
+            <typeparam name="TService">Service Type.</typeparam>
+            <param name="expression">Target expression</param>
+            <param name="occurs">Specifies the number of times a mock call should occur.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},Telerik.JustMock.Container.Take)">
+            <summary>
+            Asserts the specific call
+            </summary>
+            <typeparam name="TService">Service Type.</typeparam>
+            <param name="expression">Target expression.</param>
+            <param name="take">Specifies the instance to resolve.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(System.Linq.Expressions.Expression{System.Action{``0}},Telerik.JustMock.Container.Take)">
+            <summary>
+            Asserts the specific call
+            </summary>
+            <typeparam name="TService">Service Type.</typeparam>
+            <param name="expression">Target expression.</param>
+            <param name="take">Specifies the instance to resolve.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},Telerik.JustMock.Occurs,Telerik.JustMock.Container.Take)">
+            <summary>
+            Asserts the specific call
+            </summary>
+            <typeparam name="TService">Service Type.</typeparam>
+            <param name="expression">Target expression.</param>
+            <param name="occurs">Specifies the number of times a mock call should occur.</param>
+            <param name="take">Specifies the instance to resolve.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Assert``1(System.Linq.Expressions.Expression{System.Action{``0}},Telerik.JustMock.Occurs,Telerik.JustMock.Container.Take)">
+            <summary>
+            Asserts the specific call
+            </summary>
+            <typeparam name="TService">Service Type.</typeparam>
+            <param name="expression">Target expression.</param>
+            <param name="occurs">Specifies the number of times a mock call should occur.</param>
+            <param name="take">Specifies the instance to resolve.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Get``1">
+            <summary>
+            Returns the registered service instance.
+            </summary>
+            <typeparam name="TService">Service Type.</typeparam>
+            <returns>The resolved instance.</returns>
+        </member>
+        <member name="M:Telerik.JustMock.Container.MockingContainer`1.Get``1(Telerik.JustMock.Container.Take)">
+            <summary>
+            Returns the registered service instance.
+            </summary>
+            <typeparam name="TService">The type of instance to resolve.</typeparam>
+            <param name="take">Specifies the kind of instance to resolve.</param>
+            <returns>The resolved instance.</returns>
+        </member>
+        <member name="P:Telerik.JustMock.Container.MockingContainer`1.Instance">
+            <summary>
+            Resolves the instance of the underlying type with all dependencies injected.
+            </summary>
+        </member>
+        <member name="T:Telerik.JustMock.Container.Take">
+            <summary>
+            Defines the auto mocking instance to resolve.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.Take.#ctor(System.Linq.Expressions.Expression{System.Func{Microsoft.Practices.ServiceLocation.IServiceLocator,System.Type,System.Object}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.JustMock.Container.Take"/> class.
+            </summary>
+            <param name="predicate">Predicate of the instance.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.Take.First">
+            <summary>
+            Specifies to resolve the first instance.
+            </summary>
+            <returns>Take configuration.</returns>
+        </member>
+        <member name="M:Telerik.JustMock.Container.Take.Last">
+            <summary>
+            Specifies to resolve the last instance.
+            </summary>
+            <returns>Take configuration.</returns>
+        </member>
+        <member name="M:Telerik.JustMock.Container.Take.At(System.Int32)">
+            <summary>
+            Specifies to resolve instance at index.
+            </summary>
+            <param name="index">Position of the instance that will be taken.</param>
+            <returns>Take configuration.</returns>
+        </member>
+        <member name="T:Telerik.JustMock.Container.UnityContainer">
+            <summary>
+            Wrapper over original unity container.
+            </summary>
+        </member>
+        <member name="M:Telerik.JustMock.Container.UnityContainer.#ctor(System.Type[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.JustMock.Container.UnityContainer"/> class.
+            </summary>
+            <param name="dependenciesType">Type of the dependencies.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.UnityContainer.Register(System.Type,System.Object)">
+            <summary>
+            Registers the specified instance for its corresponding type.
+            </summary>
+            <param name="serviceType">Corresponding type.</param>
+            <param name="instance">Instance to be registered.</param>
+        </member>
+        <member name="M:Telerik.JustMock.Container.UnityContainer.Resolve(System.Type)">
+            <summary>
+            Resolve the target type with necessary dependencies.
+            </summary>
+            <param name="serviceType">Service type.</param>
+            <returns>Resolved object.</returns>
+        </member>
+        <member name="M:Telerik.JustMock.Container.UnityContainer.ResolveAll(System.Type)">
+            <summary>
+            Resolves all registered instances for a specific service type.
+            </summary>
+            <param name="serviceType">Service type.</param>
+            <returns>Returns collection of the resolved objects.</returns>
+        </member>
+    </members>
+</doc>

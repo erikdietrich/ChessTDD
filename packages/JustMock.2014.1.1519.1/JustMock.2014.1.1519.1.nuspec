@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>JustMock</id>
+    <version>2014.1.1519.1</version>
+    <title>Telerik JustMock Lite</title>
+    <authors>Telerik AD</authors>
+    <owners>Telerik AD</owners>
+    <licenseUrl>http://www.telerik.com/purchase/license-agreement/justmock-free-edition</licenseUrl>
+    <projectUrl>https://github.com/telerik/JustMockLite</projectUrl>
+    <iconUrl>http://www.telerik.com/sfimages/default-source/logos/jm_32x32.png?sfvrsn=2</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>The most powerful free mocking library available for .NET developers.</description>
+    <summary>The most powerful free mocking library available for .NET developers.</summary>
+    <releaseNotes>What's fixed:
+
+Fixed: Unhandled exception when doing a Mock.Assert
+Fixed: Arrangements involving collection initializer syntax break occurrence asserts</releaseNotes>
+    <copyright>Copyright (c) 2010-2014 Telerik AD</copyright>
+    <language>en-US</language>
+    <tags>tdd mocking mocks mock aaa unittest unittesting unit-testing testing fake faking stub stubbing isolation</tags>
+  </metadata>
+</package>
