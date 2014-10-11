@@ -72,6 +72,12 @@ namespace Chess.Test
 
                 Target.AddPiece(new Rook(), coordinate);
             }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Throws_Exception_On_Null_Arguments()
+            {
+                ExtendedAssert.Throws<ArgumentNullException>(() => Target.AddPiece(null, BoardCoordinate.For(2, 3)));
+            }
         }
     }
 }

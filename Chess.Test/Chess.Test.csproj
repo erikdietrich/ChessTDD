@@ -59,7 +59,8 @@
     <Compile Include="BishopTest.cs" />
     <Compile Include="Board_GetMovesFrom_Given_ChessboardSetupWithoutPawns_Should.cs" />
     <Compile Include="Board_GetMovesFrom_Given_NormalChessboardSetup_Should.cs" />
-    <Compile Include="Board_MovePiece_GivenChessBoardWithoutPawns.cs" />
+    <Compile Include="Board_MovePiece_GivenChessBoardWithoutPawns_Should.cs" />
+    <Compile Include="Board_RemovePiece_GivenChessBoardWithoutPawns_Should.cs" />
     <Compile Include="KnightTest.cs" />
     <Compile Include="QueenTest.cs" />
     <Compile Include="KingTest.cs" />

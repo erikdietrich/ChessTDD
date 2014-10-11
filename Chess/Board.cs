@@ -13,10 +13,12 @@ namespace Chess
 
         public void AddPiece(Piece piece, BoardCoordinate moveTarget)
         {
+            if(piece == null)
+                throw new ArgumentNullException("piece");
             if (!moveTarget.IsCoordinateValidForBoardSize(BoardSize))
                 throw new ArgumentException("moveTarget");
 
-            _pieces[moveTarget.X - 1, moveTarget.Y - 1] = piece;
+            SetPiece(piece, moveTarget);
         }
 
         public void MovePiece(BoardCoordinate origin, BoardCoordinate destination)
@@ -24,12 +26,16 @@ namespace Chess
             VerifyCoordinatesOrThrow(origin, destination);
 
             var pieceToMove = GetPiece(origin);
+            SetPiece(pieceToMove, destination);
+            RemovePiece(origin);
+        }
 
-            if(pieceToMove == null)
-                throw new ArgumentException("origin");
+        public void RemovePiece(BoardCoordinate coordinateForRemoval)
+        {
+            if(GetPiece(coordinateForRemoval) == null)
+                throw new ArgumentException("coordinateForRemoval");
 
-            AddPiece(pieceToMove, destination);
-            AddPiece(null, origin);
+            SetPiece(null, coordinateForRemoval);
         }
 
         public Piece GetPiece(BoardCoordinate squareInQuestion)
@@ -39,9 +45,14 @@ namespace Chess
 
         public IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate originCoordinate)
         {
-            var piece = _pieces[originCoordinate.X - 1, originCoordinate.Y - 1];
+            var piece = GetPiece(originCoordinate);
             var allPossibleMoves = piece.GetMovesFrom(originCoordinate);
             return allPossibleMoves.Where(move => !IsBlocked(originCoordinate, move));
+        }
+
+        private void SetPiece(Piece piece, BoardCoordinate location) 
+        {
+            _pieces[location.X - 1, location.Y - 1] = piece;
         }
 
         private static void VerifyCoordinatesOrThrow(params BoardCoordinate[] coordinates)
