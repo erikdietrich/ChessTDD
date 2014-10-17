@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test
+namespace Chess.Test.BoardTests
 {
     [TestClass]
     public class Board_RemovePiece_GivenChessBoardWithoutPawns_Should
@@ -22,7 +22,7 @@ namespace Chess.Test
         {
             Target.RemovePiece(BoardCoordinate.For(1, 1));
 
-            Assert.IsNull(Target.GetPiece(BoardCoordinate.For(1, 1)));
+            Assert.IsFalse(Target.DoesPieceExistAt(BoardCoordinate.For(1, 1)));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]

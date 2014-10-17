@@ -57,16 +57,19 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BishopTest.cs" />
-    <Compile Include="Board_GetMovesFrom_Given_ChessboardSetupWithoutPawns_Should.cs" />
-    <Compile Include="Board_GetMovesFrom_Given_NormalChessboardSetup_Should.cs" />
-    <Compile Include="Board_MovePiece_GivenChessBoardWithoutPawns_Should.cs" />
-    <Compile Include="Board_RemovePiece_GivenChessBoardWithoutPawns_Should.cs" />
+    <Compile Include="BoardTests\Board_AddPiece_Given_EmptyBoard_Should.cs" />
+    <Compile Include="BoardTests\Board_Constructor_Should.cs" />
+    <Compile Include="BoardTests\Board_GetMovesFrom_Given_ChessboardSetupWithoutPawns_Should.cs" />
+    <Compile Include="BoardTests\Board_GetMovesFrom_Given_NormalChessboardSetup_Should.cs" />
+    <Compile Include="BoardTests\Board_MovePiece_GivenChessBoardWithoutPawns_Should.cs" />
+    <Compile Include="BoardTests\Board_DoesPieceExistAt_Should.cs" />
+    <Compile Include="BoardTests\Board_RemovePiece_GivenChessBoardWithoutPawns_Should.cs" />
     <Compile Include="KnightTest.cs" />
     <Compile Include="QueenTest.cs" />
     <Compile Include="KingTest.cs" />
     <Compile Include="RookTest.cs" />
     <Compile Include="BoardCoordinateTest.cs" />
-    <Compile Include="BoardTest.cs" />
+    <Compile Include="BoardTests\Board_GetPiece_GivenSingleAddedPiece_Should.cs" />
     <Compile Include="ExtendedAssert.cs" />
     <Compile Include="PawnTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

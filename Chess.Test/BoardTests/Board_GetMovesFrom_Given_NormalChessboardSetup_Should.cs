@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test
+namespace Chess.Test.BoardTests
 {
     [TestClass]
     public class Board_GetMovesFrom_Given_NormalChessboardSetup_Should

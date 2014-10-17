@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test
+namespace Chess.Test.BoardTests
 {
     [TestClass]
     public class Board_MovePiece_GivenChessBoardWithoutPawns_Should
@@ -27,7 +27,7 @@ namespace Chess.Test
         {
             Target.MovePiece(OriginCoordinate, DestinationCoordinate);
 
-            Assert.IsNotNull(Target.GetPiece(DestinationCoordinate));
+            Assert.IsTrue(Target.DoesPieceExistAt(DestinationCoordinate));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -35,7 +35,7 @@ namespace Chess.Test
         {
             Target.MovePiece(OriginCoordinate, DestinationCoordinate);
 
-            Assert.IsNull(Target.GetPiece(OriginCoordinate));
+            Assert.IsFalse(Target.DoesPieceExistAt(OriginCoordinate));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -62,7 +62,7 @@ namespace Chess.Test
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_When_Attempt_Is_Made_To_Move_Nonexistent_Piece()
         {
-            ExtendedAssert.Throws<ArgumentException>(() => Target.MovePiece(DestinationCoordinate, OriginCoordinate));
+            ExtendedAssert.Throws<ArgumentNullException>(() => Target.MovePiece(DestinationCoordinate, OriginCoordinate));
         }
 
     }
