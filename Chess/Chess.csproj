@@ -46,6 +46,7 @@
     <Compile Include="BoardCoordinate.cs" />
     <Compile Include="King.cs" />
     <Compile Include="Knight.cs" />
+    <Compile Include="PathChecker.cs" />
     <Compile Include="Pawn.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Program.cs" />

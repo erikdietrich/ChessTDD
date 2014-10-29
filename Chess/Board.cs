@@ -21,7 +21,7 @@ namespace Chess
 
         public void AddPiece(Piece piece, BoardCoordinate moveTarget)
         {
-            if(piece == null)
+            if (piece == null)
                 throw new ArgumentNullException("piece");
             if (!moveTarget.IsCoordinateValidForBoardSize(_boardSize))
                 throw new ArgumentException("moveTarget");
@@ -40,7 +40,7 @@ namespace Chess
 
         public void RemovePiece(BoardCoordinate coordinateForRemoval)
         {
-            if(!DoesPieceExistAt(coordinateForRemoval))
+            if (!DoesPieceExistAt(coordinateForRemoval))
                 throw new ArgumentException("coordinateForRemoval");
 
             SetPiece(null, coordinateForRemoval);
@@ -68,57 +68,22 @@ namespace Chess
             if (boardSize <= 0)
                 throw new ArgumentException("boardSize");
         }
-        private void SetPiece(Piece piece, BoardCoordinate location) 
+        private void SetPiece(Piece piece, BoardCoordinate location)
         {
             _pieces[location.X - 1, location.Y - 1] = piece;
         }
 
         private void VerifyCoordinatesOrThrow(params BoardCoordinate[] coordinates)
         {
-            if(coordinates.Any(bc => !bc.IsCoordinateValidForBoardSize(_boardSize)))
+            if (coordinates.Any(bc => !bc.IsCoordinateValidForBoardSize(_boardSize)))
                 throw new ArgumentException("coordinate");
         }
+
         private bool IsBlocked(BoardCoordinate origin, BoardCoordinate destination)
         {
-            if (origin.IsOnSameHorizontalPathAs(destination))
-                return IsHorizontalPathBlocked(origin, destination);
-            else if (origin.IsOnSameVerticalPathAs(destination))
-                return IsVerticalPathBlocked(origin, destination);
-            else
-                return IsDiagonalPathBlocked(origin, destination);
-        }
-
-        private bool IsHorizontalPathBlocked(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            var least = Math.Min(origin.X, destination.X);
-            var most = Math.Max(origin.X, destination.X);
-            var xCoordinatesToCheck = Enumerable.Range(least + 1, most - least);
-            return xCoordinatesToCheck.Any(x => DoesPieceExistAt(BoardCoordinate.For(x, origin.Y)));
-        }
-
-        private bool IsVerticalPathBlocked(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            var least = Math.Min(origin.Y, destination.Y);
-            var most = Math.Max(origin.Y, destination.Y);
-            var yCoordinatesToCheck = Enumerable.Range(least + 1, most - least);
-            return yCoordinatesToCheck.Any(y => DoesPieceExistAt(BoardCoordinate.For(origin.X, y)));
-        }
-
-        private bool IsDiagonalPathBlocked(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            var absoluteDistance = Math.Abs(origin.X - destination.X);
-            var xDirection = (destination.X - origin.X) / absoluteDistance;
-            var yDirection = (destination.Y - origin.Y) / absoluteDistance;
-
-            return IsDirectedDiagonalPathBlocked(origin, absoluteDistance, xDirection, yDirection);
-        }
-
-        private bool IsDirectedDiagonalPathBlocked(BoardCoordinate origin, int spacesToCheck, int xDirection, int yDirection)
-        {
-            var spacesOnTheBoardToCheck = Enumerable.Range(1, spacesToCheck).
-                Select(i => BoardCoordinate.For(origin.X + i * xDirection, origin.Y + i * yDirection));
-
-            return spacesOnTheBoardToCheck.Any(bc => DoesPieceExistAt(bc));
+            var checker = new PathChecker(origin, destination);
+            var spacesAlongPath = checker.GetSpacesAlongPath();
+            return spacesAlongPath.Any(space => DoesPieceExistAt(space));
         }
 
     }
