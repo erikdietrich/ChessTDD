@@ -28,6 +28,16 @@ namespace Chess
             return IsDimensionValidForBoardSize(X, boardSize) && IsDimensionValidForBoardSize(Y, boardSize);
         }
 
+        public bool IsOnSameVerticalPathAs(BoardCoordinate other)
+        {
+            return _x == other.X;
+        }
+
+        public bool IsOnSameHorizontalPathAs(BoardCoordinate other)
+        {
+            return _y == other.Y;
+        }
+
         public bool Matches(int x, int y)
         {
             return _x == x && _y == y;

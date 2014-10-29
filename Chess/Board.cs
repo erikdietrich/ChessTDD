@@ -80,22 +80,12 @@ namespace Chess
         }
         private bool IsBlocked(BoardCoordinate origin, BoardCoordinate destination)
         {
-            if (IsHorizontalPath(origin, destination))
+            if (origin.IsOnSameHorizontalPathAs(destination))
                 return IsHorizontalPathBlocked(origin, destination);
-            else if (IsVerticalPath(origin, destination))
+            else if (origin.IsOnSameVerticalPathAs(destination))
                 return IsVerticalPathBlocked(origin, destination);
             else
                 return IsDiagonalPathBlocked(origin, destination);
-        }
-
-        private static bool IsHorizontalPath(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            return origin.Y == destination.Y;
-        }
-
-        private static bool IsVerticalPath(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            return origin.X == destination.X;
         }
 
         private bool IsHorizontalPathBlocked(BoardCoordinate origin, BoardCoordinate destination)
