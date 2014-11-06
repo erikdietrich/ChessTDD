@@ -38,6 +38,11 @@ namespace Chess
             return _y == other.Y;
         }
 
+        public bool IsOnSameDiagonalPathAs(BoardCoordinate other)
+        {
+            return Math.Abs(_x - other.X) == Math.Abs(_y - other.Y);
+        }
+
         public bool Matches(int x, int y)
         {
             return _x == x && _y == y;

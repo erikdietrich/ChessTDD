@@ -4,25 +4,27 @@ using System.Linq;
 
 namespace Chess
 {
-    public class PathChecker
+    public class PathMaker
     {
         private readonly BoardCoordinate _origin;
         private readonly BoardCoordinate _destination;
 
-        public PathChecker(BoardCoordinate origin, BoardCoordinate destination)
+        public PathMaker(BoardCoordinate origin, BoardCoordinate destination)
         {
             _origin = origin;
             _destination = destination;
         }
 
-        public IEnumerable<BoardCoordinate> GetSpacesAlongPath()
+        public IEnumerable<BoardCoordinate> GetPathToDestination()
         {
             if (_origin.IsOnSameHorizontalPathAs(_destination))
                 return GetHorizontalPathSpaces();
             else if (_origin.IsOnSameVerticalPathAs(_destination))
                 return GetVerticalPathSpaces();
-            else
+            else if(_origin.IsOnSameDiagonalPathAs(_destination))
                 return GetDiagonalPathSpaces();
+
+            return Enumerable.Empty<BoardCoordinate>();
         }
 
         private IEnumerable<BoardCoordinate> GetHorizontalPathSpaces()

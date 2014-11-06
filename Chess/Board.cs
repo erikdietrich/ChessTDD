@@ -81,8 +81,8 @@ namespace Chess
 
         private bool IsBlocked(BoardCoordinate origin, BoardCoordinate destination)
         {
-            var checker = new PathChecker(origin, destination);
-            var spacesAlongPath = checker.GetSpacesAlongPath();
+            var checker = new PathMaker(origin, destination);
+            var spacesAlongPath = checker.GetPathToDestination();
             return spacesAlongPath.Any(space => DoesPieceExistAt(space));
         }
 

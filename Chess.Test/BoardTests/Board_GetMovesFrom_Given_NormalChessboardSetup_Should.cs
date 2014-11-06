@@ -10,6 +10,11 @@ namespace Chess.Test.BoardTests
     {
         private Board Target { get; set; }
 
+        private IEnumerable<BoardCoordinate> MovesForLeftWhiteKnight
+        {
+            get { return Target.GetMovesFrom(BoardCoordinate.For(2, 1)); }
+        }
+
         private void SetupStandardPawns(int row)
         {
             var xCoordinates = Enumerable.Range(1, 8).ToList();
@@ -79,6 +84,18 @@ namespace Chess.Test.BoardTests
         public void Return_Empty_Set_For_Rook_At_8_8()
         {
             Assert.IsFalse(Target.GetMovesFrom(BoardCoordinate.For(8, 8)).Any());
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_Set_With_33_For_Knight_At_21()
+        {
+            Assert.IsTrue(MovesForLeftWhiteKnight.Any(bc => bc.Matches(3, 3)));
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_Set_With_13_For_Knight_At_21()
+        {
+            Assert.IsTrue(MovesForLeftWhiteKnight.Any(bc => bc.Matches(1, 3)));
         }
 
     }
