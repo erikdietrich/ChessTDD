@@ -21,19 +21,19 @@ namespace Chess.Test.BoardTests
             xCoordinates.ForEach(xc => Target.AddPiece(new Pawn(), new BoardCoordinate(xc, row)));
         }
 
-        public static void SetupStandardPieces(Board target, int row)
+        public static void SetupStandardPieces(Board target, int row, bool isFirstPlayerPiece = true)
         {
-            target.AddPiece(new Rook(), new BoardCoordinate(1, row));
-            target.AddPiece(new Rook(), new BoardCoordinate(8, row));
+            target.AddPiece(new Rook(isFirstPlayerPiece), new BoardCoordinate(1, row));
+            target.AddPiece(new Rook(isFirstPlayerPiece), new BoardCoordinate(8, row));
 
-            target.AddPiece(new Knight(), new BoardCoordinate(2, row));
-            target.AddPiece(new Knight(), new BoardCoordinate(7, row));
+            target.AddPiece(new Knight(isFirstPlayerPiece), new BoardCoordinate(2, row));
+            target.AddPiece(new Knight(isFirstPlayerPiece), new BoardCoordinate(7, row));
 
-            target.AddPiece(new Bishop(), new BoardCoordinate(3, row));
-            target.AddPiece(new Bishop(), new BoardCoordinate(6, row));
+            target.AddPiece(new Bishop(isFirstPlayerPiece), new BoardCoordinate(3, row));
+            target.AddPiece(new Bishop(isFirstPlayerPiece), new BoardCoordinate(6, row));
 
-            target.AddPiece(new Queen(), new BoardCoordinate(4, row));
-            target.AddPiece(new King(), new BoardCoordinate(5, row));
+            target.AddPiece(new Queen(isFirstPlayerPiece), new BoardCoordinate(4, row));
+            target.AddPiece(new King(isFirstPlayerPiece), new BoardCoordinate(5, row));
         }
 
         [TestInitialize]
@@ -96,6 +96,12 @@ namespace Chess.Test.BoardTests
         public void Return_Set_With_13_For_Knight_At_21()
         {
             Assert.IsTrue(MovesForLeftWhiteKnight.Any(bc => bc.Matches(1, 3)));
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Not_Return_42_For_Knight_At_21()
+        {
+            Assert.IsFalse(MovesForLeftWhiteKnight.Any(bc => bc.Matches(4, 2)));
         }
 
     }

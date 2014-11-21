@@ -15,7 +15,7 @@ namespace Chess.Test.BoardTests
         {
             Target = new Board();
             Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(Target, 1);
-            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(Target, 8);
+            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(Target, 8, false);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -73,12 +73,30 @@ namespace Chess.Test.BoardTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Empty_For_Bishop_at_3_8_When_Blocked()
         {
-            Target.AddPiece(new Pawn(), BoardCoordinate.For(2, 7));
-            Target.AddPiece(new Pawn(), BoardCoordinate.For(4, 7));
+            Target.AddPiece(new Pawn(false), BoardCoordinate.For(2, 7));
+            Target.AddPiece(new Pawn(false), BoardCoordinate.For(4, 7));
 
             var moves = Target.GetMovesFrom(BoardCoordinate.For(3, 8));
 
             Assert.IsFalse(moves.Any());
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Allow_Rook_At_11_To_Move_To_Capture_Rook_At_18()
+        {
+            var moves = Target.GetMovesFrom(BoardCoordinate.For(1, 1));
+
+            Assert.IsTrue(moves.Any(m => m.Matches(1, 8)));
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Not_Allow_Rook_At_11_To_Capture_Rook_At_18_When_A_Pawn_Is_In_Front_Of_It()
+        {
+            Target.AddPiece(new Pawn(false), BoardCoordinate.For(1, 7));
+
+            var moves = Target.GetMovesFrom(BoardCoordinate.For(1, 1));
+
+            Assert.IsFalse(moves.Any(m => m.Matches(1, 8)));
         }
     }
 }

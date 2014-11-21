@@ -6,6 +6,9 @@ namespace Chess
 {
     public class Rook : Piece
     {
+        public Rook(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
+        { }
+
         public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
         {
             var availableCoordinates = Enumerable.Range(1, boardSize);

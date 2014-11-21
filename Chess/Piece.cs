@@ -6,6 +6,13 @@ namespace Chess
 {
     public abstract class Piece
     {
+        public bool IsFirstPlayerPiece { get; private set; }
+
+        public Piece(bool isFirstPlayerPiece = true)
+        {
+            IsFirstPlayerPiece = isFirstPlayerPiece;
+        }
+
         public abstract IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize);
 
         protected static IEnumerable<BoardCoordinate> GetAllRadialMovesFrom(BoardCoordinate startingLocation, int distance)

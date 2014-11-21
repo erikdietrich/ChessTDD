@@ -6,6 +6,9 @@ namespace Chess
 {
     public class Knight : Piece
     {
+        public Knight(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
+        { }
+
         public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
         {
             var quadrantsFromASquare = Enumerable.Range(1, 4);

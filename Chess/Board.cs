@@ -60,7 +60,14 @@ namespace Chess
         {
             var piece = GetPiece(originCoordinate);
             var allPossibleMoves = piece.GetMovesFrom(originCoordinate);
-            return allPossibleMoves.Where(move => !IsBlocked(originCoordinate, move));
+            return allPossibleMoves.Where(move => !IsBlocked(originCoordinate, move) && 
+                !DoesFriendlyPieceExistAt(originCoordinate, move));
+        }
+
+        private bool DoesFriendlyPieceExistAt(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            var piece = GetPiece(destination);
+            return piece != null && piece.IsFirstPlayerPiece == GetPiece(origin).IsFirstPlayerPiece;
         }
 
         private static void VerifyBoardSizeOrThrow(int boardSize)
@@ -83,7 +90,8 @@ namespace Chess
         {
             var checker = new PathMaker(origin, destination);
             var spacesAlongPath = checker.GetPathToDestination();
-            return spacesAlongPath.Any(space => DoesPieceExistAt(space));
+            var lastSpace = spacesAlongPath.LastOrDefault();
+            return spacesAlongPath.Any(space => DoesFriendlyPieceExistAt(origin, space)) || spacesAlongPath.Any(space => DoesPieceExistAt(space) && !space.Equals(lastSpace));
         }
 
     }

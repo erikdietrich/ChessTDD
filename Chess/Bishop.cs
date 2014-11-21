@@ -6,6 +6,9 @@ namespace Chess
 {
     public class Bishop : Piece
     {
+        public Bishop(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
+        { }
+
         public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
         {
             var allDistancesFromStart = Enumerable.Range(1, boardSize + 1);
