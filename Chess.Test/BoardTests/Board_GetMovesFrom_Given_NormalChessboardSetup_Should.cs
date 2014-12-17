@@ -15,10 +15,10 @@ namespace Chess.Test.BoardTests
             get { return Target.GetMovesFrom(BoardCoordinate.For(2, 1)); }
         }
 
-        private void SetupStandardPawns(int row)
+        public static void SetupStandardPawns(Board target, int row)
         {
             var xCoordinates = Enumerable.Range(1, 8).ToList();
-            xCoordinates.ForEach(xc => Target.AddPiece(new Pawn(), new BoardCoordinate(xc, row)));
+            xCoordinates.ForEach(xc => target.AddPiece(new Pawn(), new BoardCoordinate(xc, row)));
         }
 
         public static void SetupStandardPieces(Board target, int row, bool isFirstPlayerPiece = true)
@@ -41,10 +41,10 @@ namespace Chess.Test.BoardTests
         {
             Target = new Board();
 
-            SetupStandardPawns(2);
+            SetupStandardPawns(Target, 2);
             SetupStandardPieces(Target, 1);
 
-            SetupStandardPawns(7);
+            SetupStandardPawns(Target, 7);
             SetupStandardPieces(Target, 8);
         }
 
