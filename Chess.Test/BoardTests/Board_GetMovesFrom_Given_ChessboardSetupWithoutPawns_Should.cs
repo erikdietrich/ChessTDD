@@ -14,8 +14,9 @@ namespace Chess.Test.BoardTests
         public void BeforeEachTest()
         {
             Target = new Board();
-            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(Target, 1);
-            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(Target, 8, false);
+            var positioner = new PiecePositioner(Target);
+            positioner.SetupStandardPieces(1);
+            positioner.SetupStandardPieces(8, false);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]

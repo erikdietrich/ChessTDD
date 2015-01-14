@@ -15,37 +15,12 @@ namespace Chess.Test.BoardTests
             get { return Target.GetMovesFrom(BoardCoordinate.For(2, 1)); }
         }
 
-        public static void SetupStandardPawns(Board target, int row)
-        {
-            var xCoordinates = Enumerable.Range(1, 8).ToList();
-            xCoordinates.ForEach(xc => target.AddPiece(new Pawn(), new BoardCoordinate(xc, row)));
-        }
-
-        public static void SetupStandardPieces(Board target, int row, bool isFirstPlayerPiece = true)
-        {
-            target.AddPiece(new Rook(isFirstPlayerPiece), new BoardCoordinate(1, row));
-            target.AddPiece(new Rook(isFirstPlayerPiece), new BoardCoordinate(8, row));
-
-            target.AddPiece(new Knight(isFirstPlayerPiece), new BoardCoordinate(2, row));
-            target.AddPiece(new Knight(isFirstPlayerPiece), new BoardCoordinate(7, row));
-
-            target.AddPiece(new Bishop(isFirstPlayerPiece), new BoardCoordinate(3, row));
-            target.AddPiece(new Bishop(isFirstPlayerPiece), new BoardCoordinate(6, row));
-
-            target.AddPiece(new Queen(isFirstPlayerPiece), new BoardCoordinate(4, row));
-            target.AddPiece(new King(isFirstPlayerPiece), new BoardCoordinate(5, row));
-        }
-
         [TestInitialize]
         public void BeforeEachTest()
         {
             Target = new Board();
-
-            SetupStandardPawns(Target, 2);
-            SetupStandardPieces(Target, 1);
-
-            SetupStandardPawns(Target, 7);
-            SetupStandardPieces(Target, 8);
+            var positioner = new PiecePositioner(Target);
+            positioner.SetupStandardBoard();
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]

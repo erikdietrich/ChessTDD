@@ -10,16 +10,24 @@ namespace Chess.Acceptance
     [Binding]
     public class PawnMovesSteps
     {
+        private static T GetFromContext<T>()
+        {
+            return ScenarioContext.Current.Get<T>();
+        }
+
+        private static void SetInContext<T>(T data)
+        {
+            ScenarioContext.Current.Set<T>(data);
+        }
+
         [Given(@"A normal chessboard initial setup")]
         public void GivenANormalChessboardInitialSetup()
         {
             var board = new Board();
-            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(board, 1);
-            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPieces(board, 8, false);
-            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPawns(board, 2);
-            Board_GetMovesFrom_Given_NormalChessboardSetup_Should.SetupStandardPawns(board, 7);
+            var positioner = new PiecePositioner(board);
+            positioner.SetupStandardBoard();
 
-            ScenarioContext.Current.Add("board", board);
+            SetInContext(board);
         }
 
         [Given(@"I am the first player")]
@@ -30,14 +38,15 @@ namespace Chess.Acceptance
         [When(@"I look for moves available for pawn")]
         public void WhenILookForMovesAvailableForPawn()
         {
-            var moves = ((Board)ScenarioContext.Current["board"]).GetMovesFrom(BoardCoordinate.For(1, 2));
-            ScenarioContext.Current.Add("moves", moves);
+            var board = GetFromContext<Board>();
+            var moves = board.GetMovesFrom(BoardCoordinate.For(1, 2));
+            SetInContext(moves);
         }
 
         [Then(@"The result contains a space one ahead")]
         public void ThenTheResultContainsASpaceOneAhead()
         {
-            var moves = ((IEnumerable<BoardCoordinate>)ScenarioContext.Current["moves"]);
+            var moves = GetFromContext<IEnumerable<BoardCoordinate>>();
             Assert.IsTrue(moves.Any(m => m.Matches(1, 3)));
         }
     }
