@@ -66,6 +66,7 @@
     <Compile Include="BoardTests\Board_RemovePiece_GivenChessBoardWithoutPawns_Should.cs" />
     <Compile Include="KnightTest.cs" />
     <Compile Include="PathMaker_GetPathToDestination_Given_TwoCoordinates_Should.cs" />
+    <Compile Include="PiecePositioner_Given_NormalSizedBoard_Should.cs" />
     <Compile Include="QueenTest.cs" />
     <Compile Include="KingTest.cs" />
     <Compile Include="RookTest.cs" />

@@ -6,10 +6,13 @@ namespace Chess
 {
     public class Board
     {
+        private bool _size;
         public const int DefaultBoardSize = 8;
 
         private readonly int _boardSize;
         private readonly Piece[,] _pieces;
+
+        public int Size { get { return _boardSize; } }
 
         public Board(int boardSize = DefaultBoardSize)
         {
