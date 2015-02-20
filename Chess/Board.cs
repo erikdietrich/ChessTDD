@@ -6,7 +6,6 @@ namespace Chess
 {
     public class Board
     {
-        private bool _size;
         public const int DefaultBoardSize = 8;
 
         private readonly int _boardSize;
