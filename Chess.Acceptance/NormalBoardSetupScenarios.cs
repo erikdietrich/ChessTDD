@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
 namespace Chess.Acceptance
 {
     [Binding]
-    public class WhiteFirstColumnPawnMoves
+    public class NormalBoardSetupScenarios
     {
         [Given(@"A normal chessboard initial setup")]
         public void GivenANormalChessboardInitialSetup()
@@ -20,41 +20,37 @@ namespace Chess.Acceptance
             SetInContext(board);
         }
 
-        [Given(@"I am the first player")]
-        public void GivenIAmTheFirstPlayer()
-        {
-        }
 
-        [When(@"I look for moves available for pawn")]
-        public void WhenILookForMovesAvailableForPawn()
+        [When(@"I look for moves for the pawn in column (.*)")]
+        public void WhenILookForMovesForThePawnInColumn(int column)
         {
             var board = GetFromContext<Board>();
-            var moves = board.GetMovesFrom(BoardCoordinate.For(1, 2));
+            var moves = board.GetMovesFrom(BoardCoordinate.For(column, 2));
             SetInContext(moves);
         }
 
-        [Then(@"The result contains a space one ahead")]
-        public void ThenTheResultContainsASpaceOneAhead()
+        [Then(@"The result contains a space one ahead in column (.*)")]
+        public void ThenTheResultContainsASpaceOneAhead(int column)
         {
-            Assert.IsTrue(ContextContainsMatchFor(1, 3));
+            Assert.IsTrue(ContextContainsMatchFor(column, 3));
         }
 
-        [Then(@"The result contains a space two ahead")]
-        public void ThenTheResultContainsASpaceTwoAhead()
+        [Then(@"The result contains a space two ahead in column (.*)")]
+        public void ThenTheResultContainsASpaceTwoAhead(int column)
         {
-            Assert.IsTrue(ContextContainsMatchFor(1, 4));
+            Assert.IsTrue(ContextContainsMatchFor(column, 4));
         }
 
-        [Then(@"The result does not contain a space three ahead")]
-        public void ThenTheResultDoesNotContainASpaceThreeAhead()
+        [Then(@"The result does not contain a space three ahead in column (.*)")]
+        public void ThenTheResultDoesNotContainASpaceThreeAhead(int column)
         {
-            Assert.IsFalse(ContextContainsMatchFor(1, 5));
+            Assert.IsFalse(ContextContainsMatchFor(column, 5));
         }
 
-        [Then(@"The result does not contain the capture space one up and one over")]
-        public void ThenTheResultDoesNotContainTheCaptureSpaceOneUpAndOneOver()
+        [Then(@"The result does not contain the capture space one up and one over for column (.*)")]
+        public void ThenTheResultDoesNotContainTheCaptureSpaceOneUpAndOneOver(int column)
         {
-            Assert.IsFalse(ContextContainsMatchFor(2, 2));
+            Assert.IsFalse(ContextContainsMatchFor(column + 1, 2));
         }
 
 

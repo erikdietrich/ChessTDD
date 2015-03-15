@@ -53,21 +53,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="WhiteFirstColumnPawnMoves.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhiteFirstColumnPawnMoves.feature.cs">
+    <Compile Include="FirstMovesForWhite.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WhiteFirstColumnPawnMoves.feature</DependentUpon>
+      <DependentUpon>FirstMovesForWhite.feature</DependentUpon>
     </Compile>
+    <Compile Include="NormalBoardSetupScenarios.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-    <None Include="WhiteFirstColumnPawnMoves.feature">
+    <None Include="FirstMovesForWhite.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>WhiteFirstColumnPawnMoves.feature.cs</LastGenOutput>
+      <LastGenOutput>FirstMovesForWhite.feature.cs</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chess.Test\Chess.Test.csproj">
