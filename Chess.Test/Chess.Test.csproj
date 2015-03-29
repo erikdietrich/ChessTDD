@@ -56,6 +56,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AsciiBoardBuilderTests\AsciiBoardBuilder_GenerateBoard_Should.cs" />
     <Compile Include="BishopTest.cs" />
     <Compile Include="BoardTests\Board_AddPiece_Given_EmptyBoard_Should.cs" />
     <Compile Include="BoardTests\Board_Constructor_Should.cs" />

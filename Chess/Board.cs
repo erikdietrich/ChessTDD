@@ -13,6 +13,14 @@ namespace Chess
 
         public int Size { get { return _boardSize; } }
 
+        public int PieceCount 
+        { 
+            get
+            {
+                return _pieces.Cast<Piece>().Count(p => p != null);
+            }
+        }
+
         public Board(int boardSize = DefaultBoardSize)
         {
             VerifyBoardSizeOrThrow(boardSize);
