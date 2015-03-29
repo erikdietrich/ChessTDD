@@ -44,6 +44,7 @@
     <Compile Include="Bishop.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="BoardCoordinate.cs" />
+    <Compile Include="AsciiBoardBuilder.cs" />
     <Compile Include="PiecePositioner.cs" />
     <Compile Include="King.cs" />
     <Compile Include="Knight.cs" />
