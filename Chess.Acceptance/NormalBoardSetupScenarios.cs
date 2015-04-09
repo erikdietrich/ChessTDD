@@ -20,6 +20,24 @@ namespace Chess.Acceptance
             SetInContext(board);
         }
 
+        [When(@"there is a chess board set up as")]
+        public void BuildBoardFromTable(Table table)
+        {
+            var builder = new AsciiBoardBuilder();
+            for (int rowIndex = 0; rowIndex < 8; rowIndex++)
+            {
+                for (int columnIndex = 0; columnIndex < 8; columnIndex++)
+                {
+                    int xCoordinate = columnIndex + 1;
+                    int yCoordinate = 8 - rowIndex;
+                    string pieceString = table.Rows[rowIndex][columnIndex];
+
+                    if (!string.IsNullOrEmpty(pieceString))
+                        builder.AddPiece(BoardCoordinate.For(xCoordinate, yCoordinate), pieceString);
+                }
+            }
+            SetInContext(builder.GenerateBoard());
+        }
 
         [When(@"I look for moves for the pawn in column (.*)")]
         public void WhenILookForMovesForThePawnInColumn(int column)
@@ -52,6 +70,16 @@ namespace Chess.Acceptance
         {
             Assert.IsFalse(ContextContainsMatchFor(column + 1, 2));
         }
+
+        [Then(@"the WK at E(.*) should have the following moves")]
+        public void ThenTheWKAtEShouldHaveTheFollowingMoves(int p0, Table table)
+        {
+            var board = GetFromContext<Board>();
+            var moves = board.GetMovesFrom(BoardCoordinate.For(5, 1));
+
+            Assert.AreEqual<int>(0, moves.Count());
+        }
+
 
 
         private static T GetFromContext<T>()

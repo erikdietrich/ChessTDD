@@ -58,6 +58,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FirstMovesForWhite.feature</DependentUpon>
     </Compile>
+    <Compile Include="KingMoves.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KingMoves.feature</DependentUpon>
+    </Compile>
     <Compile Include="NormalBoardSetupScenarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +71,10 @@
     <None Include="FirstMovesForWhite.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FirstMovesForWhite.feature.cs</LastGenOutput>
+    </None>
+    <None Include="KingMoves.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>KingMoves.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
