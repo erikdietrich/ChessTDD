@@ -65,6 +65,20 @@ namespace Chess.Test
 
                 Assert.IsFalse(moves.Any(bc => bc.Y == 0 || bc.X == 0));
             }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Does_Not_Return_3_5_For_3_3()
+            {
+                Assert.IsFalse(MovesFrom3_3.Any(bc => bc.X == 3 && bc.Y == 5));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Has_Five_Moves_When_Starting_At_Back_End_Of_Board()
+            {
+                var moves = Target.GetMovesFrom(BoardCoordinate.For(4, 8));
+
+                Assert.AreEqual<int>(5, moves.Count());
+            }
         }
         
     }

@@ -78,14 +78,14 @@ namespace Chess.Acceptance
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "a",
-                        "b",
-                        "c",
-                        "d",
-                        "e",
-                        "f",
-                        "g",
-                        "h"});
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
             table1.AddRow(new string[] {
                         "",
                         "",
@@ -162,10 +162,115 @@ this.ScenarioSetup(scenarioInfo);
   testRunner.When("there is a chess board set up as", ((string)(null)), table1, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Start",
-                        "End"});
+                        "X",
+                        "Y"});
 #line 15
-  testRunner.Then("the WK at E8 should have the following moves", ((string)(null)), table2, "Then ");
+  testRunner.Then("the piece at (5,1) should have the following moves", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A king with no pawn in front")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void AKingWithNoPawnInFront()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A king with no pawn in front", ((string[])(null)));
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table3.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table3.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table3.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table3.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table3.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table3.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table3.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table3.AddRow(new string[] {
+                        "WR",
+                        "WKn",
+                        "WB",
+                        "WQ",
+                        "WK",
+                        "WB",
+                        "WKn",
+                        "WR"});
+#line 19
+  testRunner.When("there is a chess board set up as", ((string)(null)), table3, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table4.AddRow(new string[] {
+                        "5",
+                        "2"});
+#line 30
+  testRunner.Then("the piece at (5,1) should have the following moves", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

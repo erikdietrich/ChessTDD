@@ -71,15 +71,16 @@ namespace Chess.Acceptance
             Assert.IsFalse(ContextContainsMatchFor(column + 1, 2));
         }
 
-        [Then(@"the WK at E(.*) should have the following moves")]
-        public void ThenTheWKAtEShouldHaveTheFollowingMoves(int p0, Table table)
+        [Then(@"the piece at \((.*),(.*)\) should have the following moves")]
+        public void ThenThePieceAtShouldHaveTheFollowingMoves(int xCoordinate, int yCoordinate, Table table)
         {
             var board = GetFromContext<Board>();
-            var moves = board.GetMovesFrom(BoardCoordinate.For(5, 1));
+            var moves = board.GetMovesFrom(BoardCoordinate.For(xCoordinate, yCoordinate));
 
-            Assert.AreEqual<int>(0, moves.Count());
+            var movesCount = table.RowCount;
+
+            Assert.AreEqual<int>(movesCount, moves.Count());
         }
-
 
 
         private static T GetFromContext<T>()

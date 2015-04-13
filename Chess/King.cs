@@ -11,7 +11,7 @@ namespace Chess
 
         public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
         {
-            var oneSquareAwayMoves = GetAllRadialMovesFrom(startingLocation, boardSize);
+            var oneSquareAwayMoves = GetAllRadialMovesFrom(startingLocation, 1);
             return oneSquareAwayMoves.Where(bc => bc.IsCoordinateValidForBoardSize(boardSize));
         }
     }
