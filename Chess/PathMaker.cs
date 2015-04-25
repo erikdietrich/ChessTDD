@@ -29,18 +29,32 @@ namespace Chess
 
         private IEnumerable<BoardCoordinate> GetHorizontalPathSpaces()
         {
-            var least = Math.Min(_origin.X, _destination.X);
-            var most = Math.Max(_origin.X, _destination.X);
-            var xCoordinatesToCheck = Enumerable.Range(least + 1, most - least);
-            return xCoordinatesToCheck.Select(x => BoardCoordinate.For(x, _origin.Y));
+            if (_origin.X < _destination.X)
+            {
+                var xCoordinatesToCheck = Enumerable.Range(_origin.X + 1, _destination.X - _origin.X);
+                return xCoordinatesToCheck.Select(x => BoardCoordinate.For(x, _origin.Y));
+            }
+            else if(_origin.X > _destination.X)
+            {
+                var xCoordinatesToCheck = Enumerable.Range(_destination.X, _origin.X - _destination.X);
+                return xCoordinatesToCheck.Select(x => BoardCoordinate.For(x, _origin.Y));
+            }
+            return Enumerable.Empty<BoardCoordinate>();
         }
 
         private IEnumerable<BoardCoordinate> GetVerticalPathSpaces()
         {
-            var least = Math.Min(_origin.Y, _destination.Y);
-            var most = Math.Max(_origin.Y, _destination.Y);
-            var yCoordinatesToCheck = Enumerable.Range(least + 1, most - least);
-            return yCoordinatesToCheck.Select(y => BoardCoordinate.For(_origin.X, y));
+            if (_origin.Y < _destination.Y)
+            {
+                var yCoordinatesToCheck = Enumerable.Range(_origin.Y + 1, _destination.Y - _origin.Y);
+                return yCoordinatesToCheck.Select(y => BoardCoordinate.For(_origin.X, y));
+            }
+            else if(_origin.Y > _destination.Y)
+            {
+                var yCoordinatesToCheck = Enumerable.Range(_destination.Y, _origin.Y - _destination.Y);
+                return yCoordinatesToCheck.Select(y => BoardCoordinate.For(_origin.X, y));
+            }
+            return Enumerable.Empty<BoardCoordinate>();
         }
 
         private IEnumerable<BoardCoordinate> GetDiagonalPathSpaces()

@@ -60,6 +60,7 @@
     <Compile Include="BishopTest.cs" />
     <Compile Include="BoardTests\Board_AddPiece_Given_EmptyBoard_Should.cs" />
     <Compile Include="BoardTests\Board_Constructor_Should.cs" />
+    <Compile Include="BoardTests\Board_GetMovesFrom_Given_ChessboardSetupWithoutBlackPieces_Should.cs" />
     <Compile Include="BoardTests\Board_GetMovesFrom_Given_ChessboardSetupWithoutPawns_Should.cs" />
     <Compile Include="BoardTests\Board_GetMovesFrom_Given_NormalChessboardSetup_Should.cs" />
     <Compile Include="BoardTests\Board_MovePiece_GivenChessBoardWithoutPawns_Should.cs" />

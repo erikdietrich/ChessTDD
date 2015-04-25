@@ -274,6 +274,123 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("King with nothing around")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void KingWithNothingAround()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("King with nothing around", ((string[])(null)));
+#line 34
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table5.AddRow(new string[] {
+                        "WP",
+                        "WP",
+                        "WP",
+                        "WP",
+                        "",
+                        "WP",
+                        "WP",
+                        "WP"});
+            table5.AddRow(new string[] {
+                        "WR",
+                        "WKn",
+                        "WB",
+                        "WQ",
+                        "WK",
+                        "WB",
+                        "WKn",
+                        "WR"});
+#line 35
+  testRunner.When("there is a chess board set up as", ((string)(null)), table5, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table6.AddRow(new string[] {
+                        "3",
+                        "8"});
+            table6.AddRow(new string[] {
+                        "3",
+                        "7"});
+            table6.AddRow(new string[] {
+                        "4",
+                        "7"});
+            table6.AddRow(new string[] {
+                        "5",
+                        "7"});
+            table6.AddRow(new string[] {
+                        "5",
+                        "8"});
+#line 46
+  testRunner.Then("the piece at (4,8) should have the following moves", ((string)(null)), table6, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
