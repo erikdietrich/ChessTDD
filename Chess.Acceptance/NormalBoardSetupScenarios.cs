@@ -21,22 +21,11 @@ namespace Chess.Acceptance
         }
 
         [When(@"there is a chess board set up as")]
-        public void BuildBoardFromTable(Table table)
+        public void SetBoardInContextFromTable(Table table)
         {
-            var builder = new AsciiBoardBuilder();
-            for (int rowIndex = 0; rowIndex < 8; rowIndex++)
-            {
-                for (int columnIndex = 0; columnIndex < 8; columnIndex++)
-                {
-                    int xCoordinate = columnIndex + 1;
-                    int yCoordinate = 8 - rowIndex;
-                    string pieceString = table.Rows[rowIndex][columnIndex];
+            var builderGenerateBoard = BuildBoardFromTable(table);
 
-                    if (!string.IsNullOrEmpty(pieceString))
-                        builder.AddPiece(BoardCoordinate.For(xCoordinate, yCoordinate), pieceString);
-                }
-            }
-            SetInContext(builder.GenerateBoard());
+            SetInContext(builderGenerateBoard);
         }
 
         [When(@"I look for moves for the pawn in column (.*)")]
@@ -71,15 +60,35 @@ namespace Chess.Acceptance
             Assert.IsFalse(ContextContainsMatchFor(column + 1, 2));
         }
 
-        [Then(@"the piece at \((.*),(.*)\) should have the following moves")]
+        [Then(@"the piece at \((.*),(.*)\) should have exactly the following moves")]
         public void ThenThePieceAtShouldHaveTheFollowingMoves(int xCoordinate, int yCoordinate, Table table)
         {
             var board = GetFromContext<Board>();
-            var moves = board.GetMovesFrom(BoardCoordinate.For(xCoordinate, yCoordinate));
+            var boardMoves = board.GetMovesFrom(BoardCoordinate.For(xCoordinate, yCoordinate)).ToList();
 
-            var movesCount = table.RowCount;
+            var tableCoordinates = GetCoordinatesFromTable(table);
 
-            Assert.AreEqual<int>(movesCount, moves.Count());
+            CollectionAssert.AreEquivalent(tableCoordinates, boardMoves);
+        }
+
+        private Board BuildBoardFromTable(Table table)
+        {
+            var builder = new AsciiBoardBuilder();
+            var indeces = Enumerable.Range(0, 8).ToList();
+            indeces.ForEach(ri => indeces.ForEach(ci => AddNonEmptyPiece(builder, table, ri, ci)));
+            var builderGenerateBoard = builder.GenerateBoard();
+            return builderGenerateBoard;
+        }
+
+        private void AddNonEmptyPiece(AsciiBoardBuilder builder, Table table, int rowIndex, int columnIndex)
+        {
+            var xCoordinate = columnIndex + 1;
+            var yCoordinate = 8 - rowIndex;
+            var pieceString = table.Rows[rowIndex][columnIndex];
+
+            if (!string.IsNullOrEmpty(pieceString))
+                builder.AddPiece(BoardCoordinate.For(xCoordinate, yCoordinate), pieceString);
+
         }
 
 
@@ -98,7 +107,10 @@ namespace Chess.Acceptance
             var moves = GetFromContext<IEnumerable<BoardCoordinate>>();
             return moves.Any(m => m.Matches(x, y));
         }
-
+        private static List<BoardCoordinate> GetCoordinatesFromTable(Table tableOfBoardCoordinates)
+        {
+            return tableOfBoardCoordinates.Rows.Select(r => BoardCoordinate.For(int.Parse(r[0]), int.Parse(r[1]))).ToList();
+        }
         
 
     }

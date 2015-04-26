@@ -165,7 +165,7 @@ this.ScenarioSetup(scenarioInfo);
                         "X",
                         "Y"});
 #line 15
-  testRunner.Then("the piece at (5,1) should have the following moves", ((string)(null)), table2, "Then ");
+  testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -270,7 +270,7 @@ this.ScenarioSetup(scenarioInfo);
                         "5",
                         "2"});
 #line 30
-  testRunner.Then("the piece at (5,1) should have the following moves", ((string)(null)), table4, "Then ");
+  testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -387,7 +387,7 @@ this.ScenarioSetup(scenarioInfo);
                         "5",
                         "8"});
 #line 46
-  testRunner.Then("the piece at (4,8) should have the following moves", ((string)(null)), table6, "Then ");
+  testRunner.Then("the piece at (4,8) should have exactly the following moves", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
