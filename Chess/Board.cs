@@ -46,6 +46,7 @@ namespace Chess
             var pieceToMove = GetPiece(origin);
             AddPiece(pieceToMove, destination);
             RemovePiece(origin);
+            pieceToMove.HasMoved = true;
         }
 
         public void RemovePiece(BoardCoordinate coordinateForRemoval)
@@ -70,10 +71,14 @@ namespace Chess
         {
             var piece = GetPiece(originCoordinate);
             var allPossibleMoves = piece.GetMovesFrom(originCoordinate);
-            return allPossibleMoves.Where(move => !IsBlocked(originCoordinate, move) && 
-                !DoesFriendlyPieceExistAt(originCoordinate, move));
+            return allPossibleMoves.Where(move => IsMoveLegal(move, originCoordinate));
         }
 
+        private bool IsMoveLegal(BoardCoordinate move, BoardCoordinate originCoordinate)
+        {
+            return move.IsCoordinateValidForBoardSize(_boardSize) && !IsBlocked(originCoordinate, move) &&
+                    !DoesFriendlyPieceExistAt(originCoordinate, move);
+        }
         private bool DoesFriendlyPieceExistAt(BoardCoordinate origin, BoardCoordinate destination)
         {
             var piece = GetPiece(destination);

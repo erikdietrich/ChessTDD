@@ -8,6 +8,8 @@ namespace Chess
     {
         public bool IsFirstPlayerPiece { get; private set; }
 
+        public bool HasMoved { get; set; }
+        
         public Piece(bool isFirstPlayerPiece = true)
         {
             IsFirstPlayerPiece = isFirstPlayerPiece;

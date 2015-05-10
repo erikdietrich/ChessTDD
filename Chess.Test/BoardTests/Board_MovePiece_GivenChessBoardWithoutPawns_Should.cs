@@ -65,5 +65,14 @@ namespace Chess.Test.BoardTests
             ExtendedAssert.Throws<ArgumentNullException>(() => Target.MovePiece(DestinationCoordinate, OriginCoordinate));
         }
 
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void SetHasMoved_When_A_Piece_Is_Moved()
+        {
+            Target.MovePiece(OriginCoordinate, DestinationCoordinate);
+            var movedPiece = Target.GetPiece(DestinationCoordinate);
+
+            Assert.IsTrue(movedPiece.HasMoved);
+        }
+
     }
 }

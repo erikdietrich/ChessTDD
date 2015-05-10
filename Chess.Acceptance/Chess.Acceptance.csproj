@@ -53,10 +53,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="FirstMovesForWhite.feature.cs">
+    <Compile Include="PawnMoves.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FirstMovesForWhite.feature</DependentUpon>
+      <DependentUpon>PawnMoves.feature</DependentUpon>
     </Compile>
     <Compile Include="KingMoves.feature.cs">
       <AutoGen>True</AutoGen>
@@ -68,9 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="FirstMovesForWhite.feature">
+    <None Include="PawnMoves.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>FirstMovesForWhite.feature.cs</LastGenOutput>
+      <LastGenOutput>PawnMoves.feature.cs</LastGenOutput>
     </None>
     <None Include="KingMoves.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

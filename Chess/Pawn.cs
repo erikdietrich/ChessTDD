@@ -6,7 +6,6 @@ namespace Chess
 {
     public class Pawn : Piece
     {
-        public bool HasMoved { get; set; }
 
         public Pawn(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }

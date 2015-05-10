@@ -1,5 +1,4 @@
-﻿using Chess.Test.BoardTests;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +9,6 @@ namespace Chess.Acceptance
     [Binding]
     public class NormalBoardSetupScenarios
     {
-        [Given(@"A normal chessboard initial setup")]
-        public void GivenANormalChessboardInitialSetup()
-        {
-            var board = new Board();
-            var positioner = new PiecePositioner(board);
-            positioner.SetupStandardBoard();
-
-            SetInContext(board);
-        }
-
         [When(@"there is a chess board set up as")]
         public void SetBoardInContextFromTable(Table table)
         {
@@ -28,38 +17,13 @@ namespace Chess.Acceptance
             SetInContext(builderGenerateBoard);
         }
 
-        [When(@"I look for moves for the pawn in column (.*)")]
-        public void WhenILookForMovesForThePawnInColumn(int column)
+        [When(@"there is a move from \((.*),(.*)\) to \((.*),(.*)\)")]
+        public void ThereIsAMoveFrom(int startX, int startY, int destinationX, int destinationY)
         {
             var board = GetFromContext<Board>();
-            var moves = board.GetMovesFrom(BoardCoordinate.For(column, 2));
-            SetInContext(moves);
+            board.MovePiece(BoardCoordinate.For(startX, startY), BoardCoordinate.For(destinationX, destinationY));
         }
-
-        [Then(@"The result contains a space one ahead in column (.*)")]
-        public void ThenTheResultContainsASpaceOneAhead(int column)
-        {
-            Assert.IsTrue(ContextContainsMatchFor(column, 3));
-        }
-
-        [Then(@"The result contains a space two ahead in column (.*)")]
-        public void ThenTheResultContainsASpaceTwoAhead(int column)
-        {
-            Assert.IsTrue(ContextContainsMatchFor(column, 4));
-        }
-
-        [Then(@"The result does not contain a space three ahead in column (.*)")]
-        public void ThenTheResultDoesNotContainASpaceThreeAhead(int column)
-        {
-            Assert.IsFalse(ContextContainsMatchFor(column, 5));
-        }
-
-        [Then(@"The result does not contain the capture space one up and one over for column (.*)")]
-        public void ThenTheResultDoesNotContainTheCaptureSpaceOneUpAndOneOver(int column)
-        {
-            Assert.IsFalse(ContextContainsMatchFor(column + 1, 2));
-        }
-
+                
         [Then(@"the piece at \((.*),(.*)\) should have exactly the following moves")]
         public void ThenThePieceAtShouldHaveTheFollowingMoves(int xCoordinate, int yCoordinate, Table table)
         {
