@@ -71,13 +71,13 @@ namespace Chess
         {
             var piece = GetPiece(originCoordinate);
             var allPossibleMoves = piece.GetMovesFrom(originCoordinate);
-            return allPossibleMoves.Where(move => IsMoveLegal(move, originCoordinate));
+            return allPossibleMoves.Where(move => IsMoveLegal(originCoordinate, move));
         }
 
-        private bool IsMoveLegal(BoardCoordinate move, BoardCoordinate originCoordinate)
+        private bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
         {
-            return move.IsCoordinateValidForBoardSize(_boardSize) && !IsBlocked(originCoordinate, move) &&
-                    !DoesFriendlyPieceExistAt(originCoordinate, move);
+            return destination.IsCoordinateValidForBoardSize(_boardSize) && !IsBlocked(origin, destination) &&
+                    !DoesFriendlyPieceExistAt(origin, destination);
         }
         private bool DoesFriendlyPieceExistAt(BoardCoordinate origin, BoardCoordinate destination)
         {

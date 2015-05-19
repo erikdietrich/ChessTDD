@@ -53,6 +53,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="KnightMoves.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KnightMoves.feature</DependentUpon>
+    </Compile>
     <Compile Include="PawnMoves.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,6 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="KnightMoves.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>KnightMoves.feature.cs</LastGenOutput>
+    </None>
     <None Include="PawnMoves.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PawnMoves.feature.cs</LastGenOutput>
