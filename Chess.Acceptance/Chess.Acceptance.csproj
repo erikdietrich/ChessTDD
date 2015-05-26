@@ -70,6 +70,11 @@
     </Compile>
     <Compile Include="NormalBoardSetupScenarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueenMoves.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QueenMoves.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -86,6 +91,10 @@
       <LastGenOutput>KingMoves.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="QueenMoves.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>QueenMoves.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Chess.Test\Chess.Test.csproj">

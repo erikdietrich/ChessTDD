@@ -36,7 +36,7 @@ namespace Chess
             }
             else if(_origin.X > _destination.X)
             {
-                var xCoordinatesToCheck = Enumerable.Range(_destination.X, _origin.X - _destination.X);
+                var xCoordinatesToCheck = Enumerable.Range(_destination.X, _origin.X - _destination.X).Reverse();
                 return xCoordinatesToCheck.Select(x => BoardCoordinate.For(x, _origin.Y));
             }
             return Enumerable.Empty<BoardCoordinate>();
