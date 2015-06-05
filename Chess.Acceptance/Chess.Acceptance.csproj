@@ -75,6 +75,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QueenMoves.feature</DependentUpon>
     </Compile>
+    <Compile Include="RookMoves.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RookMoves.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -94,6 +99,10 @@
     <None Include="QueenMoves.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>QueenMoves.feature.cs</LastGenOutput>
+    </None>
+    <None Include="RookMoves.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RookMoves.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

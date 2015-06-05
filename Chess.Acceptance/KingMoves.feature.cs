@@ -192,7 +192,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         "",
-                        "BK",
+                        "BQ",
                         "",
                         "",
                         "",
@@ -297,8 +297,8 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         "",
-                        "BK",
                         "",
+                        "BK",
                         "",
                         "",
                         ""});
@@ -372,11 +372,8 @@ this.ScenarioSetup(scenarioInfo);
                         "X",
                         "Y"});
             table6.AddRow(new string[] {
-                        "3",
+                        "4",
                         "8"});
-            table6.AddRow(new string[] {
-                        "3",
-                        "7"});
             table6.AddRow(new string[] {
                         "4",
                         "7"});
@@ -384,10 +381,13 @@ this.ScenarioSetup(scenarioInfo);
                         "5",
                         "7"});
             table6.AddRow(new string[] {
-                        "5",
+                        "6",
+                        "7"});
+            table6.AddRow(new string[] {
+                        "6",
                         "8"});
 #line 46
-  testRunner.Then("the piece at (4,8) should have exactly the following moves", ((string)(null)), table6, "Then ");
+  testRunner.Then("the piece at (5,8) should have exactly the following moves", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

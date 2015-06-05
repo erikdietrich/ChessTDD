@@ -321,8 +321,8 @@ this.ScenarioSetup(scenarioInfo);
                         "BR",
                         "BKn",
                         "BB",
-                        "BK",
                         "BQ",
+                        "BK",
                         "BB",
                         "BKn",
                         "BR"});
@@ -441,8 +441,8 @@ this.ScenarioSetup(scenarioInfo);
                         "BR",
                         "BKn",
                         "BB",
-                        "BK",
                         "BQ",
+                        "BK",
                         "BB",
                         "BKn",
                         "BR"});

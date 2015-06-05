@@ -40,7 +40,7 @@ Scenario: A knight in its beginning position when all white pieces are present
 Scenario: A black knight in its beginning position when all pieces are present
 	When there is a chess board set up as
 	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
-	   | BR  | BKn | BB  | BK  | BQ  | BB  | BKn | BR  |
+	   | BR  | BKn | BB  | BQ  | BK  | BB  | BKn | BR  |
 	   | BP  | BP  | BP  | BP  | BP  | BP  | BP  | BP  |
 	   |     |     |     |     |     |     |     |     |
 	   |     |     |     |     |     |     |     |     |
@@ -61,7 +61,7 @@ Scenario: A black knight in its beginning position when all pieces are present
 Scenario: A white knight with a capture opportunity
 	When there is a chess board set up as
 	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
-	   | BR  | BKn | BB  | BK  | BQ  | BB  | BKn | BR  |
+	   | BR  | BKn | BB  | BQ  | BK  | BB  | BKn | BR  |
 	   | BP  | BP  | BP  | BP  | BP  |     | BP  | BP  |
 	   |     |     |     |     |     |     |     |     |
 	   |     |     |     |     |     |     |     |     |

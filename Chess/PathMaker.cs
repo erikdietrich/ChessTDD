@@ -51,7 +51,7 @@ namespace Chess
             }
             else if(_origin.Y > _destination.Y)
             {
-                var yCoordinatesToCheck = Enumerable.Range(_destination.Y, _origin.Y - _destination.Y);
+                var yCoordinatesToCheck = Enumerable.Range(_destination.Y, _origin.Y - _destination.Y).Reverse();
                 return yCoordinatesToCheck.Select(y => BoardCoordinate.For(_origin.X, y));
             }
             return Enumerable.Empty<BoardCoordinate>();
