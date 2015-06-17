@@ -32,5 +32,13 @@ namespace Chess.Test.BoardTests
 
             Assert.IsFalse(moves.Any(bc => bc.Matches(1, 1)));
         }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Not_Return_Move_At_2_3()
+        {
+            var moves = Target.GetMovesFrom(BoardCoordinate.For(4, 1));
+
+            Assert.IsFalse(moves.Any(bc => bc.Matches(2, 3)));
+        }
     }
 }

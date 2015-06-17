@@ -63,7 +63,6 @@ namespace Chess
             var xDirection = (_destination.X - _origin.X) / absoluteDistance;
             var yDirection = (_destination.Y - _origin.Y) / absoluteDistance;
             return Enumerable.Range(1, absoluteDistance).Select(i => BoardCoordinate.For(_origin.X + i * xDirection, _origin.Y + i * yDirection));
-
         }
     }
 }
