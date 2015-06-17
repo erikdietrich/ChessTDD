@@ -61,3 +61,36 @@ Scenario: A blocked pawn
     	|     |     |     |     |     |     |     |     |
 	Then the piece at (1,2) should have exactly the following moves
          | X | Y |
+
+Scenario: A white pawn capture
+	When there is a chess board set up as
+	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     | BP  |     |     |     |     |     |     |
+	   |  WP |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	Then the piece at (1,2) should have exactly the following moves
+         | X | Y |
+         | 1 | 3 |
+         | 1 | 4 |
+         | 2 | 3 |
+Scenario: Another white pawn capture
+	When there is a chess board set up as
+	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |  BP |     |     |     |     |     |     |     |
+	   |     | WP  |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	Then the piece at (2,2) should have exactly the following moves
+		| X | Y |
+		| 2 | 3 |
+		| 2 | 4 |
+		| 1 | 3 |

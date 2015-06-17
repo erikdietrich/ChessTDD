@@ -15,11 +15,27 @@ namespace Chess
             yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + 1);
             if(!HasMoved)
                 yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + 2);
+            yield return new BoardCoordinate(startingLocation.X + 1, startingLocation.Y + 1);
+            yield return new BoardCoordinate(startingLocation.X - 1, startingLocation.Y + 1);
         }
 
         public override bool IsCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
-            return origin.X == destination.X + 1;
+            return IsOverOne(origin, destination) && IsUpOne(origin, destination);
+        }
+
+        public override bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            return !(origin.X + 1 == destination.X && origin.Y + 1 == destination.Y);
+        }
+
+        private static bool IsOverOne(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            return origin.X + 1 == destination.X || origin.X - 1 == destination.X;
+        }
+        private static bool IsUpOne(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            return origin.Y + 1 == destination.Y;
         }
     }
 }

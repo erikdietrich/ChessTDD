@@ -77,11 +77,12 @@ namespace Chess
         private bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
         {
             var isCapture = destination.IsCoordinateValidForBoardSize(_boardSize) && GetPiece(destination) != null;
-            if(isCapture && !GetPiece(origin).IsCaptureAllowed(origin, destination))
-                return false;
 
-            return destination.IsCoordinateValidForBoardSize(_boardSize) && !IsBlocked(origin, destination) &&
-                    !DoesFriendlyPieceExistAt(origin, destination);
+            var isIllegalCapture = isCapture && !GetPiece(origin).IsCaptureAllowed(origin, destination);
+            var isIllegalNonCapture = !isCapture && !GetPiece(origin).IsNonCaptureAllowed(origin, destination);
+
+            return !isIllegalCapture && !isIllegalNonCapture && destination.IsCoordinateValidForBoardSize(_boardSize) &&
+                !IsBlocked(origin, destination) && !DoesFriendlyPieceExistAt(origin, destination);
         }
         private bool DoesFriendlyPieceExistAt(BoardCoordinate origin, BoardCoordinate destination)
         {

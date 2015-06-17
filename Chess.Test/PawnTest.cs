@@ -50,19 +50,36 @@ namespace Chess.Test
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_False_For_Square_In_Front_Of_Pawn()
             {
-                Assert.IsFalse(Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(2, 3)));   
+                Assert.IsFalse(CanCaptureFrom22(2, 3));   
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-            public void Returns_True_For_Square_Diagonally_In_Front_Of_Pawn()
+            public void Returns_True_For_LeftOne_Up_One()
             {
-                Assert.IsTrue(Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(1, 3)));
+                Assert.IsTrue(CanCaptureFrom22(1, 3));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_False_For_Some_Oblique_Square()
             {
-                Assert.IsFalse(Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(6, 3)));
+                Assert.IsFalse(CanCaptureFrom22(6, 3));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_True_For_RightOne_UpOne()
+            {
+                Assert.IsTrue(CanCaptureFrom22(3, 3));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_False_For_RightOne_UpTwo()
+            {
+                Assert.IsFalse(CanCaptureFrom22(3, 4));
+            }
+
+            private bool CanCaptureFrom22(int xCoordinate, int yCoordinate)
+            {
+                return Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(xCoordinate, yCoordinate));
             }
         }
     }

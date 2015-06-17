@@ -22,6 +22,11 @@ namespace Chess
             return true;
         }
 
+        public virtual bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            return true;
+        }
+
         protected static IEnumerable<BoardCoordinate> GetAllRadialMovesFrom(BoardCoordinate startingLocation, int distance)
         {
             return GetRadialDiagonalFromInclusive(startingLocation, distance).Union(GetRadialAdjecentFromInclusive(startingLocation, distance));
