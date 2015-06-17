@@ -98,3 +98,19 @@ Scenario: White bishop surrounded by enemy pieces
          | X | Y |
          | 2 | 2 |
          | 4 | 2 |
+
+Scenario: Black bishop is surrounded by enemy pieces
+	When there is a chess board set up as
+    	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+    	   |     | WKn |  BB | WKn |     |     |     |     |
+    	   |     | WR  |  WB | WR  |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+	Then the piece at (3,8) should have exactly the following moves
+         | X | Y |
+         | 2 | 7 |
+         | 4 | 7 |

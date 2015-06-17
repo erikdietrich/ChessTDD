@@ -43,5 +43,27 @@ namespace Chess.Test
                 Assert.IsFalse(MovesFrom22.Any(bc => bc.X == 2 && bc.Y == 4));
             }
         }
+
+        [TestClass]
+        public class IsCaptureAllowed : PawnTest
+        {
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_False_For_Square_In_Front_Of_Pawn()
+            {
+                Assert.IsFalse(Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(2, 3)));   
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_True_For_Square_Diagonally_In_Front_Of_Pawn()
+            {
+                Assert.IsTrue(Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(1, 3)));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_False_For_Some_Oblique_Square()
+            {
+                Assert.IsFalse(Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(6, 3)));
+            }
+        }
     }
 }

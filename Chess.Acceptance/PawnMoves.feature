@@ -47,3 +47,17 @@ Scenario: A pawn at the end of the board
 	And there is a move from (1,7) to (1,8)
 	Then the piece at (1, 8) should have exactly the following moves
 	| X | Y |
+
+Scenario: A blocked pawn
+	When there is a chess board set up as
+    	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	| BP  |     |     |     |     |     |     |     |
+    	| WP  |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+	Then the piece at (1,2) should have exactly the following moves
+         | X | Y |

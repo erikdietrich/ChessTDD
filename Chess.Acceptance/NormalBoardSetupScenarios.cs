@@ -66,11 +66,6 @@ namespace Chess.Acceptance
             ScenarioContext.Current.Set<T>(data);
         }
 
-        private static bool ContextContainsMatchFor(int x, int y)
-        {
-            var moves = GetFromContext<IEnumerable<BoardCoordinate>>();
-            return moves.Any(m => m.Matches(x, y));
-        }
         private static List<BoardCoordinate> GetCoordinatesFromTable(Table tableOfBoardCoordinates)
         {
             return tableOfBoardCoordinates.Rows.Select(r => BoardCoordinate.For(int.Parse(r[0]), int.Parse(r[1]))).ToList();

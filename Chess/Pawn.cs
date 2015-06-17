@@ -16,5 +16,10 @@ namespace Chess
             if(!HasMoved)
                 yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + 2);
         }
+
+        public override bool IsCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            return origin.X == destination.X + 1;
+        }
     }
 }

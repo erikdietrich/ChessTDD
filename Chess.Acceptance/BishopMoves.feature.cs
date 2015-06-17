@@ -664,6 +664,114 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Black bishop is surrounded by enemy pieces")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Bishop Movement")]
+        public virtual void BlackBishopIsSurroundedByEnemyPieces()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black bishop is surrounded by enemy pieces", ((string[])(null)));
+#line 102
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table14.AddRow(new string[] {
+                        "",
+                        "WKn",
+                        "BB",
+                        "WKn",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table14.AddRow(new string[] {
+                        "",
+                        "WR",
+                        "WB",
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table14.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table14.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table14.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table14.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table14.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table14.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 103
+ testRunner.When("there is a chess board set up as", ((string)(null)), table14, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table15.AddRow(new string[] {
+                        "2",
+                        "7"});
+            table15.AddRow(new string[] {
+                        "4",
+                        "7"});
+#line 113
+ testRunner.Then("the piece at (3,8) should have exactly the following moves", ((string)(null)), table15, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

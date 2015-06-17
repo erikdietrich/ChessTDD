@@ -17,6 +17,11 @@ namespace Chess
 
         public abstract IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize);
 
+        public virtual bool IsCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            return true;
+        }
+
         protected static IEnumerable<BoardCoordinate> GetAllRadialMovesFrom(BoardCoordinate startingLocation, int distance)
         {
             return GetRadialDiagonalFromInclusive(startingLocation, distance).Union(GetRadialAdjecentFromInclusive(startingLocation, distance));

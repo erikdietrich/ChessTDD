@@ -76,6 +76,10 @@ namespace Chess
 
         private bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
         {
+            var isCapture = destination.IsCoordinateValidForBoardSize(_boardSize) && GetPiece(destination) != null;
+            if(isCapture && !GetPiece(origin).IsCaptureAllowed(origin, destination))
+                return false;
+
             return destination.IsCoordinateValidForBoardSize(_boardSize) && !IsBlocked(origin, destination) &&
                     !DoesFriendlyPieceExistAt(origin, destination);
         }
