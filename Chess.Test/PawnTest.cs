@@ -82,5 +82,51 @@ namespace Chess.Test
                 return Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(xCoordinate, yCoordinate));
             }
         }
+ 
+        [TestClass]
+        public class IsNonCaptureAllowed : PawnTest 
+        {
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_False_For_RightOne_UpOne()
+            {
+                Assert.IsFalse(CanMakeNonCaptureMoveFrom22(3, 3));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_False_For_RightOne_UpTwo()
+            {
+                Assert.IsFalse(CanMakeNonCaptureMoveFrom22(3, 3));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_True_For_UpOne()
+            {
+                Assert.IsTrue(CanMakeNonCaptureMoveFrom22(2, 3));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_True_For_UpTwo()
+            {
+                Assert.IsTrue(CanMakeNonCaptureMoveFrom22(2, 4));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_False_For_UpTwo_After_Pawn_HasMoved()
+            {
+                Target.HasMoved = true;
+                Assert.IsFalse(CanMakeNonCaptureMoveFrom22(2, 4));
+            }
+
+            [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+            public void Returns_False_For_UpThree()
+            {
+                Assert.IsFalse(CanMakeNonCaptureMoveFrom22(2, 5));
+            }
+
+            private bool CanMakeNonCaptureMoveFrom22(int xCoordinate, int yCoordinate)
+            {
+                return Target.IsNonCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(xCoordinate, yCoordinate));
+            }
+        }
     }
 }

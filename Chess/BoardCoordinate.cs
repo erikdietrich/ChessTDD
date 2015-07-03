@@ -48,6 +48,11 @@ namespace Chess
             return _x == x && _y == y;
         }
 
+        public bool Matches(BoardCoordinate destination)
+        {
+            return Matches(destination.X, destination.Y);
+        }
+
         private static bool IsDimensionValidForBoardSize(int dimensionValue, int boardSize)
         {
             return dimensionValue > 0 && dimensionValue <= boardSize;

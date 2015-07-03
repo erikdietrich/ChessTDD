@@ -21,21 +21,20 @@ namespace Chess
 
         public override bool IsCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
-            return IsOverOne(origin, destination) && IsUpOne(origin, destination);
+            return GetRadialDiagonalFrom(origin, 1).Any(d => d.Matches(destination));
         }
 
         public override bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
-            return !(origin.X + 1 == destination.X && origin.Y + 1 == destination.Y);
+            if (HasMoved)
+                return IsVerticalMoveBy(1, origin, destination);
+            else
+                return IsVerticalMoveBy(1, origin, destination) || IsVerticalMoveBy(2, origin, destination);
         }
 
-        private static bool IsOverOne(BoardCoordinate origin, BoardCoordinate destination)
+        private static bool IsVerticalMoveBy(int verticalSpaces, BoardCoordinate origin, BoardCoordinate destination)
         {
-            return origin.X + 1 == destination.X || origin.X - 1 == destination.X;
-        }
-        private static bool IsUpOne(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            return origin.Y + 1 == destination.Y;
+            return origin.Y + verticalSpaces == destination.Y && origin.X == destination.X;
         }
     }
 }
