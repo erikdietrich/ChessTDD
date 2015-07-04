@@ -111,3 +111,83 @@ Scenario: A black pawn in its starting position
 		| X | Y |
 		| 1 | 6 |
 		| 1 | 5 |
+
+Scenario: A black pawn that has already moved
+	When there is a chess board set up as
+	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	   |     |     |     |     |     |     |     |     |
+	   | BP  |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	And there is a move from (1,7) to (1,6)
+	Then the piece at (1,6) should have exactly the following moves
+	| X | Y |
+    | 1 | 5 |
+
+Scenario: A black pawn at the end of the board
+	When there is a chess board set up as
+	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   | BP  |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	And there is a move from (1,2) to (1,1)
+	Then the piece at (1,1) should have exactly the following moves
+	| X | Y |
+
+Scenario: A blocked black pawn
+	When there is a chess board set up as
+    	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+    	|     |     |     |     |     |     |     |     |
+    	| BP  |     |     |     |     |     |     |     |
+    	| WP  |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+	Then the piece at (1,7) should have exactly the following moves
+         | X | Y |
+
+
+Scenario: A black pawn capture
+	When there is a chess board set up as
+	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	   |     |     |     |     |     |     |     |     |
+	   |  BP |     |     |     |     |     |     |     |
+	   |     | WP  |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	Then the piece at (1,7) should have exactly the following moves
+        | X | Y |
+        | 1 | 6 |
+        | 1 | 5 |
+        | 2 | 6 |
+
+Scenario: Another black pawn capture
+	When there is a chess board set up as
+	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	   |     |     |     |     |     |     |     |     |
+	   |     | BP  |     |     |     |     |     |     |
+	   |  WP |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	   |     |     |     |     |     |     |     |     |
+	Then the piece at (2,7) should have exactly the following moves
+		| X | Y |
+		| 2 | 6 |
+		| 2 | 5 |
+		| 1 | 6 |

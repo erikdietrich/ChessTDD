@@ -21,7 +21,25 @@ namespace Chess.Test.PawnTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_True_For_26_From_27()
         {
-            Assert.IsTrue(Target.IsNonCaptureAllowed(BoardCoordinate.For(2, 7), BoardCoordinate.For(2, 6)));
+            Assert.IsTrue(IsNonCaptureAllowedFor27(2, 6));
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_True_For_25_From_27()
+        {
+            Assert.IsTrue(IsNonCaptureAllowedFor27(2, 5));
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_False_For_27_If_HasMoved_IsTrue()
+        {
+            Target.HasMoved = true;
+            Assert.IsFalse(IsNonCaptureAllowedFor27(2, 5));
+        }
+
+        private bool IsNonCaptureAllowedFor27(int xCoordinate, int yCoordinate)
+        {
+            return Target.IsNonCaptureAllowed(BoardCoordinate.For(2, 7), BoardCoordinate.For(xCoordinate, yCoordinate));
         }
     }
 }

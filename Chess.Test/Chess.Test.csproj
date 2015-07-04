@@ -71,6 +71,7 @@
     <Compile Include="KnightTest.cs" />
     <Compile Include="PathMaker_GetPathToDestination_Given_TwoCoordinates_Should.cs" />
     <Compile Include="PawnTests\Pawn_GetMovesFrom_For_BlackPawn_Should.cs" />
+    <Compile Include="PawnTests\Pawn_IsCaptureAllowed_For_BlackPawn_Should.cs" />
     <Compile Include="PawnTests\Pawn_IsNonCaptureAllowed_For_BlackPawn_Should.cs" />
     <Compile Include="PiecePositioner_Given_NormalSizedBoard_Should.cs" />
     <Compile Include="QueenTest.cs" />
