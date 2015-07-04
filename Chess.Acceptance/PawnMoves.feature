@@ -78,6 +78,7 @@ Scenario: A white pawn capture
          | 1 | 3 |
          | 1 | 4 |
          | 2 | 3 |
+
 Scenario: Another white pawn capture
 	When there is a chess board set up as
 	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
@@ -94,3 +95,19 @@ Scenario: Another white pawn capture
 		| 2 | 3 |
 		| 2 | 4 |
 		| 1 | 3 |
+
+Scenario: A black pawn in its starting position
+	When there is a chess board set up as
+    	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+    	|     |     |     |     |     |     |     |     |
+    	|  BP |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+    	|     |     |     |     |     |     |     |     |
+	Then the piece at (1,7) should have exactly the following moves
+		| X | Y |
+		| 1 | 6 |
+		| 1 | 5 |

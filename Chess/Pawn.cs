@@ -12,11 +12,19 @@ namespace Chess
 
         public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
         {
-            yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + 1);
-            if(!HasMoved)
-                yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + 2);
-            yield return new BoardCoordinate(startingLocation.X + 1, startingLocation.Y + 1);
-            yield return new BoardCoordinate(startingLocation.X - 1, startingLocation.Y + 1);
+            if (IsFirstPlayerPiece)
+            {
+                yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + 1);
+                if (!HasMoved)
+                    yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + 2);
+                yield return new BoardCoordinate(startingLocation.X + 1, startingLocation.Y + 1);
+                yield return new BoardCoordinate(startingLocation.X - 1, startingLocation.Y + 1);
+            }
+            else
+            {
+                yield return new BoardCoordinate(startingLocation.X, startingLocation.Y - 1);
+                yield return new BoardCoordinate(startingLocation.X, startingLocation.Y - 2);
+            }
         }
 
         public override bool IsCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
@@ -26,10 +34,17 @@ namespace Chess
 
         public override bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
-            if (HasMoved)
-                return IsVerticalMoveBy(1, origin, destination);
+            if (IsFirstPlayerPiece)
+            {
+                if (HasMoved)
+                    return IsVerticalMoveBy(1, origin, destination);
+                else
+                    return IsVerticalMoveBy(1, origin, destination) || IsVerticalMoveBy(2, origin, destination);
+            }
             else
-                return IsVerticalMoveBy(1, origin, destination) || IsVerticalMoveBy(2, origin, destination);
+            {
+               return IsVerticalMoveBy(-1, origin, destination) || IsVerticalMoveBy(-2, origin, destination);
+            }
         }
 
         private static bool IsVerticalMoveBy(int verticalSpaces, BoardCoordinate origin, BoardCoordinate destination)

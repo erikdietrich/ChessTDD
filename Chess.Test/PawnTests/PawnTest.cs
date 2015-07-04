@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test
+namespace Chess.Test.PawnTests
 {
     [TestClass]
     public class PawnTest
@@ -42,6 +42,7 @@ namespace Chess.Test
 
                 Assert.IsFalse(MovesFrom22.Any(bc => bc.X == 2 && bc.Y == 4));
             }
+
         }
 
         [TestClass]
