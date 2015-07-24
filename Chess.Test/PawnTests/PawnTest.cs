@@ -96,7 +96,7 @@ namespace Chess.Test.PawnTests
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_False_For_RightOne_UpTwo()
             {
-                Assert.IsFalse(CanMakeNonCaptureMoveFrom22(3, 3));
+                Assert.IsFalse(CanMakeNonCaptureMoveFrom22(3, 4));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]

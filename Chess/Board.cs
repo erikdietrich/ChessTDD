@@ -44,6 +44,14 @@ namespace Chess
             VerifyCoordinatesOrThrow(origin, destination);
 
             var pieceToMove = GetPiece(origin);
+
+
+            if (origin.Y == destination.Y - 2 && pieceToMove is Pawn)
+            {
+                var pieceNextToDestination = GetPiece(BoardCoordinate.For(destination.X + 1, destination.Y));
+                ((Pawn)pieceNextToDestination).CanPerformEnPassant = true;
+            }
+
             AddPiece(pieceToMove, destination);
             RemovePiece(origin);
             pieceToMove.HasMoved = true;

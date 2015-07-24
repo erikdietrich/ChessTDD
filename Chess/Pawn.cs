@@ -8,6 +8,7 @@ namespace Chess
     {
         private int DirectionalMultiplier { get { return IsFirstPlayerPiece ? 1 : -1; } }
 
+        public bool CanPerformEnPassant { get; set; }
         public Pawn(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
@@ -30,7 +31,8 @@ namespace Chess
 
         public override bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
-            return IsVerticalMoveBy(1, origin, destination) || IsSpecialFirstPawnMoveAllowed(origin, destination);
+            return IsVerticalMoveBy(1, origin, destination) || IsSpecialFirstPawnMoveAllowed(origin, destination) ||
+                (CanPerformEnPassant && origin.X > destination.X);
         }
 
         private bool IsSpecialFirstPawnMoveAllowed(BoardCoordinate origin, BoardCoordinate destination)

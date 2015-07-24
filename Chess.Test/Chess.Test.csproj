@@ -67,6 +67,7 @@
     <Compile Include="BoardTests\Board_GetMovesFrom_Given_SurroundedQueen_Should.cs" />
     <Compile Include="BoardTests\Board_MovePiece_GivenChessBoardWithoutPawns_Should.cs" />
     <Compile Include="BoardTests\Board_DoesPieceExistAt_Should.cs" />
+    <Compile Include="BoardTests\Board_MovePiece_Given_Chessboard_With_EnPassantScenarios_Should.cs" />
     <Compile Include="BoardTests\Board_RemovePiece_GivenChessBoardWithoutPawns_Should.cs" />
     <Compile Include="KnightTest.cs" />
     <Compile Include="PathMaker_GetPathToDestination_Given_TwoCoordinates_Should.cs" />
