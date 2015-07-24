@@ -48,8 +48,17 @@ namespace Chess
 
             if (origin.Y == destination.Y - 2 && pieceToMove is Pawn)
             {
-                var pieceNextToDestination = GetPiece(BoardCoordinate.For(destination.X + 1, destination.Y));
-                ((Pawn)pieceNextToDestination).CanPerformEnPassant = true;
+                var pieceRightOfDestination = GetPiece(BoardCoordinate.For(destination.X + 1, destination.Y)) as Pawn;
+                if (pieceRightOfDestination != null)
+                    pieceRightOfDestination.SetCanPerformEnPassantOn(destination);
+
+                var coordinateLeftOfDestination = BoardCoordinate.For(destination.X - 1, destination.Y);
+                if (coordinateLeftOfDestination.IsCoordinateValidForBoardSize(_boardSize))
+                {
+                    var pieceLeftOfDestination = GetPiece(coordinateLeftOfDestination) as Pawn;
+                    if (pieceLeftOfDestination != null)
+                        pieceLeftOfDestination.SetCanPerformEnPassantOn(destination);
+                } //Yikes -- let's fix this ugliness with a refactoring fairly soon!
             }
 
             AddPiece(pieceToMove, destination);

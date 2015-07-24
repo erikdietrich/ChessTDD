@@ -6,9 +6,9 @@ namespace Chess
 {
     public class Pawn : Piece
     {
+        private BoardCoordinate? _enPassantTarget; 
         private int DirectionalMultiplier { get { return IsFirstPlayerPiece ? 1 : -1; } }
 
-        public bool CanPerformEnPassant { get; set; }
         public Pawn(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
@@ -32,9 +32,17 @@ namespace Chess
         public override bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
             return IsVerticalMoveBy(1, origin, destination) || IsSpecialFirstPawnMoveAllowed(origin, destination) ||
-                (CanPerformEnPassant && origin.X > destination.X);
+                (CanPerformEnPassantOn(BoardCoordinate.For(destination.X, origin.Y)));
         }
 
+        public bool CanPerformEnPassantOn(BoardCoordinate enPassantTarget)
+        {
+            return _enPassantTarget != null && enPassantTarget.Matches(_enPassantTarget.Value);
+        }
+        public void SetCanPerformEnPassantOn(BoardCoordinate enPassantTarget)
+        {
+            _enPassantTarget = enPassantTarget;
+        }
         private bool IsSpecialFirstPawnMoveAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
             return !HasMoved && IsVerticalMoveBy(2, origin, destination);

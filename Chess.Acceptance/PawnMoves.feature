@@ -114,6 +114,24 @@ Scenario: White pawn en passant is allowed
 	| 2 | 3 |
 	| 1 | 3 | 
 
+Scenario: White en passant is allowed on the other side
+	When there is a chess board set up as
+    	   |  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |  BP |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+    	   |     |     | WP  |     |     |     |     |     |
+    	   |     |     |     |     |     |     |     |     |
+	And there is a move from (2,5) to (2,4)
+	And there is a move from (3,2) to (3,4)
+	Then the piece at (2,4) should have exactly the following moves
+	| X | Y |
+	| 2 | 3 |
+	| 3 | 3 | 
+
 Scenario: A black pawn in its starting position
 	When there is a chess board set up as
     	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |

@@ -20,23 +20,23 @@ namespace Chess.Test.BoardTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Set_Pawn_CanPerformEnPassant_Flag_For_Black_Pawn_At_24()
+        public void Set_BlackPawns_CanPerformEnPassant_For_WhitePiece_At_14()
         {
             Target.MovePiece(BoardCoordinate.For(1, 2), BoardCoordinate.For(1, 4));
 
             var piece = Target.GetPiece(BoardCoordinate.For(2, 4)) as Pawn;
             
-            Assert.IsTrue(piece.CanPerformEnPassant);
+            Assert.IsTrue(piece.CanPerformEnPassantOn(BoardCoordinate.For(1, 4)));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Not_Set_Pawn_IsVulnerableToEn_Passant_For_Normal_Scenario()
+        public void Not_Set_BlackPawns_CanPerformEnPassantOn_For_Square_At_34()
         {
-            Target.MovePiece(BoardCoordinate.For(1, 2), BoardCoordinate.For(1, 3));
+            Target.MovePiece(BoardCoordinate.For(1, 2), BoardCoordinate.For(1, 4));
 
-            var piece = Target.GetPiece(BoardCoordinate.For(1, 3)) as Pawn;
+            var piece = Target.GetPiece(BoardCoordinate.For(2, 4)) as Pawn;
 
-            Assert.IsFalse(piece.CanPerformEnPassant);
+            Assert.IsFalse(piece.CanPerformEnPassantOn(BoardCoordinate.For(3, 4)));
         }
     }
 }
