@@ -44,26 +44,11 @@ namespace Chess
             VerifyCoordinatesOrThrow(origin, destination);
 
             var pieceToMove = GetPiece(origin);
-
-
-            if (origin.Y == destination.Y - 2 && pieceToMove is Pawn)
-            {
-                var pieceRightOfDestination = GetPiece(BoardCoordinate.For(destination.X + 1, destination.Y)) as Pawn;
-                if (pieceRightOfDestination != null)
-                    pieceRightOfDestination.SetCanPerformEnPassantOn(destination);
-
-                var coordinateLeftOfDestination = BoardCoordinate.For(destination.X - 1, destination.Y);
-                if (coordinateLeftOfDestination.IsCoordinateValidForBoardSize(_boardSize))
-                {
-                    var pieceLeftOfDestination = GetPiece(coordinateLeftOfDestination) as Pawn;
-                    if (pieceLeftOfDestination != null)
-                        pieceLeftOfDestination.SetCanPerformEnPassantOn(destination);
-                } //Yikes -- let's fix this ugliness with a refactoring fairly soon!
-            }
-
             AddPiece(pieceToMove, destination);
             RemovePiece(origin);
             pieceToMove.HasMoved = true;
+
+            ReconcileEnPassant(origin, destination, pieceToMove);
         }
 
         public void RemovePiece(BoardCoordinate coordinateForRemoval)
@@ -90,6 +75,46 @@ namespace Chess
             var allPossibleMoves = piece.GetMovesFrom(originCoordinate);
             return allPossibleMoves.Where(move => IsMoveLegal(originCoordinate, move));
         }
+
+        #region EnPassantStuff
+        private void ReconcileEnPassant(BoardCoordinate origin, BoardCoordinate destination, Piece pieceToMove)
+        {
+            if (IsEnPassantApplicable(origin, destination, pieceToMove))
+                SetEnPassantIfCandidatePawnsArePresent(destination);
+            CleanEnPassantForPlayerThatJustMoved(pieceToMove);
+        }
+        private static bool IsEnPassantApplicable(BoardCoordinate origin, BoardCoordinate destination, Piece pieceToMove)
+        {
+            return origin.Y == destination.Y - 2 && pieceToMove is Pawn;
+        }
+        private void SetEnPassantIfCandidatePawnsArePresent(BoardCoordinate destination)
+        {
+            var leftTarget = BoardCoordinate.For(destination.X - 1, destination.Y);
+            var rightTarget = BoardCoordinate.For(destination.X + 1, destination.Y);
+
+            SetEnPassantForDestinationWithXOffset(destination, leftTarget);
+            SetEnPassantForDestinationWithXOffset(destination, rightTarget);
+        }
+
+        private void SetEnPassantForDestinationWithXOffset(BoardCoordinate destination, BoardCoordinate enPassantTarget)
+        {
+            if (enPassantTarget.IsCoordinateValidForBoardSize(_boardSize))
+            {
+                var pieceLeftOfDestination = GetPiece(enPassantTarget) as Pawn;
+                if (pieceLeftOfDestination != null)
+                    pieceLeftOfDestination.SetCanPerformEnPassantOn(destination);
+            }
+        }
+        private void CleanEnPassantForPlayerThatJustMoved(Piece pieceToMove)
+        {
+            foreach (var piece in _pieces)
+            {
+                var pawn = piece as Pawn;
+                if (pawn != null && pawn.IsFirstPlayerPiece == pieceToMove.IsFirstPlayerPiece)
+                    pawn.ClearEnPassant();
+            }
+        }
+        #endregion
 
         private bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
         {

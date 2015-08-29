@@ -43,6 +43,10 @@ namespace Chess
         {
             _enPassantTarget = enPassantTarget;
         }
+        public void ClearEnPassant()
+        {
+            _enPassantTarget = null;
+        }
         private bool IsSpecialFirstPawnMoveAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
             return !HasMoved && IsVerticalMoveBy(2, origin, destination);
