@@ -824,11 +824,11 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White en passant is allowed on the other side")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Black pawn en passant is allowed")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
-        public virtual void WhiteEnPassantIsAllowedOnTheOtherSide()
+        public virtual void BlackPawnEnPassantIsAllowed()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White en passant is allowed on the other side", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black pawn en passant is allowed", ((string[])(null)));
 #line 117
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -851,39 +851,12 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         ""});
             table15.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table15.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table15.AddRow(new string[] {
-                        "",
                         "BP",
                         "",
                         "",
                         "",
                         "",
                         "",
-                        ""});
-            table15.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
                         "",
                         ""});
             table15.AddRow(new string[] {
@@ -897,8 +870,35 @@ this.ScenarioSetup(scenarioInfo);
                         ""});
             table15.AddRow(new string[] {
                         "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table15.AddRow(new string[] {
                         "",
                         "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table15.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table15.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
                         "",
                         "",
                         "",
@@ -914,34 +914,34 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         ""});
 #line 118
- testRunner.When("there is a chess board set up as", ((string)(null)), table15, "When ");
+  testRunner.When("there is a chess board set up as", ((string)(null)), table15, "When ");
 #line 128
- testRunner.And("there is a move from (2,5) to (2,4)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("there is a move from (2,4) to (2,5)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 129
- testRunner.And("there is a move from (3,2) to (3,4)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("there is a move from (1,7) to (1,5)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
             table16.AddRow(new string[] {
                         "2",
-                        "3"});
+                        "6"});
             table16.AddRow(new string[] {
-                        "3",
-                        "3"});
+                        "1",
+                        "6"});
 #line 130
- testRunner.Then("the piece at (2,4) should have exactly the following moves", ((string)(null)), table16, "Then ");
+ testRunner.Then("the piece at (2,5) should have exactly the following moves", ((string)(null)), table16, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White en passant expires after an interim move")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White en passant is allowed on the other side")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
-        public virtual void WhiteEnPassantExpiresAfterAnInterimMove()
+        public virtual void WhiteEnPassantIsAllowedOnTheOtherSide()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White en passant expires after an interim move", ((string[])(null)));
-#line 135
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White en passant is allowed on the other side", ((string[])(null)));
+#line 136
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
@@ -963,7 +963,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         ""});
             table17.AddRow(new string[] {
-                        "BP",
+                        "",
                         "",
                         "",
                         "",
@@ -1015,7 +1015,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         "",
-                        "WP"});
+                        ""});
             table17.AddRow(new string[] {
                         "",
                         "",
@@ -1031,10 +1031,6 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.And("there is a move from (2,5) to (2,4)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 148
  testRunner.And("there is a move from (3,2) to (3,4)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 149
- testRunner.And("there is a move from (1,7) to (1,6)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 150
- testRunner.And("there is a move from (8,2) to (8,3)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
@@ -1042,19 +1038,22 @@ this.ScenarioSetup(scenarioInfo);
             table18.AddRow(new string[] {
                         "2",
                         "3"});
-#line 151
+            table18.AddRow(new string[] {
+                        "3",
+                        "3"});
+#line 149
  testRunner.Then("the piece at (2,4) should have exactly the following moves", ((string)(null)), table18, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A black pawn in its starting position")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Black en passant is allowed on the other side")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
-        public virtual void ABlackPawnInItsStartingPosition()
+        public virtual void BlackEnPassantIsAllowedOnTheOtherSide()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A black pawn in its starting position", ((string[])(null)));
-#line 155
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black en passant is allowed on the other side", ((string[])(null)));
+#line 154
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1076,11 +1075,38 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         ""});
             table19.AddRow(new string[] {
+                        "",
+                        "",
                         "BP",
                         "",
                         "",
                         "",
                         "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        "",
                         "",
                         "",
                         ""});
@@ -1111,58 +1137,35 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-            table19.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table19.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table19.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-#line 156
+#line 155
  testRunner.When("there is a chess board set up as", ((string)(null)), table19, "When ");
+#line 165
+ testRunner.And("there is a move from (2,4) to (2,5)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 166
+ testRunner.And("there is a move from (3,7) to (3,5)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
             table20.AddRow(new string[] {
-                        "1",
+                        "2",
                         "6"});
             table20.AddRow(new string[] {
-                        "1",
-                        "5"});
-#line 166
- testRunner.Then("the piece at (1,7) should have exactly the following moves", ((string)(null)), table20, "Then ");
+                        "3",
+                        "6"});
+#line 167
+ testRunner.Then("the piece at (2,5) should have exactly the following moves", ((string)(null)), table20, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A black pawn that has already moved")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White en passant expires after an interim move")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
-        public virtual void ABlackPawnThatHasAlreadyMoved()
+        public virtual void WhiteEnPassantExpiresAfterAnInterimMove()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A black pawn that has already moved", ((string[])(null)));
-#line 171
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White en passant expires after an interim move", ((string[])(null)));
+#line 172
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1203,16 +1206,7 @@ this.ScenarioSetup(scenarioInfo);
                         ""});
             table21.AddRow(new string[] {
                         "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table21.AddRow(new string[] {
-                        "",
-                        "",
+                        "BP",
                         "",
                         "",
                         "",
@@ -1240,36 +1234,51 @@ this.ScenarioSetup(scenarioInfo);
             table21.AddRow(new string[] {
                         "",
                         "",
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP"});
+            table21.AddRow(new string[] {
+                        "",
+                        "",
                         "",
                         "",
                         "",
                         "",
                         "",
                         ""});
-#line 172
+#line 174
  testRunner.When("there is a chess board set up as", ((string)(null)), table21, "When ");
-#line 182
+#line 184
+ testRunner.And("there is a move from (2,5) to (2,4)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 185
+ testRunner.And("there is a move from (3,2) to (3,4)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 186
  testRunner.And("there is a move from (1,7) to (1,6)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 187
+ testRunner.And("there is a move from (8,2) to (8,3)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
             table22.AddRow(new string[] {
-                        "1",
-                        "5"});
-#line 183
- testRunner.Then("the piece at (1,6) should have exactly the following moves", ((string)(null)), table22, "Then ");
+                        "2",
+                        "3"});
+#line 188
+ testRunner.Then("the piece at (2,4) should have exactly the following moves", ((string)(null)), table22, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A black pawn at the end of the board")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Black en passant expires after an interim move")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
-        public virtual void ABlackPawnAtTheEndOfTheBoard()
+        public virtual void BlackEnPassantExpiresAfterAnInterimMove()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A black pawn at the end of the board", ((string[])(null)));
-#line 187
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black en passant expires after an interim move", ((string[])(null)));
+#line 192
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1292,56 +1301,20 @@ this.ScenarioSetup(scenarioInfo);
                         ""});
             table23.AddRow(new string[] {
                         "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table23.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table23.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table23.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table23.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table23.AddRow(new string[] {
                         "BP",
                         "",
                         "",
                         "",
                         "",
                         "",
+                        "BP"});
+            table23.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
                         "",
                         ""});
             table23.AddRow(new string[] {
@@ -1353,27 +1326,72 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-#line 188
+            table23.AddRow(new string[] {
+                        "",
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table23.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table23.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "WP"});
+            table23.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 193
  testRunner.When("there is a chess board set up as", ((string)(null)), table23, "When ");
-#line 198
- testRunner.And("there is a move from (1,2) to (1,1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 203
+ testRunner.And("there is a move from (3,4) to (3,5)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 204
+ testRunner.And("there is a move from (2,7) to (2,5)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 205
+ testRunner.And("there is a move from (8,2) to (8,3)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 206
+ testRunner.And("there is a move from (8,7) to (8,6)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
-#line 199
- testRunner.Then("the piece at (1,1) should have exactly the following moves", ((string)(null)), table24, "Then ");
+            table24.AddRow(new string[] {
+                        "3",
+                        "6"});
+#line 207
+ testRunner.Then("the piece at (3,5) should have exactly the following moves", ((string)(null)), table24, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A blocked black pawn")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A black pawn in its starting position")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
-        public virtual void ABlockedBlackPawn()
+        public virtual void ABlackPawnInItsStartingPosition()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A blocked black pawn", ((string[])(null)));
-#line 202
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A black pawn in its starting position", ((string[])(null)));
+#line 211
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1404,15 +1422,6 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         ""});
             table25.AddRow(new string[] {
-                        "WP",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table25.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -1457,25 +1466,40 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-#line 203
+            table25.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 212
  testRunner.When("there is a chess board set up as", ((string)(null)), table25, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
-#line 213
+            table26.AddRow(new string[] {
+                        "1",
+                        "6"});
+            table26.AddRow(new string[] {
+                        "1",
+                        "5"});
+#line 222
  testRunner.Then("the piece at (1,7) should have exactly the following moves", ((string)(null)), table26, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A black pawn capture")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A black pawn that has already moved")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
-        public virtual void ABlackPawnCapture()
+        public virtual void ABlackPawnThatHasAlreadyMoved()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A black pawn capture", ((string[])(null)));
-#line 217
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A black pawn that has already moved", ((string[])(null)));
+#line 227
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1507,15 +1531,6 @@ this.ScenarioSetup(scenarioInfo);
                         ""});
             table27.AddRow(new string[] {
                         "",
-                        "WP",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        ""});
-            table27.AddRow(new string[] {
-                        "",
                         "",
                         "",
                         "",
@@ -1559,34 +1574,39 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-#line 218
+            table27.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 228
  testRunner.When("there is a chess board set up as", ((string)(null)), table27, "When ");
+#line 238
+ testRunner.And("there is a move from (1,7) to (1,6)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
             table28.AddRow(new string[] {
                         "1",
-                        "6"});
-            table28.AddRow(new string[] {
-                        "1",
                         "5"});
-            table28.AddRow(new string[] {
-                        "2",
-                        "6"});
-#line 228
- testRunner.Then("the piece at (1,7) should have exactly the following moves", ((string)(null)), table28, "Then ");
+#line 239
+ testRunner.Then("the piece at (1,6) should have exactly the following moves", ((string)(null)), table28, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Another black pawn capture")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A black pawn at the end of the board")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
-        public virtual void AnotherBlackPawnCapture()
+        public virtual void ABlackPawnAtTheEndOfTheBoard()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Another black pawn capture", ((string[])(null)));
-#line 234
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A black pawn at the end of the board", ((string[])(null)));
+#line 243
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1609,7 +1629,7 @@ this.ScenarioSetup(scenarioInfo);
                         ""});
             table29.AddRow(new string[] {
                         "",
-                        "BP",
+                        "",
                         "",
                         "",
                         "",
@@ -1617,6 +1637,110 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         ""});
             table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 244
+ testRunner.When("there is a chess board set up as", ((string)(null)), table29, "When ");
+#line 254
+ testRunner.And("there is a move from (1,2) to (1,1)", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+#line 255
+ testRunner.Then("the piece at (1,1) should have exactly the following moves", ((string)(null)), table30, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A blocked black pawn")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
+        public virtual void ABlockedBlackPawn()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A blocked black pawn", ((string[])(null)));
+#line 258
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table31.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table31.AddRow(new string[] {
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table31.AddRow(new string[] {
                         "WP",
                         "",
                         "",
@@ -1625,7 +1749,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-            table29.AddRow(new string[] {
+            table31.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -1634,7 +1758,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-            table29.AddRow(new string[] {
+            table31.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -1643,7 +1767,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-            table29.AddRow(new string[] {
+            table31.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -1652,7 +1776,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-            table29.AddRow(new string[] {
+            table31.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -1661,7 +1785,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-            table29.AddRow(new string[] {
+            table31.AddRow(new string[] {
                         "",
                         "",
                         "",
@@ -1670,23 +1794,236 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         ""});
-#line 235
- testRunner.When("there is a chess board set up as", ((string)(null)), table29, "When ");
+#line 259
+ testRunner.When("there is a chess board set up as", ((string)(null)), table31, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
-            table30.AddRow(new string[] {
+#line 269
+ testRunner.Then("the piece at (1,7) should have exactly the following moves", ((string)(null)), table32, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("A black pawn capture")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
+        public virtual void ABlackPawnCapture()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A black pawn capture", ((string[])(null)));
+#line 273
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
                         "2",
-                        "6"});
-            table30.AddRow(new string[] {
-                        "2",
-                        "5"});
-            table30.AddRow(new string[] {
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 274
+ testRunner.When("there is a chess board set up as", ((string)(null)), table33, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table34.AddRow(new string[] {
                         "1",
                         "6"});
-#line 245
- testRunner.Then("the piece at (2,7) should have exactly the following moves", ((string)(null)), table30, "Then ");
+            table34.AddRow(new string[] {
+                        "1",
+                        "5"});
+            table34.AddRow(new string[] {
+                        "2",
+                        "6"});
+#line 284
+ testRunner.Then("the piece at (1,7) should have exactly the following moves", ((string)(null)), table34, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Another black pawn capture")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "PawnMoves")]
+        public virtual void AnotherBlackPawnCapture()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Another black pawn capture", ((string[])(null)));
+#line 290
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table35.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table35.AddRow(new string[] {
+                        "",
+                        "BP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table35.AddRow(new string[] {
+                        "WP",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table35.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table35.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table35.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table35.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table35.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 291
+ testRunner.When("there is a chess board set up as", ((string)(null)), table35, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table36.AddRow(new string[] {
+                        "2",
+                        "6"});
+            table36.AddRow(new string[] {
+                        "2",
+                        "5"});
+            table36.AddRow(new string[] {
+                        "1",
+                        "6"});
+#line 301
+ testRunner.Then("the piece at (2,7) should have exactly the following moves", ((string)(null)), table36, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

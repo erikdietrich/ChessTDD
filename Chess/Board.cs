@@ -85,24 +85,26 @@ namespace Chess
         }
         private static bool IsEnPassantApplicable(BoardCoordinate origin, BoardCoordinate destination, Piece pieceToMove)
         {
-            return origin.Y == destination.Y - 2 && pieceToMove is Pawn;
+            const int enPassantTrigger = 2;
+            var movementFactor = pieceToMove.IsFirstPlayerPiece ? -enPassantTrigger : enPassantTrigger;
+            return origin.Y == destination.Y + movementFactor;
         }
         private void SetEnPassantIfCandidatePawnsArePresent(BoardCoordinate destination)
         {
             var leftTarget = BoardCoordinate.For(destination.X - 1, destination.Y);
             var rightTarget = BoardCoordinate.For(destination.X + 1, destination.Y);
 
-            SetEnPassantForDestinationWithXOffset(destination, leftTarget);
-            SetEnPassantForDestinationWithXOffset(destination, rightTarget);
+            SetEnPassantIfPawnExistsAtTarget(destination, leftTarget);
+            SetEnPassantIfPawnExistsAtTarget(destination, rightTarget);
         }
 
-        private void SetEnPassantForDestinationWithXOffset(BoardCoordinate destination, BoardCoordinate enPassantTarget)
+        private void SetEnPassantIfPawnExistsAtTarget(BoardCoordinate destination, BoardCoordinate enPassantTarget)
         {
             if (enPassantTarget.IsCoordinateValidForBoardSize(_boardSize))
             {
-                var pieceLeftOfDestination = GetPiece(enPassantTarget) as Pawn;
-                if (pieceLeftOfDestination != null)
-                    pieceLeftOfDestination.SetCanPerformEnPassantOn(destination);
+                var targetPawn = GetPiece(enPassantTarget) as Pawn;
+                if (targetPawn != null)
+                    targetPawn.SetCanPerformEnPassantOn(destination);
             }
         }
         private void CleanEnPassantForPlayerThatJustMoved(Piece pieceToMove)
