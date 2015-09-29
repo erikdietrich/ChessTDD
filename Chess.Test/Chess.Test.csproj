@@ -69,6 +69,7 @@
     <Compile Include="BoardTests\Board_DoesPieceExistAt_Should.cs" />
     <Compile Include="BoardTests\Board_MovePiece_Given_Chessboard_With_EnPassantScenarios_Should.cs" />
     <Compile Include="BoardTests\Board_RemovePiece_GivenChessBoardWithoutPawns_Should.cs" />
+    <Compile Include="KingTests\King_GetMovesFrom_Given_FirstMove_Should.cs" />
     <Compile Include="KnightTest.cs" />
     <Compile Include="PathMaker_GetPathToDestination_Given_TwoCoordinates_Should.cs" />
     <Compile Include="PawnTests\Pawn_GetMovesFrom_For_BlackPawn_Should.cs" />
@@ -76,7 +77,7 @@
     <Compile Include="PawnTests\Pawn_IsNonCaptureAllowed_For_BlackPawn_Should.cs" />
     <Compile Include="PiecePositioner_Given_NormalSizedBoard_Should.cs" />
     <Compile Include="QueenTest.cs" />
-    <Compile Include="KingTest.cs" />
+    <Compile Include="KingTests\KingTest.cs" />
     <Compile Include="RookTest.cs" />
     <Compile Include="BoardCoordinateTest.cs" />
     <Compile Include="BoardTests\Board_GetPiece_GivenSingleAddedPiece_Should.cs" />

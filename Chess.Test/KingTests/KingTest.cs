@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Chess.Test
+namespace Chess.Test.KingTests
 {
     [TestClass]
     public class KingTest
@@ -73,11 +73,11 @@ namespace Chess.Test
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-            public void Has_Five_Moves_When_Starting_At_Back_End_Of_Board()
+            public void Has_Seven_Moves_When_Starting_At_Back_End_Of_Board()
             {
                 var moves = Target.GetMovesFrom(BoardCoordinate.For(4, 8));
 
-                Assert.AreEqual<int>(5, moves.Count());
+                Assert.AreEqual<int>(7, moves.Count());
             }
         }
         

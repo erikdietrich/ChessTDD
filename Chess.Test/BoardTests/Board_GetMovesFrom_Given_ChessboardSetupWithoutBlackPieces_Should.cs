@@ -24,11 +24,11 @@ namespace Chess.Test.BoardTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_Five_Moves_For_Added_Black_King()
+        public void Return_Seven_Moves_For_Added_Black_King()
         {
             var movesForBlackKing = Target.GetMovesFrom(BoardCoordinate.For(4, 8)).Count();
 
-            Assert.AreEqual<int>(5, movesForBlackKing);
+            Assert.AreEqual<int>(7, movesForBlackKing);
         }
 
     }
