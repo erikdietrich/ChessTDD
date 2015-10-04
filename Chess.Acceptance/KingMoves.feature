@@ -51,7 +51,7 @@ Scenario:  King with nothing around
    | 6 | 7 |
    | 6 | 8 |
    | 7 | 8 |
-   | 2 | 8 |
+   | 3 | 8 |
    
 Scenario: A king eligible to castle
 	When there is a chess board set up as
@@ -72,4 +72,4 @@ Scenario: A king eligible to castle
 	| 6 | 2 |
 	| 6 | 1 |
 	| 7 | 1 |
-	| 2 | 1 |
+	| 3 | 1 |

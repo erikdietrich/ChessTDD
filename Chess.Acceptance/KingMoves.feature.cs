@@ -390,7 +390,7 @@ this.ScenarioSetup(scenarioInfo);
                         "7",
                         "8"});
             table6.AddRow(new string[] {
-                        "2",
+                        "3",
                         "8"});
 #line 46
   testRunner.Then("the piece at (5,8) should have exactly the following moves", ((string)(null)), table6, "Then ");
@@ -513,7 +513,7 @@ this.ScenarioSetup(scenarioInfo);
                         "7",
                         "1"});
             table8.AddRow(new string[] {
-                        "2",
+                        "3",
                         "1"});
 #line 67
  testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table8, "Then ");

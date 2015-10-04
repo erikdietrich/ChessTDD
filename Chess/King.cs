@@ -18,7 +18,7 @@ namespace Chess
                 return validOneSquareAway.Union(new List<BoardCoordinate>() 
                 { 
                     BoardCoordinate.For(startingLocation.X + 2, startingLocation.Y),
-                    BoardCoordinate.For(startingLocation.X - 3, startingLocation.Y)
+                    BoardCoordinate.For(startingLocation.X - 2, startingLocation.Y)
                 });
 
             return validOneSquareAway;
