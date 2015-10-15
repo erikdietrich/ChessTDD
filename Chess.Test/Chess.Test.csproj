@@ -72,6 +72,7 @@
     <Compile Include="BoardTests\Board_MovePiece_Given_Chessboard_With_EnPassantScenarios_Should.cs" />
     <Compile Include="BoardTests\Board_RemovePiece_GivenChessBoardWithoutPawns_Should.cs" />
     <Compile Include="BoardTests\Board_GetMovesFrom_Given_WhiteKing_And_Rooks_Only_Should.cs" />
+    <Compile Include="CastlingStatusCheckerTests\When_Determining_Castling_Status_On_KingAndRookOnly_Board_CastlingStatusChecker_Should.cs" />
     <Compile Include="KingTests\King_GetMovesFrom_Given_FirstMove_Should.cs" />
     <Compile Include="KnightTest.cs" />
     <Compile Include="PathMaker_GetPathToDestination_Given_TwoCoordinates_Should.cs" />
