@@ -10,6 +10,9 @@ namespace Chess
         public static readonly BoardCoordinate WhiteQueensRookStart = BoardCoordinate.For(1, 1);
         public static readonly BoardCoordinate WhiteKingsRookStart = BoardCoordinate.For(8, 1);
 
+        public static readonly BoardCoordinate WhiteCastleMoveQueensSide = BoardCoordinate.For(3, 1);
+        public static readonly BoardCoordinate WhiteCastleMoveKingsSide = BoardCoordinate.For(7, 1);
+
         private readonly Board _board;
         public CastlingStatusChecker(Board board)
         {
@@ -21,18 +24,26 @@ namespace Chess
 
         public IEnumerable<BoardCoordinate> GetCastlingMovesFor(BoardCoordinate moveStart)
         {
-            var castlingmoves = new List<BoardCoordinate>();
+            if (!IsUnmovedKing(moveStart))
+                return Enumerable.Empty<BoardCoordinate>();
 
+            var queenCastleOption = GetCastleMoveIfAvailable(WhiteQueensRookStart, WhiteCastleMoveQueensSide);
+            var kingCastleOption = GetCastleMoveIfAvailable(WhiteKingsRookStart, WhiteCastleMoveKingsSide);
+
+            return queenCastleOption.Union(kingCastleOption);
+        }
+
+        private bool IsUnmovedKing(BoardCoordinate moveStart)
+        {
             var kingToMove = _board.GetPiece(moveStart) as King;
-            if (kingToMove != null && !kingToMove.HasMoved)
-            {
-                if (_board.GetPiece(WhiteQueensRookStart) != null && !_board.GetPiece(WhiteQueensRookStart).HasMoved)
-                    castlingmoves.Add(BoardCoordinate.For(3, 1));
+            return kingToMove != null && !kingToMove.HasMoved;
+        }
 
-                if (_board.GetPiece(WhiteKingsRookStart) != null && !_board.GetPiece(WhiteKingsRookStart).HasMoved)
-                    castlingmoves.Add(BoardCoordinate.For(7, 1));
-            }
-            return castlingmoves;
+        private IEnumerable<BoardCoordinate> GetCastleMoveIfAvailable(BoardCoordinate rookStart, BoardCoordinate moveIfSuccess)
+        {
+            var piece = _board.GetPiece(rookStart);
+            if (piece != null && !piece.HasMoved)
+                yield return moveIfSuccess;
         }
     }
 }
