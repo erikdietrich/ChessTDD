@@ -13,6 +13,13 @@ namespace Chess
         public static readonly BoardCoordinate WhiteCastleMoveQueensSide = BoardCoordinate.For(3, 1);
         public static readonly BoardCoordinate WhiteCastleMoveKingsSide = BoardCoordinate.For(7, 1);
 
+        public static readonly BoardCoordinate BlackKingStart = BoardCoordinate.For(5, 8);
+        public static readonly BoardCoordinate BlackQueensRookStart = BoardCoordinate.For(1, 8);
+        public static readonly BoardCoordinate BlackKingsRookStart = BoardCoordinate.For(8, 8);
+
+        public static readonly BoardCoordinate BlackCastleMoveQueensSide = BoardCoordinate.For(3, 8);
+        public static readonly BoardCoordinate BlackCastleMoveKingsSide = BoardCoordinate.For(7, 8);
+
         private readonly Board _board;
         public CastlingStatusChecker(Board board)
         {
@@ -27,8 +34,13 @@ namespace Chess
             if (!IsUnmovedKing(moveStart))
                 return Enumerable.Empty<BoardCoordinate>();
 
-            var queenCastleOption = GetCastleMoveIfAvailable(WhiteQueensRookStart, WhiteCastleMoveQueensSide);
-            var kingCastleOption = GetCastleMoveIfAvailable(WhiteKingsRookStart, WhiteCastleMoveKingsSide);
+            return moveStart.Y == 1 ? EvaluateRowForCastling(1) : EvaluateRowForCastling(8);
+        }
+
+        private IEnumerable<BoardCoordinate> EvaluateRowForCastling(int row)
+        {
+            var queenCastleOption = GetCastleMoveIfAvailable(BoardCoordinate.For(1, row), BoardCoordinate.For(3, row));
+            var kingCastleOption = GetCastleMoveIfAvailable(BoardCoordinate.For(8, row), BoardCoordinate.For(7, row));
 
             return queenCastleOption.Union(kingCastleOption);
         }
