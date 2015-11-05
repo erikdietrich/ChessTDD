@@ -23,7 +23,8 @@ namespace Chess
 
         public Board(int boardSize = DefaultBoardSize)
         {
-            VerifyBoardSizeOrThrow(boardSize);
+            if (boardSize <= 0)
+                throw new ArgumentException("boardSize");
 
             _boardSize = boardSize;
             _pieces = new Piece[boardSize, boardSize];
@@ -132,12 +133,6 @@ namespace Chess
         {
             var piece = GetPiece(destination);
             return piece != null && piece.IsFirstPlayerPiece == GetPiece(origin).IsFirstPlayerPiece;
-        }
-
-        private static void VerifyBoardSizeOrThrow(int boardSize)
-        {
-            if (boardSize <= 0)
-                throw new ArgumentException("boardSize");
         }
         private void SetPiece(Piece piece, BoardCoordinate location)
         {
