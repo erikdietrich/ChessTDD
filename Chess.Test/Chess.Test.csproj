@@ -75,7 +75,6 @@
     <Compile Include="CastlingStatusCheckerTests\When_Determining_Castling_Status_On_KingAndRookOnly_Board_CastlingStatusChecker_Should.cs" />
     <Compile Include="KingTests\King_GetMovesFrom_Given_FirstMove_Should.cs" />
     <Compile Include="KnightTest.cs" />
-    <Compile Include="PathMaker_GetPathToDestination_Given_TwoCoordinates_Should.cs" />
     <Compile Include="PawnTests\Pawn_GetMovesFrom_For_BlackPawn_Should.cs" />
     <Compile Include="PawnTests\Pawn_IsCaptureAllowed_For_BlackPawn_Should.cs" />
     <Compile Include="PawnTests\Pawn_IsNonCaptureAllowed_For_BlackPawn_Should.cs" />

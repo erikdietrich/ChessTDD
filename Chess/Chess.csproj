@@ -49,7 +49,6 @@
     <Compile Include="PiecePositioner.cs" />
     <Compile Include="King.cs" />
     <Compile Include="Knight.cs" />
-    <Compile Include="PathMaker.cs" />
     <Compile Include="Pawn.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Program.cs" />

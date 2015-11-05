@@ -42,14 +42,45 @@ namespace Chess
 
         public void MovePiece(BoardCoordinate origin, BoardCoordinate destination)
         {
-            VerifyCoordinatesOrThrow(origin, destination);
+            if(!origin.IsCoordinateValidForBoardSize(_boardSize))
+                throw new ArgumentException(nameof(origin));
+            if(!destination.IsCoordinateValidForBoardSize(_boardSize))
+                throw new ArgumentException(nameof(destination));
 
             var pieceToMove = GetPiece(origin);
             AddPiece(pieceToMove, destination);
             RemovePiece(origin);
             pieceToMove.HasMoved = true;
 
-            ReconcileEnPassant(origin, destination, pieceToMove);
+            #region EnPassant
+
+            const int enPassantTrigger = 2;
+            var movementFactor = pieceToMove.IsFirstPlayerPiece ? -enPassantTrigger : enPassantTrigger;
+            if (origin.Y == destination.Y + movementFactor)
+            {
+                var leftTarget = BoardCoordinate.For(destination.X - 1, destination.Y);
+                var rightTarget = BoardCoordinate.For(destination.X + 1, destination.Y);
+                if (leftTarget.IsCoordinateValidForBoardSize(_boardSize))
+                {
+                    var targetPawn = GetPiece(leftTarget) as Pawn;
+                    if (targetPawn != null)
+                        targetPawn.SetCanPerformEnPassantOn(destination);
+                }
+                if (rightTarget.IsCoordinateValidForBoardSize(_boardSize))
+                {
+                    var targetPawn = GetPiece(rightTarget) as Pawn;
+                    if (targetPawn != null)
+                        targetPawn.SetCanPerformEnPassantOn(destination);
+                }
+            }
+            foreach (var piece in _pieces)
+            {
+                var pawn = piece as Pawn;
+                if (pawn != null && pawn.IsFirstPlayerPiece == pieceToMove.IsFirstPlayerPiece)
+                    pawn.ClearEnPassant();
+            }
+
+            #endregion
         }
 
         public void RemovePiece(BoardCoordinate coordinateForRemoval)
@@ -67,70 +98,92 @@ namespace Chess
 
         public bool DoesPieceExistAt(BoardCoordinate coordinateToCheck)
         {
-            return GetPiece(coordinateToCheck) != null;
+            return coordinateToCheck.IsCoordinateValidForBoardSize(_boardSize) && GetPiece(coordinateToCheck) != null;
         }
 
         public IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate originCoordinate)
         {
-            var piece = GetPiece(originCoordinate);
-            var allPossibleMoves = piece.GetMovesFrom(originCoordinate);
-            return allPossibleMoves.Where(move => IsMoveLegal(originCoordinate, move));
-        }
+            var moves = new List<BoardCoordinate>();
+            var pieceAtOrigin = GetPiece(originCoordinate);
+            var allPossiblePieceMoves = pieceAtOrigin.GetMovesFrom(originCoordinate);
 
-        #region EnPassantStuff
-        private void ReconcileEnPassant(BoardCoordinate origin, BoardCoordinate destination, Piece pieceToMove)
-        {
-            if (IsEnPassantApplicable(origin, destination, pieceToMove))
-                SetEnPassantIfCandidatePawnsArePresent(destination);
-            CleanEnPassantForPlayerThatJustMoved(pieceToMove);
-        }
-        private static bool IsEnPassantApplicable(BoardCoordinate origin, BoardCoordinate destination, Piece pieceToMove)
-        {
-            const int enPassantTrigger = 2;
-            var movementFactor = pieceToMove.IsFirstPlayerPiece ? -enPassantTrigger : enPassantTrigger;
-            return origin.Y == destination.Y + movementFactor;
-        }
-        private void SetEnPassantIfCandidatePawnsArePresent(BoardCoordinate destination)
-        {
-            var leftTarget = BoardCoordinate.For(destination.X - 1, destination.Y);
-            var rightTarget = BoardCoordinate.For(destination.X + 1, destination.Y);
-
-            SetEnPassantIfPawnExistsAtTarget(destination, leftTarget);
-            SetEnPassantIfPawnExistsAtTarget(destination, rightTarget);
-        }
-
-        private void SetEnPassantIfPawnExistsAtTarget(BoardCoordinate destination, BoardCoordinate enPassantTarget)
-        {
-            if (enPassantTarget.IsCoordinateValidForBoardSize(_boardSize))
+            foreach (var destinationCoordinate in allPossiblePieceMoves)
             {
-                var targetPawn = GetPiece(enPassantTarget) as Pawn;
-                if (targetPawn != null)
-                    targetPawn.SetCanPerformEnPassantOn(destination);
+                var isCapture = destinationCoordinate.IsCoordinateValidForBoardSize(_boardSize) && GetPiece(destinationCoordinate) != null;
+
+                var isIllegalCapture = isCapture && !GetPiece(originCoordinate).IsCaptureAllowed(originCoordinate, destinationCoordinate);
+                var isIllegalNonCapture = !isCapture && !GetPiece(originCoordinate).IsNonCaptureAllowed(originCoordinate, destinationCoordinate);
+
+                var spaces = new List<BoardCoordinate>();
+                if (originCoordinate.IsOnSameHorizontalPathAs(destinationCoordinate))
+                {
+                    if (originCoordinate.X < destinationCoordinate.X)
+                    {
+                        for (int x = originCoordinate.X + 1; x <= destinationCoordinate.X; x++)
+                        {
+                            var coordinate = BoardCoordinate.For(x, originCoordinate.Y);
+                            spaces.Add(coordinate);
+                        }
+                    }
+                    else
+                    {
+                        for (int x = originCoordinate.X - 1; x >= destinationCoordinate.X; x--)
+                        {
+                            var coordinate = BoardCoordinate.For(x, originCoordinate.Y);
+                            spaces.Add(coordinate);
+                        }
+                    }
+                }
+                else
+                    if (originCoordinate.IsOnSameVerticalPathAs(destinationCoordinate))
+                {
+                    if (originCoordinate.Y < destinationCoordinate.Y)
+                    {
+                        for (int y = originCoordinate.Y + 1; y <= destinationCoordinate.Y; y++)
+                        {
+                            var coordinate = BoardCoordinate.For(originCoordinate.X, y);
+                            spaces.Add(coordinate);
+                        }
+                    }
+                    else
+                    {
+                        for (int y = originCoordinate.Y - 1; y >= destinationCoordinate.Y; y--)
+                        {
+                            var coordinate = BoardCoordinate.For(originCoordinate.X, y);
+                            spaces.Add(coordinate);
+                        }
+                    }
+                }
+                else
+                        if (originCoordinate.IsOnSameDiagonalPathAs(destinationCoordinate))
+                {
+                    var absoluteDistance = Math.Abs(originCoordinate.X - destinationCoordinate.X);
+                    var xDirection = (destinationCoordinate.X - originCoordinate.X) / absoluteDistance;
+                    var yDirection = (destinationCoordinate.Y - originCoordinate.Y) / absoluteDistance;
+                    for (int i = 1; i <= absoluteDistance; i++)
+                    {
+                        int xCoordinate = originCoordinate.X + i * xDirection;
+                        int yCoordinate = originCoordinate.Y + i * yDirection;
+                        var coordinate = BoardCoordinate.For(xCoordinate, yCoordinate);
+                        spaces.Add(coordinate);
+                    }
+                }
+
+                bool isDestinationValidForBoardSize = destinationCoordinate.IsCoordinateValidForBoardSize(_boardSize);
+                bool isBlocked = spaces.Any(space => DoesFriendlyPieceExistAt(originCoordinate, space)) || spaces.Any(space => DoesPieceExistAt(space) && !space.Equals(spaces.LastOrDefault()));
+                bool friendlyPieceAtDestination = DoesFriendlyPieceExistAt(originCoordinate, destinationCoordinate);
+
+                if (!isIllegalCapture && !isIllegalNonCapture && isDestinationValidForBoardSize && !isBlocked && !friendlyPieceAtDestination)
+                {
+                    moves.Add(destinationCoordinate);
+                }
             }
-        }
-        private void CleanEnPassantForPlayerThatJustMoved(Piece pieceToMove)
-        {
-            foreach (var piece in _pieces)
-            {
-                var pawn = piece as Pawn;
-                if (pawn != null && pawn.IsFirstPlayerPiece == pieceToMove.IsFirstPlayerPiece)
-                    pawn.ClearEnPassant();
-            }
-        }
-        #endregion
-
-        private bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            var isCapture = destination.IsCoordinateValidForBoardSize(_boardSize) && GetPiece(destination) != null;
-
-            var isIllegalCapture = isCapture && !GetPiece(origin).IsCaptureAllowed(origin, destination);
-            var isIllegalNonCapture = !isCapture && !GetPiece(origin).IsNonCaptureAllowed(origin, destination);
-
-            return !isIllegalCapture && !isIllegalNonCapture && destination.IsCoordinateValidForBoardSize(_boardSize) &&
-                !IsBlocked(origin, destination) && !DoesFriendlyPieceExistAt(origin, destination);
+            return moves;
         }
         private bool DoesFriendlyPieceExistAt(BoardCoordinate origin, BoardCoordinate destination)
         {
+            if (!destination.IsCoordinateValidForBoardSize(_boardSize))
+                return false;
             var piece = GetPiece(destination);
             return piece != null && piece.IsFirstPlayerPiece == GetPiece(origin).IsFirstPlayerPiece;
         }
@@ -138,20 +191,5 @@ namespace Chess
         {
             _pieces[location.X - 1, location.Y - 1] = piece;
         }
-
-        private void VerifyCoordinatesOrThrow(params BoardCoordinate[] coordinates)
-        {
-            if (coordinates.Any(bc => !bc.IsCoordinateValidForBoardSize(_boardSize)))
-                throw new ArgumentException("coordinate");
-        }
-
-        private bool IsBlocked(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            var checker = new PathMaker(origin, destination);
-            var spacesAlongPath = checker.GetPathToDestination();
-            var lastSpace = spacesAlongPath.LastOrDefault();
-            return spacesAlongPath.Any(space => DoesFriendlyPieceExistAt(origin, space)) || spacesAlongPath.Any(space => DoesPieceExistAt(space) && !space.Equals(lastSpace));
-        }
-
     }
 }
