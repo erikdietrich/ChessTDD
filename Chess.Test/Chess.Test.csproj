@@ -62,7 +62,6 @@
     <Compile Include="BishopTest.cs" />
     <Compile Include="BoardTests\Board_AddPiece_Given_EmptyBoard_Should.cs" />
     <Compile Include="BoardTests\Board_Constructor_Should.cs" />
-    <Compile Include="BoardTests\Board_GetMovesFrom_Given_ChessboardSetupWithoutBlackPieces_Should.cs" />
     <Compile Include="BoardTests\Board_GetMovesFrom_Given_ChessboardSetupWithoutPawns_Should.cs" />
     <Compile Include="BoardTests\Board_GetMovesFrom_Given_NormalChessboardSetup_Should.cs" />
     <Compile Include="BoardTests\Board_GetMovesFrom_Given_Pawn_Advanced_To_End_Should.cs" />
@@ -73,7 +72,6 @@
     <Compile Include="BoardTests\Board_RemovePiece_GivenChessBoardWithoutPawns_Should.cs" />
     <Compile Include="BoardTests\Board_GetMovesFrom_Given_WhiteKing_And_Rooks_Only_Should.cs" />
     <Compile Include="CastlingStatusCheckerTests\When_Determining_Castling_Status_On_KingAndRookOnly_Board_CastlingStatusChecker_Should.cs" />
-    <Compile Include="KingTests\King_GetMovesFrom_Given_FirstMove_Should.cs" />
     <Compile Include="KnightTest.cs" />
     <Compile Include="PathMaker_GetPathToDestination_Given_TwoCoordinates_Should.cs" />
     <Compile Include="PawnTests\Pawn_GetMovesFrom_For_BlackPawn_Should.cs" />

@@ -8,7 +8,20 @@ namespace Chess.Test.CastlingStatusCheckerTests
     [TestClass]
     public class When_Determining_Castling_Status_On_KingAndRookOnly_Board_CastlingStatusChecker_Should
     {
-        
+        public static readonly BoardCoordinate WhiteKingStart = BoardCoordinate.For(5, 1);
+        public static readonly BoardCoordinate WhiteQueensRookStart = BoardCoordinate.For(1, 1);
+        public static readonly BoardCoordinate WhiteKingsRookStart = BoardCoordinate.For(8, 1);
+
+        public static readonly BoardCoordinate WhiteCastleMoveQueensSide = BoardCoordinate.For(3, 1);
+        public static readonly BoardCoordinate WhiteCastleMoveKingsSide = BoardCoordinate.For(7, 1);
+
+        public static readonly BoardCoordinate BlackKingStart = BoardCoordinate.For(5, 8);
+        public static readonly BoardCoordinate BlackQueensRookStart = BoardCoordinate.For(1, 8);
+        public static readonly BoardCoordinate BlackKingsRookStart = BoardCoordinate.For(8, 8);
+
+        public static readonly BoardCoordinate BlackCastleMoveQueensSide = BoardCoordinate.For(3, 8);
+        public static readonly BoardCoordinate BlackCastleMoveKingsSide = BoardCoordinate.For(7, 8);
+
         private Board Board { get; set; }
 
         private CastlingStatusChecker Target { get; set; }
@@ -18,13 +31,13 @@ namespace Chess.Test.CastlingStatusCheckerTests
         {
             Board = new Board();
 
-            Board.AddPiece(new Rook(), CastlingStatusChecker.WhiteQueensRookStart);
-            Board.AddPiece(new Rook(), CastlingStatusChecker.WhiteKingsRookStart);
-            Board.AddPiece(new King(), CastlingStatusChecker.WhiteKingStart);
+            Board.AddPiece(new Rook(), WhiteQueensRookStart);
+            Board.AddPiece(new Rook(), WhiteKingsRookStart);
+            Board.AddPiece(new King(), WhiteKingStart);
 
-            Board.AddPiece(new Rook(false), BoardCoordinate.For(1, 8));
-            Board.AddPiece(new Rook(false), BoardCoordinate.For(8, 8));
-            Board.AddPiece(new King(false), CastlingStatusChecker.BlackKingStart);
+            Board.AddPiece(new Rook(false), BlackQueensRookStart);
+            Board.AddPiece(new Rook(false), BlackKingsRookStart);
+            Board.AddPiece(new King(false), BlackKingStart);
 
             Target = new CastlingStatusChecker(Board);
         }
@@ -32,7 +45,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Two_CastlingMoves_For_Black_King_StartSquare_When_Nothing_Has_Moved()
         {
-            var movesForBlackKing = Target.GetCastlingMovesFor(CastlingStatusChecker.BlackKingStart);
+            var movesForBlackKing = Target.GetCastlingMovesFor(BlackKingStart);
 
             Assert.AreEqual<int>(2, movesForBlackKing.Count());
         }
@@ -40,25 +53,25 @@ namespace Chess.Test.CastlingStatusCheckerTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_83_For_Black_King_StartSquare_When_Nothing_Has_Moved()
         {
-            var movesForBlackKing = Target.GetCastlingMovesFor(CastlingStatusChecker.BlackKingStart);
+            var movesForBlackKing = Target.GetCastlingMovesFor(BlackKingStart);
 
-            Assert.IsTrue(movesForBlackKing.Any(bc => bc.Matches(3, 8)));
+            Assert.IsTrue(movesForBlackKing.Any(bc => bc.Matches(BlackCastleMoveQueensSide)));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_78_Only_If_Queens_Rook_Has_Moved()
         {
-            Board.GetPiece(CastlingStatusChecker.BlackQueensRookStart).HasMoved = true;
+            Board.GetPiece(BlackQueensRookStart).HasMoved = true;
 
-            var movesForBlackKing = Target.GetCastlingMovesFor(CastlingStatusChecker.BlackKingStart);
+            var movesForBlackKing = Target.GetCastlingMovesFor(BlackKingStart);
 
-            Assert.IsTrue(movesForBlackKing.All(bc => bc.Matches(7, 8)));
+            Assert.IsTrue(movesForBlackKing.All(bc => bc.Matches(BlackCastleMoveKingsSide)));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Two_CastlingMoves_For_KingStartSquare_When_Nothing_Has_Moved()
         {
-            var movesForWhiteKing = Target.GetCastlingMovesFor(CastlingStatusChecker.WhiteKingStart);
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
             Assert.AreEqual<int>(2, movesForWhiteKing.Count());
         }
@@ -66,17 +79,17 @@ namespace Chess.Test.CastlingStatusCheckerTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_13_For_KingStartSquare_When_Nothing_Has_Moved()
         {
-            var movesForWhiteKing = Target.GetCastlingMovesFor(CastlingStatusChecker.WhiteKingStart);
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
-            Assert.IsTrue(movesForWhiteKing.Any(bc => bc.Matches(3, 1)));
+            Assert.IsTrue(movesForWhiteKing.Any(bc => bc.Matches(WhiteCastleMoveQueensSide)));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_17_For_KingStartSquare_When_Nothing_Has_Moved()
         {
-            var movesForWhiteKing = Target.GetCastlingMovesFor(CastlingStatusChecker.WhiteKingStart);
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
-            Assert.IsTrue(movesForWhiteKing.Any(bc => bc.Matches(7, 1)));
+            Assert.IsTrue(movesForWhiteKing.Any(bc => bc.Matches(WhiteCastleMoveKingsSide)));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -90,9 +103,9 @@ namespace Chess.Test.CastlingStatusCheckerTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Empty_If_King_Has_Moved()
         {
-            Board.GetPiece(CastlingStatusChecker.WhiteKingStart).HasMoved = true;
+            Board.GetPiece(WhiteKingStart).HasMoved = true;
 
-            var movesForWhiteKing = Target.GetCastlingMovesFor(CastlingStatusChecker.WhiteKingStart);
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
             Assert.IsFalse(movesForWhiteKing.Any());
         }
@@ -106,31 +119,31 @@ namespace Chess.Test.CastlingStatusCheckerTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_71_Only_If_QueensRook_Has_Moved()
         {
-            Board.GetPiece(CastlingStatusChecker.WhiteQueensRookStart).HasMoved = true;
+            Board.GetPiece(WhiteQueensRookStart).HasMoved = true;
 
-            var movesForWhiteKing = Target.GetCastlingMovesFor(CastlingStatusChecker.WhiteKingStart);
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
-            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(7, 1)));
+            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(WhiteCastleMoveKingsSide)));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_13_Only_If_KingsRook_Is_Not_There()
         {
-            Board.RemovePiece(CastlingStatusChecker.WhiteKingsRookStart);
+            Board.RemovePiece(WhiteKingsRookStart);
 
-            var movesForWhiteKing = Target.GetCastlingMovesFor(CastlingStatusChecker.WhiteKingStart);
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
-            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(3, 1)));
+            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(WhiteCastleMoveQueensSide)));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Only_Return_17_If_QueensRook_Is_Not_There()
         {
-            Board.RemovePiece(CastlingStatusChecker.WhiteQueensRookStart);
+            Board.RemovePiece(WhiteQueensRookStart);
 
-            var movesForWhiteKing = Target.GetCastlingMovesFor(CastlingStatusChecker.WhiteKingStart);
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
-            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(7, 1)));
+            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(WhiteCastleMoveKingsSide)));
         }
 
     }

@@ -73,11 +73,11 @@ namespace Chess.Test.KingTests
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-            public void Has_Seven_Moves_When_Starting_At_Back_End_Of_Board()
+            public void Has_Five_Moves_When_Starting_At_Back_End_Of_Board()
             {
                 var moves = Target.GetMovesFrom(BoardCoordinate.For(4, 8));
 
-                Assert.AreEqual<int>(7, moves.Count());
+                Assert.AreEqual<int>(5, moves.Count());
             }
         }
         

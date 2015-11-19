@@ -72,7 +72,9 @@ namespace Chess
         public IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate originCoordinate)
         {
             var piece = GetPiece(originCoordinate);
-            var allPossibleMoves = piece.GetMovesFrom(originCoordinate);
+            var checker = new CastlingStatusChecker(this);
+            var castlingMoves = checker.GetCastlingMovesFor(originCoordinate).ToList();
+            var allPossibleMoves = piece.GetMovesFrom(originCoordinate).Union(castlingMoves);
             return allPossibleMoves.Where(move => IsMoveLegal(originCoordinate, move));
         }
 

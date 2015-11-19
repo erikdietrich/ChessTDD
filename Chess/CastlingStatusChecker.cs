@@ -6,21 +6,16 @@ namespace Chess
 {
     public class CastlingStatusChecker
     {
-        public static readonly BoardCoordinate WhiteKingStart = BoardCoordinate.For(5, 1);
-        public static readonly BoardCoordinate WhiteQueensRookStart = BoardCoordinate.For(1, 1);
-        public static readonly BoardCoordinate WhiteKingsRookStart = BoardCoordinate.For(8, 1);
+        private const int QueensRookColumn = 1;
+        private const int QueenCastleColumn = 3;
+        private const int KingCastleColumn = 7;
+        private const int KingRookColumn = 8;
 
-        public static readonly BoardCoordinate WhiteCastleMoveQueensSide = BoardCoordinate.For(3, 1);
-        public static readonly BoardCoordinate WhiteCastleMoveKingsSide = BoardCoordinate.For(7, 1);
-
-        public static readonly BoardCoordinate BlackKingStart = BoardCoordinate.For(5, 8);
-        public static readonly BoardCoordinate BlackQueensRookStart = BoardCoordinate.For(1, 8);
-        public static readonly BoardCoordinate BlackKingsRookStart = BoardCoordinate.For(8, 8);
-
-        public static readonly BoardCoordinate BlackCastleMoveQueensSide = BoardCoordinate.For(3, 8);
-        public static readonly BoardCoordinate BlackCastleMoveKingsSide = BoardCoordinate.For(7, 8);
+        private const int WhiteKingRow = 1;
+        private const int BlackKingRow = 8;
 
         private readonly Board _board;
+
         public CastlingStatusChecker(Board board)
         {
             if (board == null)
@@ -34,13 +29,13 @@ namespace Chess
             if (!IsUnmovedKing(moveStart))
                 return Enumerable.Empty<BoardCoordinate>();
 
-            return moveStart.Y == 1 ? EvaluateRowForCastling(1) : EvaluateRowForCastling(8);
+            return moveStart.Y == WhiteKingRow ? EvaluateRowForCastling(WhiteKingRow) : EvaluateRowForCastling(BlackKingRow);
         }
 
         private IEnumerable<BoardCoordinate> EvaluateRowForCastling(int row)
         {
-            var queenCastleOption = GetCastleMoveIfAvailable(BoardCoordinate.For(1, row), BoardCoordinate.For(3, row));
-            var kingCastleOption = GetCastleMoveIfAvailable(BoardCoordinate.For(8, row), BoardCoordinate.For(7, row));
+            var queenCastleOption = GetCastleMoveIfAvailable(BoardCoordinate.For(QueensRookColumn, row), BoardCoordinate.For(QueenCastleColumn, row));
+            var kingCastleOption = GetCastleMoveIfAvailable(BoardCoordinate.For(KingRookColumn, row), BoardCoordinate.For(KingCastleColumn, row));
 
             return queenCastleOption.Union(kingCastleOption);
         }

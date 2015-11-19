@@ -55,15 +55,15 @@ Scenario:  King with nothing around
    
 Scenario: A king eligible to castle
 	When there is a chess board set up as
-    	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
-    	|     |     |     |     |     |     |     |     |
-    	|     |     |     |     |     |     |     |     |
-    	|     |     |     |     |     |     |     |     |
-    	|     |     |     |     |     |     |     |     |
-    	|     |     |     |     |     |     |     |     |
-    	|     |     |     |     |     |     |     |     |
-    	|     |     |     |     |     |     |     |     |
-    	|  WR |     |     |     |  WK |     |     | WR  |
+	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|  WR |     |     |     |  WK |     |     | WR  |
 	Then the piece at (5,1) should have exactly the following moves
 	| X | Y |
 	| 4 | 1 |
@@ -73,3 +73,89 @@ Scenario: A king eligible to castle
 	| 6 | 1 |
 	| 7 | 1 |
 	| 3 | 1 |
+
+Scenario: A King that can castle on one side only
+	When there is a chess board set up as
+	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |  WK |     |     | WR  |
+	Then the piece at (5,1) should have exactly the following moves
+	| X | Y |
+	| 4 | 1 |
+	| 4 | 2 |
+	| 5 | 2 |
+	| 6 | 2 |
+	| 6 | 1 |
+	| 7 | 1 |
+
+Scenario: Black king eligible to castle
+	When there is a chess board set up as
+	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	|  BR |     |     |     |  BK |     |     | BR  |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	Then the piece at (5,8) should have exactly the following moves
+	| X | Y |
+	| 4 | 8 |
+	| 4 | 7 |
+	| 5 | 7 |
+	| 6 | 7 |
+	| 6 | 8 |
+	| 7 | 8 |
+	| 3 | 8 |
+
+Scenario: Castling when rook has moved
+	When there is a chess board set up as
+	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|  WR |     |     |     |  WK |     |     | WR  |
+	And there is a move from (1,1) to (1,2)
+	And there is a move from (1,2) to (1,1)
+	Then the piece at (5,1) should have exactly the following moves
+	| X | Y |
+	| 4 | 1 |
+	| 4 | 2 |
+	| 5 | 2 |
+	| 6 | 2 |
+	| 6 | 1 |
+	| 7 | 1 |
+
+Scenario: Castling when king has moved
+	When there is a chess board set up as
+	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|  WR |     |     |     |  WK |     |     | WR  |
+	And there is a move from (5,1) to (5,2)
+	And there is a move from (5,2) to (5,1)
+	Then the piece at (5,1) should have exactly the following moves
+	| X | Y |
+	| 4 | 1 |
+	| 4 | 2 |
+	| 5 | 2 |
+	| 6 | 2 |
+	| 6 | 1 |
+
+
