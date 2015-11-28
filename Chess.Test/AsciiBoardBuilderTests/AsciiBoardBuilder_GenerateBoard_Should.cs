@@ -57,7 +57,7 @@ namespace Chess.Test.AsciiBoardBuilderTests
         {
             Target.AddPiece(SomeCoordinate, "WB");
 
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate);
+            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
 
             var isWhiteBishop = addedPiece.GetType() == typeof(Bishop) && addedPiece.IsFirstPlayerPiece;
 
@@ -69,7 +69,7 @@ namespace Chess.Test.AsciiBoardBuilderTests
         {
             Target.AddPiece(SomeCoordinate, "BB");
 
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate);
+            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X,SomeCoordinate.Y);
 
             var isBlackBishop = addedPiece.GetType() == typeof(Bishop) && !addedPiece.IsFirstPlayerPiece;
 
@@ -80,7 +80,7 @@ namespace Chess.Test.AsciiBoardBuilderTests
         public void Generate_Board_With_Queen_When_WQ_Is_Added()
         {
             Target.AddPiece(SomeCoordinate, "WQ");
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate);
+            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
 
             Assert.IsInstanceOfType(addedPiece, typeof(Queen));
         }
@@ -89,7 +89,7 @@ namespace Chess.Test.AsciiBoardBuilderTests
         public void Generate_Board_With_King_When_BK_Is_Added()
         {
             Target.AddPiece(SomeCoordinate, "BK");
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate);
+            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
 
             Assert.IsInstanceOfType(addedPiece, typeof(King));
         }
@@ -98,7 +98,7 @@ namespace Chess.Test.AsciiBoardBuilderTests
         public void Generate_Board_With_Rook_When_WR_Is_Added()
         {
             Target.AddPiece(SomeCoordinate, "WR");
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate);
+            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
 
             Assert.IsInstanceOfType(addedPiece, typeof(Rook));
         }
@@ -107,7 +107,7 @@ namespace Chess.Test.AsciiBoardBuilderTests
         public void Generate_Board_With_Knight_When_BKn_Is_Added()
         {
             Target.AddPiece(SomeCoordinate, "BKn");
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate);
+            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
 
             Assert.IsInstanceOfType(addedPiece, typeof(Knight));
         }

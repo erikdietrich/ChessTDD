@@ -24,45 +24,37 @@ namespace Chess.Test.BoardTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Not_Throw_Exception_When_Adding_A_Piece_To_An_Unoccupied_Square()
         {
-            Target.AddPiece(new Pawn(), new BoardCoordinate(2, 1));
+            Target.AddPiece(new Pawn(), 2, 1);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_When_BoardCoordinate_Has_Larger_X_Value_Than_Board_Size()
         {
-            var coordinate = new BoardCoordinate(9, 1);
-
-            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), coordinate));
+            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), 9, 1));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_When_BoardCoordinate_Has_Larger_Y_Value_Than_Board_Size()
         {
-            var coordinate = new BoardCoordinate(1, 9);
-
-            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), coordinate));
+            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), 1, 9));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_When_BoardCoordinate_Has_Zero_X_Value()
         {
-            var coordinate = new BoardCoordinate(0, 3);
-
-            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), coordinate));
+            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(new Pawn(), 0, 3));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Accept_Rook_As_Argument_For_Piece()
         {
-            var coordinate = new BoardCoordinate(1, 2);
-
-            Target.AddPiece(new Rook(), coordinate);
+            Target.AddPiece(new Rook(), 1, 2);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_On_Null_Arguments()
         {
-            ExtendedAssert.Throws<ArgumentNullException>(() => Target.AddPiece(null, BoardCoordinate.For(2, 3)));
+            ExtendedAssert.Throws<ArgumentNullException>(() => Target.AddPiece(null, 2, 3));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -70,7 +62,7 @@ namespace Chess.Test.BoardTests
         {
             Target = new Board(9);
 
-            Target.AddPiece(new Rook(), BoardCoordinate.For(9, 9));
+            Target.AddPiece(new Rook(), 9, 9);
         }
     }
 }

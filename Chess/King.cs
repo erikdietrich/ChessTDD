@@ -9,19 +9,24 @@ namespace Chess
         public King(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<BoardCoordinate> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
         {
-            var oneSquareAwayMoves = GetAllRadialMovesFrom(startingLocation, 1);
-            var validOneSquareAway = oneSquareAwayMoves.Where(bc => bc.IsCoordinateValidForBoardSize(boardSize));
+            var oneSquareAwayMoves = GetAllRadialMovesFrom(BoardCoordinate.For(startingLocationX, startingLocationY), 1);
+            var validOneSquareAway = oneSquareAwayMoves.Where(bc => IsCoordinateValidForBoardSize(bc.X, bc.Y, boardSize));
 
             if (!HasMoved)
                 return validOneSquareAway.Union(new List<BoardCoordinate>() 
                 { 
-                    BoardCoordinate.For(startingLocation.X + 2, startingLocation.Y),
-                    BoardCoordinate.For(startingLocation.X - 2, startingLocation.Y)
+                    BoardCoordinate.For(startingLocationX + 2, startingLocationY),
+                    BoardCoordinate.For(startingLocationX - 2, startingLocationY)
                 });
 
             return validOneSquareAway;
+        }
+
+        private static bool IsCoordinateValidForBoardSize(int x, int y, int boardSize)
+        {
+            return x > 0 && x <= boardSize && y > 0 && y <= boardSize;
         }
     }
 }

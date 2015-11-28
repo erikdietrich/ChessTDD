@@ -18,13 +18,13 @@ namespace Chess.Test.BoardTests
             Piece = new Pawn();
             Target = new Board();
 
-            Target.AddPiece(Piece, new BoardCoordinate(1, 1));
+            Target.AddPiece(Piece, 1, 1);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Retrieves_Piece_Added_To_Location()
         {
-            Assert.AreEqual<Piece>(Piece, Target.GetPiece(new BoardCoordinate(1, 1)));
+            Assert.AreEqual<Piece>(Piece, Target.GetPiece(1, 1));
         }
     }
 }

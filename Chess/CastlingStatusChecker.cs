@@ -35,13 +35,13 @@ namespace Chess
 
         private bool IsUnmovedKing(BoardCoordinate moveStart)
         {
-            var kingToMove = _board.GetPiece(moveStart) as King;
+            var kingToMove = _board.GetPiece(moveStart.X, moveStart.Y) as King;
             return kingToMove != null && !kingToMove.HasMoved;
         }
 
         private IEnumerable<BoardCoordinate> GetCastleMoveIfAvailable(BoardCoordinate rookStart, BoardCoordinate moveIfSuccess)
         {
-            var piece = _board.GetPiece(rookStart);
+            var piece = _board.GetPiece(rookStart.X, rookStart.Y);
             if (piece != null && !piece.HasMoved)
                 yield return moveIfSuccess;
         }

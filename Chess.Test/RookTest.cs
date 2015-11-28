@@ -17,7 +17,7 @@ namespace Chess.Test
         public void BeforeEachTest()
         {
             Target = new Rook();
-            MovesFrom11 = Target.GetMovesFrom(new BoardCoordinate(1, 1));
+            MovesFrom11 = Target.GetMovesFrom(1, 1);
         }
 
         [TestClass]
@@ -44,7 +44,7 @@ namespace Chess.Test
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_7_4_From_7_1()
             {
-                var moves = Target.GetMovesFrom(new BoardCoordinate(7, 1));
+                var moves = Target.GetMovesFrom(7, 1);
 
                 Assert.IsTrue(moves.Any(bc => bc.X == 7 && bc.Y == 4));
             }

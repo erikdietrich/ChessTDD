@@ -20,13 +20,13 @@ namespace Chess.Test.BoardTests
             positioner.SetupStandardPieces(1);
             positioner.SetupStandardPawns(2);
 
-            Target.AddPiece(new King(false), BoardCoordinate.For(4, 8));
+            Target.AddPiece(new King(false), 4, 8);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Seven_Moves_For_Added_Black_King()
         {
-            var movesForBlackKing = Target.GetMovesFrom(BoardCoordinate.For(4, 8)).Count();
+            var movesForBlackKing = Target.GetMovesFrom(4, 8).Count();
 
             Assert.AreEqual<int>(7, movesForBlackKing);
         }

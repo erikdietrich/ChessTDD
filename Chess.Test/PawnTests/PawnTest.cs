@@ -17,7 +17,7 @@ namespace Chess.Test.PawnTests
         public void BeforeEachTest()
         {
             Target = new Pawn();
-            MovesFrom22 = Target.GetMovesFrom(new BoardCoordinate(2, 2));
+            MovesFrom22 = Target.GetMovesFrom(2, 2);
         }
 
         [TestClass]
@@ -80,7 +80,7 @@ namespace Chess.Test.PawnTests
 
             private bool CanCaptureFrom22(int xCoordinate, int yCoordinate)
             {
-                return Target.IsCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(xCoordinate, yCoordinate));
+                return Target.IsCaptureAllowed(2, 2, xCoordinate, yCoordinate);
             }
         }
  
@@ -126,7 +126,7 @@ namespace Chess.Test.PawnTests
 
             private bool CanMakeNonCaptureMoveFrom22(int xCoordinate, int yCoordinate)
             {
-                return Target.IsNonCaptureAllowed(BoardCoordinate.For(2, 2), BoardCoordinate.For(xCoordinate, yCoordinate));
+                return Target.IsNonCaptureAllowed(2, 2, xCoordinate, yCoordinate);
             }
         }
     }

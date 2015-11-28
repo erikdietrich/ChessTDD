@@ -16,13 +16,13 @@ namespace Chess.Test.PawnTests
         public void BeforeEachTest()
         {
             Target = new Pawn(false);
-            MovesFrom27 = Target.GetMovesFrom(BoardCoordinate.For(2, 7));
+            MovesFrom27 = Target.GetMovesFrom(2, 7);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Collection_Containing_26()
         {
-            Assert.IsTrue(MovesFrom27.Any(bc => bc.Matches(2, 6)));
+            Assert.IsTrue(MovesFrom27.Any(bc => bc.X == 2 && bc.Y == 6));
         }
     }
 }

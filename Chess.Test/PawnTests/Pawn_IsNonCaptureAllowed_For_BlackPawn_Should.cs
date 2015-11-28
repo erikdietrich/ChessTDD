@@ -39,7 +39,7 @@ namespace Chess.Test.PawnTests
 
         private bool IsNonCaptureAllowedFor27(int xCoordinate, int yCoordinate)
         {
-            return Target.IsNonCaptureAllowed(BoardCoordinate.For(2, 7), BoardCoordinate.For(xCoordinate, yCoordinate));
+            return Target.IsNonCaptureAllowed(2, 7, xCoordinate, yCoordinate);
         }
     }
 }

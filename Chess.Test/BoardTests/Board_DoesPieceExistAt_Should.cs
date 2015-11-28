@@ -21,15 +21,15 @@ namespace Chess.Test.BoardTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_False_For_Empty_Square()
         {
-            Assert.IsFalse(Target.DoesPieceExistAt(Coordinate));
+            Assert.IsFalse(Target.DoesPieceExistAt(Coordinate.X, Coordinate.Y));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_True_For_Populated_Square()
         {
-            Target.AddPiece(new Rook(), Coordinate);
+            Target.AddPiece(new Rook(), Coordinate.X, Coordinate.Y);
 
-            Assert.IsTrue(Target.DoesPieceExistAt(Coordinate));
+            Assert.IsTrue(Target.DoesPieceExistAt(Coordinate.X, Coordinate.Y));
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Chess
 
             var pieceToAdd = BuildPiece(pieceCode, isFirstPlayer);
 
-            _board.AddPiece(pieceToAdd, square);
+            _board.AddPiece(pieceToAdd, square.X, square.Y);
         }
 
         private static void VerifyNonEmptyPieceStringOrThrow(string piece)

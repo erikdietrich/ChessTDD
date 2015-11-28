@@ -23,7 +23,7 @@ namespace Chess.Test
         public void Set_The_Pawns_At_Position_7_To_Be_Player2()
         {
             Target.SetupStandardBoard();
-            var firstPawnOnTheLeft = TheBoard.GetPiece(BoardCoordinate.For(1, 7));
+            var firstPawnOnTheLeft = TheBoard.GetPiece(1, 7);
 
             Assert.IsFalse(firstPawnOnTheLeft.IsFirstPlayerPiece);
         }

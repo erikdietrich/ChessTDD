@@ -29,7 +29,7 @@ namespace Chess.Test.PawnTests
         }
         private bool IsCaptureAllowedFrom27(int xCoordinate, int yCoordinate)
         {
-            return Target.IsCaptureAllowed(BoardCoordinate.For(2, 7), BoardCoordinate.For(xCoordinate, yCoordinate));
+            return Target.IsCaptureAllowed(2, 7, xCoordinate, yCoordinate);
         }
     }
 }

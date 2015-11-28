@@ -17,7 +17,7 @@ namespace Chess.Test.KingTests
         public void BeforeEachTest()
         {
             Target = new King();
-            MovesFrom3_3 = Target.GetMovesFrom(new BoardCoordinate(3, 3));
+            MovesFrom3_3 = Target.GetMovesFrom(3, 3);
         }
 
         [TestClass]
@@ -27,7 +27,7 @@ namespace Chess.Test.KingTests
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_1_2_For_1_1()
             {
-                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1));
+                var moves = Target.GetMovesFrom(1, 1);
 
                 Assert.IsTrue(moves.Any(bc => bc.X == 1 && bc.Y == 2));
             }
@@ -35,7 +35,7 @@ namespace Chess.Test.KingTests
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_2_2_For_1_1()
             {
-                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1));
+                var moves = Target.GetMovesFrom(1, 1);
 
                 Assert.IsTrue(moves.Any(bc => bc.X == 2 && bc.Y == 2));
             }
@@ -61,7 +61,7 @@ namespace Chess.Test.KingTests
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Does_Not_Return_0_0_From_1_1()
             {
-                var moves = Target.GetMovesFrom(new BoardCoordinate(1, 1));
+                var moves = Target.GetMovesFrom(1, 1);
 
                 Assert.IsFalse(moves.Any(bc => bc.Y == 0 || bc.X == 0));
             }
@@ -75,7 +75,7 @@ namespace Chess.Test.KingTests
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Has_Seven_Moves_When_Starting_At_Back_End_Of_Board()
             {
-                var moves = Target.GetMovesFrom(BoardCoordinate.For(4, 8));
+                var moves = Target.GetMovesFrom(4, 8);
 
                 Assert.AreEqual<int>(7, moves.Count());
             }

@@ -14,15 +14,14 @@ namespace Chess.Test.BoardTests
         public void BeforeEachTest()
         {
             Target = new Board();
-            var startingPosition = BoardCoordinate.For(1, 7);
-            Target.AddPiece(new Pawn(), startingPosition);
-            Target.MovePiece(startingPosition, BoardCoordinate.For(1, 8));
+            Target.AddPiece(new Pawn(), 1, 7);
+            Target.MovePiece(1, 7, 1, 8);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Not_Bomb()
         {
-            Assert.AreEqual<int>(0, Target.GetMovesFrom(BoardCoordinate.For(1, 8)).Count());
+            Assert.AreEqual<int>(0, Target.GetMovesFrom(1, 8).Count());
         }
     }
 }

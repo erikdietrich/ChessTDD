@@ -21,14 +21,14 @@ namespace Chess.Acceptance
         public void ThereIsAMoveFrom(int startX, int startY, int destinationX, int destinationY)
         {
             var board = GetFromContext<Board>();
-            board.MovePiece(BoardCoordinate.For(startX, startY), BoardCoordinate.For(destinationX, destinationY));
+            board.MovePiece(startX, startY, destinationX, destinationY);
         }
                 
         [Then(@"the piece at \((.*),(.*)\) should have exactly the following moves")]
         public void ThenThePieceAtShouldHaveTheFollowingMoves(int xCoordinate, int yCoordinate, Table table)
         {
             var board = GetFromContext<Board>();
-            var boardMoves = board.GetMovesFrom(BoardCoordinate.For(xCoordinate, yCoordinate)).ToList();
+            var boardMoves = board.GetMovesFrom(xCoordinate, yCoordinate).ToList();
 
             var tableCoordinates = GetCoordinatesFromTable(table);
 

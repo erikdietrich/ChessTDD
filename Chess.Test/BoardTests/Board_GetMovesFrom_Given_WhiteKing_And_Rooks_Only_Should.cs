@@ -34,32 +34,21 @@ namespace Chess.Test.BoardTests
         {
             Target = new Board();
 
-            Target.AddPiece(new Rook(), BoardCoordinate.For(1, 1));
-            Target.AddPiece(new Rook(), KingRookStart);
-            Target.AddPiece(new King(), KingStart);
+            Target.AddPiece(new Rook(), 1, 1);
+            Target.AddPiece(new Rook(), KingRookStart.X, KingRookStart.Y);
+            Target.AddPiece(new King(), KingStart.X, KingStart.Y);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Not_Return_Castling_Option_When_King_Has_Moved()
         {
-            Target.MovePiece(KingStart, KingMove);
-            Target.MovePiece(KingMove, KingStart);
+            Target.MovePiece(KingStart.X, KingStart.Y, KingMove.X, KingMove.Y);
+            Target.MovePiece(KingMove.X, KingMove.Y, KingStart.X, KingStart.Y);
 
-            var kingMoves = Target.GetMovesFrom(KingStart);
+            var kingMoves = Target.GetMovesFrom(KingStart.X, KingStart.Y);
 
-            Assert.IsFalse(kingMoves.Any(bc => bc.Matches(7, 1)));
+            Assert.IsFalse(kingMoves.Any(bc => bc.X == 7 && bc.Y == 1));
         }
-
-        //[TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        //public void Not_Return_Castling_Option_When_Rook_Has_Moved()
-        //{
-        //    Target.MovePiece(KingRookStart, KingRookMove);
-        //    Target.MovePiece(KingRookMove, KingRookStart);
-
-        //    var kingMoves = Target.GetMovesFrom(KingStart);
-
-        //    Assert.IsFalse(kingMoves.Any(bc => bc.Matches(7, 1)));
-        //}
 
     }
 }

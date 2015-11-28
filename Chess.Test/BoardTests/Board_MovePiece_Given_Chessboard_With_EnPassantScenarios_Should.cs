@@ -15,16 +15,16 @@ namespace Chess.Test.BoardTests
         {
             Target = new Board();
             new PiecePositioner(Target).SetupStandardBoard();
-            Target.MovePiece(BoardCoordinate.For(2, 7), BoardCoordinate.For(2, 5));
-            Target.MovePiece(BoardCoordinate.For(2, 5), BoardCoordinate.For(2, 4));
+            Target.MovePiece(2, 7, 2, 5);
+            Target.MovePiece(2, 5, 2, 4);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Set_BlackPawns_CanPerformEnPassant_For_WhitePiece_At_14()
         {
-            Target.MovePiece(BoardCoordinate.For(1, 2), BoardCoordinate.For(1, 4));
+            Target.MovePiece(1, 2, 1, 4);
 
-            var piece = Target.GetPiece(BoardCoordinate.For(2, 4)) as Pawn;
+            var piece = Target.GetPiece(2, 4) as Pawn;
             
             Assert.IsTrue(piece.CanPerformEnPassantOn(BoardCoordinate.For(1, 4)));
         }
@@ -32,9 +32,9 @@ namespace Chess.Test.BoardTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Not_Set_BlackPawns_CanPerformEnPassantOn_For_Square_At_34()
         {
-            Target.MovePiece(BoardCoordinate.For(1, 2), BoardCoordinate.For(1, 4));
+            Target.MovePiece(1, 2, 1, 4);
 
-            var piece = Target.GetPiece(BoardCoordinate.For(2, 4)) as Pawn;
+            var piece = Target.GetPiece(2, 4) as Pawn;
 
             Assert.IsFalse(piece.CanPerformEnPassantOn(BoardCoordinate.For(3, 4)));
         }

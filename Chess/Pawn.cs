@@ -12,36 +12,36 @@ namespace Chess
         public Pawn(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<BoardCoordinate> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
         {
-            yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + DirectionalMultiplier);
+            yield return new BoardCoordinate(startingLocationX, startingLocationY + DirectionalMultiplier);
             if (!HasMoved)
-                yield return new BoardCoordinate(startingLocation.X, startingLocation.Y + 2 * DirectionalMultiplier);
-            yield return new BoardCoordinate(startingLocation.X + 1, startingLocation.Y + DirectionalMultiplier);
-            yield return new BoardCoordinate(startingLocation.X - 1, startingLocation.Y + DirectionalMultiplier);
+                yield return new BoardCoordinate(startingLocationX, startingLocationY + 2 * DirectionalMultiplier);
+            yield return new BoardCoordinate(startingLocationX + 1, startingLocationY + DirectionalMultiplier);
+            yield return new BoardCoordinate(startingLocationX - 1, startingLocationY + DirectionalMultiplier);
         }
 
-        public override bool IsCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        public override bool IsCaptureAllowed(int originX, int originY, int destinationX, int destinationY)
         {
-            var diagonalMovesFromOrigin = GetRadialDiagonalFrom(origin, 1);
+            var diagonalMovesFromOrigin = GetRadialDiagonalFrom(BoardCoordinate.For(originX, originY), 1);
 
-            return diagonalMovesFromOrigin.Any(d => d.Matches(destination)) && 
-                ((IsFirstPlayerPiece && origin.Y < destination.Y) || (!IsFirstPlayerPiece && origin.Y > destination.Y));
+            return diagonalMovesFromOrigin.Any(d => d.X == destinationX && d.Y == destinationY) && 
+                ((IsFirstPlayerPiece && originY < destinationY) || (!IsFirstPlayerPiece && originY > destinationY));
         }
 
-        public override bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        public override bool IsNonCaptureAllowed(int originX, int originY, int destinationX, int destinationY)
         {
-            return IsVerticalMoveBy(1, origin, destination) || IsSpecialFirstPawnMoveAllowed(origin, destination) ||
-                (CanPerformEnPassantOn(BoardCoordinate.For(destination.X, origin.Y)));
+            return IsVerticalMoveBy(1, BoardCoordinate.For(originX, originY), BoardCoordinate.For(destinationX, destinationY)) || IsSpecialFirstPawnMoveAllowed(BoardCoordinate.For(originX, originY), BoardCoordinate.For(destinationX, destinationY)) ||
+                (CanPerformEnPassantOn(BoardCoordinate.For(destinationX, originY)));
         }
 
         public bool CanPerformEnPassantOn(BoardCoordinate enPassantTarget)
         {
-            return _enPassantTarget != null && enPassantTarget.Matches(_enPassantTarget.Value);
+            return _enPassantTarget != null && enPassantTarget.X == _enPassantTarget.Value.X && enPassantTarget.Y == _enPassantTarget.Value.Y;
         }
-        public void SetCanPerformEnPassantOn(BoardCoordinate enPassantTarget)
+        public void SetCanPerformEnPassantOn(int enPassantTargetX, int enPassantTargetY)
         {
-            _enPassantTarget = enPassantTarget;
+            _enPassantTarget = BoardCoordinate.For(enPassantTargetX, enPassantTargetY);
         }
         public void ClearEnPassant()
         {

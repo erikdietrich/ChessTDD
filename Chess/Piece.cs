@@ -15,14 +15,14 @@ namespace Chess
             IsFirstPlayerPiece = isFirstPlayerPiece;
         }
 
-        public abstract IEnumerable<BoardCoordinate> GetMovesFrom(BoardCoordinate startingLocation, int boardSize = Board.DefaultBoardSize);
+        public abstract IEnumerable<BoardCoordinate> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize);
 
-        public virtual bool IsCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        public virtual bool IsCaptureAllowed(int originX, int originY, int destinationX, int destinationY)
         {
             return true;
         }
 
-        public virtual bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        public virtual bool IsNonCaptureAllowed(int originX, int originY, int destinationX, int destinationY)
         {
             return true;
         }

@@ -18,7 +18,7 @@ namespace Chess.Test
         {
             Target = new Queen();
 
-            MovesFrom11 = Target.GetMovesFrom(new BoardCoordinate(1, 1));
+            MovesFrom11 = Target.GetMovesFrom(1, 1);
         }
 
         [TestClass]

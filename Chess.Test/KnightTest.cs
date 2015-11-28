@@ -18,7 +18,7 @@ namespace Chess.Test
 
         private IEnumerable<BoardCoordinate> GetMoves(int x, int y)
         {
-            return Target.GetMovesFrom(new BoardCoordinate(x, y));
+            return Target.GetMovesFrom(x, y);
         }
 
         [TestInitialize]
