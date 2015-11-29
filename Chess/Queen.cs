@@ -9,9 +9,9 @@ namespace Chess
         public Queen(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<int[]> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<int[]> GetMovesFrom(int x, int y, int boardSize = Board.DefaultBoardSize)
         {
-            var movesWithinABoardSize = GetAllRadialMovesFrom(startingLocationX, startingLocationY, boardSize);
+            var movesWithinABoardSize = GetAllRadialMovesFrom(x, y, boardSize);
             return movesWithinABoardSize.Where(bc => IsCoordinateValidForBoardSize(bc[0], bc[1], boardSize));
         }
 

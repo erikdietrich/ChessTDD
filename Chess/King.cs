@@ -9,16 +9,16 @@ namespace Chess
         public King(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<int[]> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<int[]> GetMovesFrom(int x, int y, int boardSize = Board.DefaultBoardSize)
         {
-            var oneSquareAwayMoves = GetAllRadialMovesFrom(startingLocationX, startingLocationY, 1);
+            var oneSquareAwayMoves = GetAllRadialMovesFrom(x, y, 1);
             var validOneSquareAway = oneSquareAwayMoves.Where(bc => IsCoordinateValidForBoardSize(bc[0], bc[1], boardSize));
 
             if (!HasMoved)
                 return validOneSquareAway.Union(new List<int[]>() 
                 { 
-                    new int[] { startingLocationX + 2, startingLocationY },
-                    new int[] { startingLocationX - 2, startingLocationY }
+                    new int[] { x + 2, y },
+                    new int[] { x - 2, y }
                 });
 
             return validOneSquareAway;

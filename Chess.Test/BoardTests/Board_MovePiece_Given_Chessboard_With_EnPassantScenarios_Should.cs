@@ -26,7 +26,7 @@ namespace Chess.Test.BoardTests
 
             var piece = Target.GetPiece(2, 4) as Pawn;
             
-            Assert.IsTrue(piece.CanPerformEnPassantOn(BoardCoordinate.For(1, 4)));
+            Assert.IsTrue(piece.CanPerformEnPassantOn(1, 4));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -36,7 +36,7 @@ namespace Chess.Test.BoardTests
 
             var piece = Target.GetPiece(2, 4) as Pawn;
 
-            Assert.IsFalse(piece.CanPerformEnPassantOn(BoardCoordinate.For(3, 4)));
+            Assert.IsFalse(piece.CanPerformEnPassantOn(3, 4));
         }
     }
 }

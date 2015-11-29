@@ -9,27 +9,25 @@ namespace Chess.Test.BoardTests
     public class Board_DoesPieceExistAt_Should
     {
         private Board Target { get; set; }
-        private BoardCoordinate Coordinate { get; set; }
 
         [TestInitialize]
         public void BeforeEachTest()
         {
             Target = new Board();
-            Coordinate = BoardCoordinate.For(1, 1);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_False_For_Empty_Square()
         {
-            Assert.IsFalse(Target.DoesPieceExistAt(Coordinate.X, Coordinate.Y));
+            Assert.IsFalse(Target.DoesPieceExistAt(1, 1));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_True_For_Populated_Square()
         {
-            Target.AddPiece(new Rook(), Coordinate.X, Coordinate.Y);
+            Target.AddPiece(new Rook(), 1, 1);
 
-            Assert.IsTrue(Target.DoesPieceExistAt(Coordinate.X, Coordinate.Y));
+            Assert.IsTrue(Target.DoesPieceExistAt(1, 1));
         }
     }
 }

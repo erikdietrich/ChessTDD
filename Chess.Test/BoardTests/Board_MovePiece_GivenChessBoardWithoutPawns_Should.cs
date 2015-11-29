@@ -8,8 +8,8 @@ namespace Chess.Test.BoardTests
     [TestClass]
     public class Board_MovePiece_GivenChessBoardWithoutPawns_Should
     {
-        private BoardCoordinate OriginCoordinate { get; set; }
-        private BoardCoordinate DestinationCoordinate { get; set; }
+        private int[] OriginCoordinate { get; set; }
+        private int[] DestinationCoordinate { get; set; }
 
         private Board Target { get; set; }
 
@@ -17,34 +17,34 @@ namespace Chess.Test.BoardTests
         public void BeforeEachTest()
         {
             Target = new Board();
-            OriginCoordinate = BoardCoordinate.For(1, 1);
-            DestinationCoordinate = BoardCoordinate.For(1, 2);
+            OriginCoordinate = new int[] { 1, 1 };
+            DestinationCoordinate = new int[] { 1, 2 };
             new PiecePositioner(Target).SetupStandardPieces(1);
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Result_In_Piece_At_1_2_When_Rook_At_1_1_Is_Moved_To_1_2()
         {
-            Target.MovePiece(OriginCoordinate.X, OriginCoordinate.Y, DestinationCoordinate.X, DestinationCoordinate.Y);
+            Target.MovePiece(OriginCoordinate[0], OriginCoordinate[1], DestinationCoordinate[0], DestinationCoordinate[1]);
 
-            Assert.IsTrue(Target.DoesPieceExistAt(DestinationCoordinate.X, DestinationCoordinate.Y));
+            Assert.IsTrue(Target.DoesPieceExistAt(DestinationCoordinate[0], DestinationCoordinate[1]));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Result_In_No_Pieced_At_1_1_When_Rook_At_1_1_Is_Moved_To_1_2()
         {
-            Target.MovePiece(OriginCoordinate.X, OriginCoordinate.Y, DestinationCoordinate.X, DestinationCoordinate.Y);
+            Target.MovePiece(OriginCoordinate[0], OriginCoordinate[1], DestinationCoordinate[0], DestinationCoordinate[1]);
 
-            Assert.IsFalse(Target.DoesPieceExistAt(OriginCoordinate.X, OriginCoordinate.Y));
+            Assert.IsFalse(Target.DoesPieceExistAt(OriginCoordinate[0], OriginCoordinate[1]));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Result_In_Piece_At_Origin_Relocated_To_Destination()
         {
-            var pieceThatWillBeMoved = Target.GetPiece(OriginCoordinate.X, OriginCoordinate.Y);
-            Target.MovePiece(OriginCoordinate.X, OriginCoordinate.Y, DestinationCoordinate.X, DestinationCoordinate.Y);
+            var pieceThatWillBeMoved = Target.GetPiece(OriginCoordinate[0], OriginCoordinate[1]);
+            Target.MovePiece(OriginCoordinate[0], OriginCoordinate[1], DestinationCoordinate[0], DestinationCoordinate[1]);
 
-            Assert.AreEqual<Piece>(pieceThatWillBeMoved, Target.GetPiece(DestinationCoordinate.X, DestinationCoordinate.Y));
+            Assert.AreEqual<Piece>(pieceThatWillBeMoved, Target.GetPiece(DestinationCoordinate[0], DestinationCoordinate[1]));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -56,20 +56,20 @@ namespace Chess.Test.BoardTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_For_OutOfBounds_Destination_Argument()
         {
-            ExtendedAssert.Throws<ArgumentException>(() => Target.MovePiece(OriginCoordinate.X, OriginCoordinate.Y, 10, 10));
+            ExtendedAssert.Throws<ArgumentException>(() => Target.MovePiece(OriginCoordinate[0], OriginCoordinate[1], 10, 10));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_When_Attempt_Is_Made_To_Move_Nonexistent_Piece()
         {
-            ExtendedAssert.Throws<ArgumentNullException>(() => Target.MovePiece(DestinationCoordinate.X, DestinationCoordinate.Y, OriginCoordinate.X, OriginCoordinate.Y));
+            ExtendedAssert.Throws<ArgumentNullException>(() => Target.MovePiece(DestinationCoordinate[0], DestinationCoordinate[1], OriginCoordinate[0], OriginCoordinate[1]));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void SetHasMoved_When_A_Piece_Is_Moved()
         {
-            Target.MovePiece(OriginCoordinate.X, OriginCoordinate.Y, DestinationCoordinate.X, DestinationCoordinate.Y);
-            var movedPiece = Target.GetPiece(DestinationCoordinate.X, DestinationCoordinate.Y);
+            Target.MovePiece(OriginCoordinate[0], OriginCoordinate[1], DestinationCoordinate[0], DestinationCoordinate[1]);
+            var movedPiece = Target.GetPiece(DestinationCoordinate[0], DestinationCoordinate[1]);
 
             Assert.IsTrue(movedPiece.HasMoved);
         }

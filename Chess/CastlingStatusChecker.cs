@@ -6,12 +6,12 @@ namespace Chess
 {
     public class CastlingStatusChecker
     {
-        public static readonly BoardCoordinate WhiteKingStart = BoardCoordinate.For(5, 1);
-        public static readonly BoardCoordinate WhiteQueensRookStart = BoardCoordinate.For(1, 1);
-        public static readonly BoardCoordinate WhiteKingsRookStart = BoardCoordinate.For(8, 1);
+        public static readonly int[] WhiteKingStart = new int[] { 5, 1 };
+        public static readonly int[] WhiteQueensRookStart = new int[] { 1, 1 };
+        public static readonly int[] WhiteKingsRookStart = new int[] { 8, 1 };
 
-        public static readonly BoardCoordinate WhiteCastleMoveQueensSide = BoardCoordinate.For(3, 1);
-        public static readonly BoardCoordinate WhiteCastleMoveKingsSide = BoardCoordinate.For(7, 1);
+        public static readonly int[] WhiteCastleMoveQueensSide = new int[] { 3, 1 };
+        public static readonly int[] WhiteCastleMoveKingsSide = new int[] { 7, 1 };
 
         private readonly Board _board;
         public CastlingStatusChecker(Board board)
@@ -22,28 +22,28 @@ namespace Chess
             _board = board;
         }
 
-        public IEnumerable<BoardCoordinate> GetCastlingMovesFor(BoardCoordinate moveStart)
+        public IEnumerable<int[]> GetCastlingMovesFor(int x, int y)
         {
-            if (!IsUnmovedKing(moveStart))
-                return Enumerable.Empty<BoardCoordinate>();
+            if (!IsUnmovedKing(x, y))
+                return Enumerable.Empty<int[]>();
 
-            var queenCastleOption = GetCastleMoveIfAvailable(WhiteQueensRookStart, WhiteCastleMoveQueensSide);
-            var kingCastleOption = GetCastleMoveIfAvailable(WhiteKingsRookStart, WhiteCastleMoveKingsSide);
+            var queenCastleOption = GetCastleMoveIfAvailable(WhiteQueensRookStart[0], WhiteQueensRookStart[1], WhiteCastleMoveQueensSide[0], WhiteCastleMoveQueensSide[1]);
+            var kingCastleOption = GetCastleMoveIfAvailable(WhiteKingsRookStart[0], WhiteKingsRookStart[1], WhiteCastleMoveKingsSide[0], WhiteCastleMoveKingsSide[1]);
 
             return queenCastleOption.Union(kingCastleOption);
         }
 
-        private bool IsUnmovedKing(BoardCoordinate moveStart)
+        private bool IsUnmovedKing(int x, int y)
         {
-            var kingToMove = _board.GetPiece(moveStart.X, moveStart.Y) as King;
+            var kingToMove = _board.GetPiece(x, y) as King;
             return kingToMove != null && !kingToMove.HasMoved;
         }
 
-        private IEnumerable<BoardCoordinate> GetCastleMoveIfAvailable(BoardCoordinate rookStart, BoardCoordinate moveIfSuccess)
+        private IEnumerable<int[]> GetCastleMoveIfAvailable(int rookStartX, int rookStartY, int moveIfSuccessX, int moveIfSuccessY)
         {
-            var piece = _board.GetPiece(rookStart.X, rookStart.Y);
+            var piece = _board.GetPiece(rookStartX, rookStartY);
             if (piece != null && !piece.HasMoved)
-                yield return moveIfSuccess;
+                yield return new int[] { moveIfSuccessX, moveIfSuccessY };
         }
     }
 }

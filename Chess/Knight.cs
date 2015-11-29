@@ -9,10 +9,10 @@ namespace Chess
         public Knight(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<int[]> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<int[]> GetMovesFrom(int x, int y, int boardSize = Board.DefaultBoardSize)
         {
             var quadrantsFromASquare = Enumerable.Range(1, 4);
-            var allPotentialMoves = quadrantsFromASquare.SelectMany(q => GetQuadrantMoves(startingLocationX, startingLocationY, q));
+            var allPotentialMoves = quadrantsFromASquare.SelectMany(q => GetQuadrantMoves(x, y, q));
 
             return allPotentialMoves.Where(bc => IsCoordinateValidForBoardSize(bc[0], bc[1], boardSize));
         }

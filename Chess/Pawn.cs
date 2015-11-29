@@ -6,19 +6,19 @@ namespace Chess
 {
     public class Pawn : Piece
     {
-        private BoardCoordinate? _enPassantTarget; 
+        private int[] _enPassantTarget; 
         private int DirectionalMultiplier { get { return IsFirstPlayerPiece ? 1 : -1; } }
 
         public Pawn(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<int[]> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<int[]> GetMovesFrom(int x, int y, int boardSize = Board.DefaultBoardSize)
         {
-            yield return new int[] { startingLocationX, startingLocationY + DirectionalMultiplier };
+            yield return new int[] { x, y + DirectionalMultiplier };
             if (!HasMoved)
-                yield return new int[] { startingLocationX, startingLocationY + 2 * DirectionalMultiplier };
-            yield return new int[] { startingLocationX + 1, startingLocationY + DirectionalMultiplier };
-            yield return new int[] { startingLocationX - 1, startingLocationY + DirectionalMultiplier };
+                yield return new int[] { x, y + 2 * DirectionalMultiplier };
+            yield return new int[] { x + 1, y + DirectionalMultiplier };
+            yield return new int[] { x - 1, y + DirectionalMultiplier };
         }
 
         public override bool IsCaptureAllowed(int originX, int originY, int destinationX, int destinationY)
@@ -31,30 +31,31 @@ namespace Chess
 
         public override bool IsNonCaptureAllowed(int originX, int originY, int destinationX, int destinationY)
         {
-            return IsVerticalMoveBy(1, BoardCoordinate.For(originX, originY), BoardCoordinate.For(destinationX, destinationY)) || IsSpecialFirstPawnMoveAllowed(BoardCoordinate.For(originX, originY), BoardCoordinate.For(destinationX, destinationY)) ||
-                (CanPerformEnPassantOn(BoardCoordinate.For(destinationX, originY)));
+            return IsVerticalMoveBy(1, originX, originY, destinationX, destinationY) || 
+                IsSpecialFirstPawnMoveAllowed(originX, originY, destinationX, destinationY) ||
+                CanPerformEnPassantOn(destinationX, originY);
         }
 
-        public bool CanPerformEnPassantOn(BoardCoordinate enPassantTarget)
+        public bool CanPerformEnPassantOn(int x, int y)
         {
-            return _enPassantTarget != null && enPassantTarget.X == _enPassantTarget.Value.X && enPassantTarget.Y == _enPassantTarget.Value.Y;
+            return _enPassantTarget != null && x == _enPassantTarget[0] && y == _enPassantTarget[1];
         }
-        public void SetCanPerformEnPassantOn(int enPassantTargetX, int enPassantTargetY)
+        public void SetCanPerformEnPassantOn(int x, int y)
         {
-            _enPassantTarget = BoardCoordinate.For(enPassantTargetX, enPassantTargetY);
+            _enPassantTarget = new int[] { x, y };
         }
         public void ClearEnPassant()
         {
             _enPassantTarget = null;
         }
-        private bool IsSpecialFirstPawnMoveAllowed(BoardCoordinate origin, BoardCoordinate destination)
+        private bool IsSpecialFirstPawnMoveAllowed(int originX, int originY, int destinationX, int destinationY)
         {
-            return !HasMoved && IsVerticalMoveBy(2, origin, destination);
+            return !HasMoved && IsVerticalMoveBy(2, originX, originY, destinationX, destinationY);
         }
 
-        private bool IsVerticalMoveBy(int verticalSpaces, BoardCoordinate origin, BoardCoordinate destination)
+        private bool IsVerticalMoveBy(int verticalSpaces, int originX, int originY, int destinationX, int destinationY)
         {
-            return origin.Y + verticalSpaces * DirectionalMultiplier == destination.Y && origin.X == destination.X;
+            return originY + verticalSpaces * DirectionalMultiplier == destinationY && originX == destinationX;
         }
         
     }

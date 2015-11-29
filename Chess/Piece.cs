@@ -15,7 +15,7 @@ namespace Chess
             IsFirstPlayerPiece = isFirstPlayerPiece;
         }
 
-        public abstract IEnumerable<int[]> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize);
+        public abstract IEnumerable<int[]> GetMovesFrom(int x, int y, int boardSize = Board.DefaultBoardSize);
 
         public virtual bool IsCaptureAllowed(int originX, int originY, int destinationX, int destinationY)
         {
