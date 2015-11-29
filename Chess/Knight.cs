@@ -9,20 +9,20 @@ namespace Chess
         public Knight(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<int[]> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
         {
             var quadrantsFromASquare = Enumerable.Range(1, 4);
-            var allPotentialMoves = quadrantsFromASquare.SelectMany(q => GetQuadrantMoves(BoardCoordinate.For(startingLocationX, startingLocationY), q));
+            var allPotentialMoves = quadrantsFromASquare.SelectMany(q => GetQuadrantMoves(startingLocationX, startingLocationY, q));
 
-            return allPotentialMoves.Where(bc => IsCoordinateValidForBoardSize(bc.X, bc.Y, boardSize));
+            return allPotentialMoves.Where(bc => IsCoordinateValidForBoardSize(bc[0], bc[1], boardSize));
         }
 
-        private IEnumerable<BoardCoordinate> GetQuadrantMoves(BoardCoordinate coordinate, int quadrant)
+        private IEnumerable<int[]> GetQuadrantMoves(int x, int y, int quadrant)
         {
             var xMultiplier = quadrant == 1 || quadrant == 4 ? 1 : -1;
             var yMultiplier = quadrant == 1 || quadrant == 2 ? 1 : -1;
-            yield return new BoardCoordinate(coordinate.X + 2 * xMultiplier, coordinate.Y + yMultiplier * 1);
-            yield return new BoardCoordinate(coordinate.X + 1 * xMultiplier, coordinate.Y + yMultiplier * 2);
+            yield return new int[] { x + 2 * xMultiplier, y + yMultiplier * 1 };
+            yield return new int[] { x + 1 * xMultiplier, y + yMultiplier * 2 };
         }
 
         private static bool IsCoordinateValidForBoardSize(int x, int y, int boardSize)

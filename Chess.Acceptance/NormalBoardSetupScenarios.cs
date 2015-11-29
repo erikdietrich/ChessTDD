@@ -32,7 +32,13 @@ namespace Chess.Acceptance
 
             var tableCoordinates = GetCoordinatesFromTable(table);
 
-            CollectionAssert.AreEquivalent(tableCoordinates, boardMoves);
+            Assert.IsTrue(DoCollectionsMatch(tableCoordinates, boardMoves));
+        }
+
+        private bool DoCollectionsMatch(IList<int[]> firstCollection, IList<int[]> secondCollection)
+        {
+            return !firstCollection.Any(pair => !secondCollection.Any(p => p[0] == pair[0] && p[1] == pair[1])) &&
+                !secondCollection.Any(pair => !firstCollection.Any(p => p[0] == pair[0] && p[1] == pair[1]));
         }
 
         private Board BuildBoardFromTable(Table table)
@@ -51,7 +57,7 @@ namespace Chess.Acceptance
             var pieceString = table.Rows[rowIndex][columnIndex];
 
             if (!string.IsNullOrEmpty(pieceString))
-                builder.AddPiece(BoardCoordinate.For(xCoordinate, yCoordinate), pieceString);
+                builder.AddPiece(xCoordinate, yCoordinate, pieceString);
 
         }
 
@@ -66,9 +72,9 @@ namespace Chess.Acceptance
             ScenarioContext.Current.Set<T>(data);
         }
 
-        private static List<BoardCoordinate> GetCoordinatesFromTable(Table tableOfBoardCoordinates)
+        private static List<int[]> GetCoordinatesFromTable(Table tableOfBoardCoordinates)
         {
-            return tableOfBoardCoordinates.Rows.Select(r => BoardCoordinate.For(int.Parse(r[0]), int.Parse(r[1]))).ToList();
+            return tableOfBoardCoordinates.Rows.Select(r => new int[] { int.Parse(r[0]), int.Parse(r[1]) }).ToList();
         }
         
 

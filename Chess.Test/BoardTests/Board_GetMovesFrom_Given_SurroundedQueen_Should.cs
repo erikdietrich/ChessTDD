@@ -30,7 +30,7 @@ namespace Chess.Test.BoardTests
         {
             var moves = Target.GetMovesFrom(4, 1);
 
-            Assert.IsFalse(moves.Any(bc => bc.X == 1 && bc.Y == 1));
+            Assert.IsFalse(moves.Any(bc => bc[0] == 1 && bc[1] == 1));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -38,7 +38,7 @@ namespace Chess.Test.BoardTests
         {
             var moves = Target.GetMovesFrom(4, 1);
 
-            Assert.IsFalse(moves.Any(bc => bc.X == 2 && bc.Y == 3));
+            Assert.IsFalse(moves.Any(bc => bc[0] == 2 && bc[1] == 3));
         }
     }
 }

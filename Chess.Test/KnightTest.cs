@@ -11,12 +11,12 @@ namespace Chess.Test
     {
         private Knight Target { get; set; }
 
-        private IEnumerable<BoardCoordinate> MovesFrom33
+        private IEnumerable<int[]> MovesFrom33
         {
             get { return GetMoves(3, 3); }
         }
 
-        private IEnumerable<BoardCoordinate> GetMoves(int x, int y)
+        private IEnumerable<int[]> GetMoves(int x, int y)
         {
             return Target.GetMovesFrom(x, y);
         }
@@ -35,7 +35,7 @@ namespace Chess.Test
             {
                 var moves = GetMoves(1, 1);
 
-                Assert.IsTrue(moves.Any(bc => bc.X == 3 && bc.Y == 2));
+                Assert.IsTrue(moves.Any(bc => bc[0] == 3 && bc[1] == 2));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -43,7 +43,7 @@ namespace Chess.Test
             {
                 var moves = GetMoves(1, 1);
 
-                Assert.IsTrue(moves.Any(bc => bc.X == 2 && bc.Y == 3));
+                Assert.IsTrue(moves.Any(bc => bc[0] == 2 && bc[1] == 3));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -51,7 +51,7 @@ namespace Chess.Test
             {
                 var moves = GetMoves(2, 2);
 
-                Assert.IsTrue(moves.Any(bc => bc.X == 4 && bc.Y == 3));
+                Assert.IsTrue(moves.Any(bc => bc[0] == 4 && bc[1] == 3));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -59,7 +59,7 @@ namespace Chess.Test
             {
                 var moves = GetMoves(2, 2);
 
-                Assert.IsTrue(moves.Any(bc => bc.X == 3 && bc.Y == 4));
+                Assert.IsTrue(moves.Any(bc => bc[0] == 3 && bc[1] == 4));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -67,44 +67,44 @@ namespace Chess.Test
             {
                 var moves = GetMoves(2, 2);
 
-                Assert.IsTrue(moves.Any(bc => bc.X == 4 && bc.Y == 1));
+                Assert.IsTrue(moves.Any(bc => bc[0] == 4 && bc[1] == 1));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_1_2_For_3_3()
             {
-                Assert.IsTrue(MovesFrom33.Any(bc => bc.X == 1 && bc.Y == 2));
+                Assert.IsTrue(MovesFrom33.Any(bc => bc[0] == 1 && bc[1] == 2));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_1_4_For_3_3()
             {
-                Assert.IsTrue(MovesFrom33.Any(bc => bc.X == 1 && bc.Y == 4));
+                Assert.IsTrue(MovesFrom33.Any(bc => bc[0] == 1 && bc[1] == 4));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_2_1_For_3_3()
             {
-                Assert.IsTrue(MovesFrom33.Any(bc => bc.X == 2 && bc.Y == 1));
+                Assert.IsTrue(MovesFrom33.Any(bc => bc[0] == 2 && bc[1] == 1));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_2_5_For_3_3()
             {
-                Assert.IsTrue(MovesFrom33.Any(bc => bc.X == 2 && bc.Y == 5));
+                Assert.IsTrue(MovesFrom33.Any(bc => bc[0] == 2 && bc[1] == 5));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_4_1_For_3_3()
             {
-                Assert.IsTrue(MovesFrom33.Any(bc => bc.X == 4 && bc.Y == 1));
+                Assert.IsTrue(MovesFrom33.Any(bc => bc[0] == 4 && bc[1] == 1));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Does_Not_Return_Illegal_Moves()
             {
                 var moves = GetMoves(1, 1);
-                Assert.IsFalse(moves.Any(bc => bc.X == -1 && bc.Y == 0));
+                Assert.IsFalse(moves.Any(bc => bc[0] == -1 && bc[1] == 0));
             }
         }
     }

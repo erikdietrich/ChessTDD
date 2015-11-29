@@ -10,7 +10,7 @@ namespace Chess.Test.PawnTests
     {
         private Pawn Target { get; set; }
 
-        private IEnumerable<BoardCoordinate> MovesFrom27;
+        private IEnumerable<int[]> MovesFrom27;
 
         [TestInitialize]
         public void BeforeEachTest()
@@ -22,7 +22,7 @@ namespace Chess.Test.PawnTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Collection_Containing_26()
         {
-            Assert.IsTrue(MovesFrom27.Any(bc => bc.X == 2 && bc.Y == 6));
+            Assert.IsTrue(MovesFrom27.Any(bc => bc[0] == 2 && bc[1] == 6));
         }
     }
 }

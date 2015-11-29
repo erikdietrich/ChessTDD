@@ -11,7 +11,7 @@ namespace Chess.Test.KingTests
     {
         private King Target { get; set; }
 
-        private IEnumerable<BoardCoordinate> MovesFrom3_3;
+        private IEnumerable<int[]> MovesFrom3_3;
 
         [TestInitialize]
         public void BeforeEachTest()
@@ -29,7 +29,7 @@ namespace Chess.Test.KingTests
             {
                 var moves = Target.GetMovesFrom(1, 1);
 
-                Assert.IsTrue(moves.Any(bc => bc.X == 1 && bc.Y == 2));
+                Assert.IsTrue(moves.Any(bc => bc[0] == 1 && bc[1] == 2));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -37,25 +37,25 @@ namespace Chess.Test.KingTests
             {
                 var moves = Target.GetMovesFrom(1, 1);
 
-                Assert.IsTrue(moves.Any(bc => bc.X == 2 && bc.Y == 2));
+                Assert.IsTrue(moves.Any(bc => bc[0] == 2 && bc[1] == 2));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_3_4_For_3_3()
             {
-                Assert.IsTrue(MovesFrom3_3.Any(bc => bc.X == 3 && bc.Y == 4));
+                Assert.IsTrue(MovesFrom3_3.Any(bc => bc[0] == 3 && bc[1] == 4));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_3_2_For_3_3()
             {
-                Assert.IsTrue(MovesFrom3_3.Any(bc => bc.X == 3 && bc.Y == 2));
+                Assert.IsTrue(MovesFrom3_3.Any(bc => bc[0] == 3 && bc[1] == 2));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_2_3_For_3_3()
             {
-                Assert.IsTrue(MovesFrom3_3.Any(bc => bc.X == 2 && bc.Y == 3));
+                Assert.IsTrue(MovesFrom3_3.Any(bc => bc[0] == 2 && bc[1] == 3));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -63,13 +63,13 @@ namespace Chess.Test.KingTests
             {
                 var moves = Target.GetMovesFrom(1, 1);
 
-                Assert.IsFalse(moves.Any(bc => bc.Y == 0 || bc.X == 0));
+                Assert.IsFalse(moves.Any(bc => bc[1] == 0 || bc[0] == 0));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Does_Not_Return_3_5_For_3_3()
             {
-                Assert.IsFalse(MovesFrom3_3.Any(bc => bc.X == 3 && bc.Y == 5));
+                Assert.IsFalse(MovesFrom3_3.Any(bc => bc[0] == 3 && bc[1] == 5));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]

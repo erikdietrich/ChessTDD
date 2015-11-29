@@ -24,7 +24,7 @@ namespace Chess.Test.BoardTests
         {
             var moves = Target.GetMovesFrom(1, 1);
 
-            Assert.IsTrue(moves.Any(bc => bc.X == 1 && bc.Y == 2));
+            Assert.IsTrue(moves.Any(bc => bc[0] == 1 && bc[1] == 2));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -32,7 +32,7 @@ namespace Chess.Test.BoardTests
         {
             var moves = Target.GetMovesFrom(1, 1);
 
-            Assert.IsFalse(moves.Any(bc => bc.X == 2 && bc.Y == 1));
+            Assert.IsFalse(moves.Any(bc => bc[0] == 2 && bc[1] == 1));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -40,7 +40,7 @@ namespace Chess.Test.BoardTests
         {
             var moves = Target.GetMovesFrom(5, 1);
 
-            Assert.IsTrue(moves.Any(bc => bc.X == 5 && bc.Y == 2));
+            Assert.IsTrue(moves.Any(bc => bc[0] == 5 && bc[1] == 2));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -87,7 +87,7 @@ namespace Chess.Test.BoardTests
         {
             var moves = Target.GetMovesFrom(1, 1);
 
-            Assert.IsTrue(moves.Any(m => m.X == 1 && m.Y == 8));
+            Assert.IsTrue(moves.Any(m => m[0] == 1 && m[1] == 8));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -97,7 +97,7 @@ namespace Chess.Test.BoardTests
 
             var moves = Target.GetMovesFrom(1, 1);
 
-            Assert.IsFalse(moves.Any(m => m.X == 1 && m.Y == 8));
+            Assert.IsFalse(moves.Any(m => m[0] == 1 && m[1] == 8));
         }
     }
 }

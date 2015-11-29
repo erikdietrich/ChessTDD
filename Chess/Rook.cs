@@ -9,15 +9,15 @@ namespace Chess
         public Rook(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<int[]> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
         {
             var availableCoordinates = Enumerable.Range(1, boardSize);
 
             var verticalMoves = availableCoordinates.Where(y => startingLocationY != y).
-                Select(y => new BoardCoordinate(startingLocationX, y));
+                Select(y => new int[] { startingLocationX, y });
 
             var horizontalMoves = availableCoordinates.Where(x => startingLocationX != x).
-                Select(x => new BoardCoordinate(x, startingLocationY));
+                Select(x => new int[] { x, startingLocationY });
 
             return verticalMoves.Union(horizontalMoves);
         }

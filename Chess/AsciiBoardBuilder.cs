@@ -13,7 +13,7 @@ namespace Chess
             return _board;
         }
 
-        public void AddPiece(BoardCoordinate square, string pieceString)
+        public void AddPiece(int x, int y, string pieceString)
         {
             VerifyNonEmptyPieceStringOrThrow(pieceString);
 
@@ -23,7 +23,7 @@ namespace Chess
 
             var pieceToAdd = BuildPiece(pieceCode, isFirstPlayer);
 
-            _board.AddPiece(pieceToAdd, square.X, square.Y);
+            _board.AddPiece(pieceToAdd, x, y);
         }
 
         private static void VerifyNonEmptyPieceStringOrThrow(string piece)

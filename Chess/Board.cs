@@ -99,75 +99,80 @@ namespace Chess
             return IsCoordinateValidForBoardSize(x, y, _boardSize) && GetPiece(x, y) != null;
         }
 
-        public IEnumerable<BoardCoordinate> GetMovesFrom(int originCoordinateX, int originCoordinateY)
+        public IEnumerable<int[]> GetMovesFrom(int originCoordinateX, int originCoordinateY)
         {
-            var moves = new List<BoardCoordinate>();
+            var moves = new List<int[]>();
             var pieceAtOrigin = GetPiece(originCoordinateX, originCoordinateY);
             var allPossiblePieceMoves = pieceAtOrigin.GetMovesFrom(originCoordinateX, originCoordinateY);
 
             foreach (var destinationCoordinate in allPossiblePieceMoves)
             {
-                var isCapture = IsCoordinateValidForBoardSize(destinationCoordinate.X, destinationCoordinate.Y, _boardSize) && GetPiece(destinationCoordinate.X, destinationCoordinate.Y) != null;
+                var isCapture = IsCoordinateValidForBoardSize(destinationCoordinate[0], destinationCoordinate[1], _boardSize) 
+                    && GetPiece(destinationCoordinate[0], destinationCoordinate[1]) != null;
 
-                var isIllegalCapture = isCapture && !GetPiece(originCoordinateX, originCoordinateY).IsCaptureAllowed(originCoordinateX, originCoordinateY, destinationCoordinate.X, destinationCoordinate.Y);
-                var isIllegalNonCapture = !isCapture && !GetPiece(originCoordinateX, originCoordinateY).IsNonCaptureAllowed(originCoordinateX, originCoordinateY, destinationCoordinate.X, destinationCoordinate.Y);
+                var isIllegalCapture = isCapture && !GetPiece(originCoordinateX, originCoordinateY).
+                    IsCaptureAllowed(originCoordinateX, originCoordinateY, destinationCoordinate[0], destinationCoordinate[1]);
+                var isIllegalNonCapture = !isCapture && !GetPiece(originCoordinateX, originCoordinateY).
+                    IsNonCaptureAllowed(originCoordinateX, originCoordinateY, destinationCoordinate[0], destinationCoordinate[1]);
 
-                var spaces = new List<BoardCoordinate>();
-                if (originCoordinateY == destinationCoordinate.Y)
+                var spaces = new List<int[]>();
+                if (originCoordinateY == destinationCoordinate[1])
                 {
-                    if (originCoordinateX < destinationCoordinate.X)
+                    if (originCoordinateX < destinationCoordinate[0])
                     {
-                        for (int x = originCoordinateX + 1; x <= destinationCoordinate.X; x++)
+                        for (int x = originCoordinateX + 1; x <= destinationCoordinate[0]; x++)
                         {
-                            var coordinate = BoardCoordinate.For(x, originCoordinateY);
+                            var coordinate = new int[] { x, originCoordinateY };
                             spaces.Add(coordinate);
                         }
                     }
                     else
                     {
-                        for (int x = originCoordinateX - 1; x >= destinationCoordinate.X; x--)
+                        for (int x = originCoordinateX - 1; x >= destinationCoordinate[0]; x--)
                         {
-                            var coordinate = BoardCoordinate.For(x, originCoordinateY);
+                            var coordinate = new int[] { x, originCoordinateY };
                             spaces.Add(coordinate);
                         }
                     }
                 }
-                else if (originCoordinateX == destinationCoordinate.X)
+                else if (originCoordinateX == destinationCoordinate[0])
                 {
-                    if (originCoordinateY < destinationCoordinate.Y)
+                    if (originCoordinateY < destinationCoordinate[1])
                     {
-                        for (int y = originCoordinateY + 1; y <= destinationCoordinate.Y; y++)
+                        for (int y = originCoordinateY + 1; y <= destinationCoordinate[1]; y++)
                         {
-                            var coordinate = BoardCoordinate.For(originCoordinateX, y);
+                            var coordinate = new int[] { originCoordinateX, y };
                             spaces.Add(coordinate);
                         }
                     }
                     else
                     {
-                        for (int y = originCoordinateY - 1; y >= destinationCoordinate.Y; y--)
+                        for (int y = originCoordinateY - 1; y >= destinationCoordinate[1]; y--)
                         {
-                            var coordinate = BoardCoordinate.For(originCoordinateX, y);
+                            var coordinate = new int[] { originCoordinateX, y };
                             spaces.Add(coordinate);
                         }
                     }
                 }
-                else if (Math.Abs(originCoordinateX - destinationCoordinate.X) == Math.Abs(originCoordinateY - destinationCoordinate.Y))
+                else if (Math.Abs(originCoordinateX - destinationCoordinate[0]) == Math.Abs(originCoordinateY - destinationCoordinate[1]))
                 {
-                    var absoluteDistance = Math.Abs(originCoordinateX - destinationCoordinate.X);
-                    var xDirection = (destinationCoordinate.X - originCoordinateX) / absoluteDistance;
-                    var yDirection = (destinationCoordinate.Y - originCoordinateY) / absoluteDistance;
+                    var absoluteDistance = Math.Abs(originCoordinateX - destinationCoordinate[0]);
+                    var xDirection = (destinationCoordinate[0] - originCoordinateX) / absoluteDistance;
+                    var yDirection = (destinationCoordinate[1] - originCoordinateY) / absoluteDistance;
                     for (int i = 1; i <= absoluteDistance; i++)
                     {
                         int xCoordinate = originCoordinateX + i * xDirection;
                         int yCoordinate = originCoordinateY + i * yDirection;
-                        var coordinate = BoardCoordinate.For(xCoordinate, yCoordinate);
+                        var coordinate = new int[] { xCoordinate, yCoordinate };
                         spaces.Add(coordinate);
                     }
                 }
 
-                bool isDestinationValidForBoardSize = IsCoordinateValidForBoardSize(destinationCoordinate.X, destinationCoordinate.Y, _boardSize);
-                bool isBlocked = spaces.Any(space => DoesFriendlyPieceExistAt(originCoordinateX, originCoordinateY, space.X, space.Y)) || spaces.Any(space => DoesPieceExistAt(space.X, space.Y) && !space.Equals(spaces.LastOrDefault()));
-                bool friendlyPieceAtDestination = DoesFriendlyPieceExistAt(originCoordinateX, originCoordinateY, destinationCoordinate.X, destinationCoordinate.Y);
+                bool isDestinationValidForBoardSize = IsCoordinateValidForBoardSize(destinationCoordinate[0], destinationCoordinate[1], _boardSize);
+                bool isBlocked = spaces.Any(space => DoesFriendlyPieceExistAt(originCoordinateX, originCoordinateY, space[0], space[1])) || 
+                    spaces.Any(space => DoesPieceExistAt(space[0], space[1]) && !space.Equals(spaces.LastOrDefault()));
+
+                bool friendlyPieceAtDestination = DoesFriendlyPieceExistAt(originCoordinateX, originCoordinateY, destinationCoordinate[0], destinationCoordinate[1]);
 
                 if (!isIllegalCapture && !isIllegalNonCapture && isDestinationValidForBoardSize && !isBlocked && !friendlyPieceAtDestination)
                 {

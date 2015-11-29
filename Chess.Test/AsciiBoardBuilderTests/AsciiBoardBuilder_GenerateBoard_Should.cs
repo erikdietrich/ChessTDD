@@ -10,11 +10,6 @@ namespace Chess.Test.AsciiBoardBuilderTests
     {
         private AsciiBoardBuilder Target { get; set; }
 
-        private BoardCoordinate SomeCoordinate
-        {
-            get { return BoardCoordinate.For(1, 1); }
-        }
-
         private Board GeneratedBoard
         {
             get
@@ -38,7 +33,7 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Generate_Board_With_One_Piece_When_SinglePawn_Is_Added()
         {
-            Target.AddPiece(BoardCoordinate.For(1, 1), "WP");
+            Target.AddPiece(1, 1, "WP");
 
             Assert.AreEqual<int>(1, GeneratedBoard.PieceCount);
         }
@@ -46,8 +41,8 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Generate_Board_With_Two_Pieces_When_Two_Pawns_Are_Added()
         {
-            Target.AddPiece(BoardCoordinate.For(1, 1), "WP");
-            Target.AddPiece(BoardCoordinate.For(1, 2), "WP");
+            Target.AddPiece(1, 1, "WP");
+            Target.AddPiece(1, 2, "WP");
 
             Assert.AreEqual<int>(2, GeneratedBoard.PieceCount);
         }
@@ -55,9 +50,9 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Generate_Board_With_A_White_Bishop_When_WB_Is_Added()
         {
-            Target.AddPiece(SomeCoordinate, "WB");
+            Target.AddPiece(1, 1, "WB");
 
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
+            var addedPiece = GeneratedBoard.GetPiece(1, 1);
 
             var isWhiteBishop = addedPiece.GetType() == typeof(Bishop) && addedPiece.IsFirstPlayerPiece;
 
@@ -67,9 +62,9 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Generate_Board_With_Black_Bishop_When_BB_Is_Added()
         {
-            Target.AddPiece(SomeCoordinate, "BB");
+            Target.AddPiece(1, 1, "BB");
 
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X,SomeCoordinate.Y);
+            var addedPiece = GeneratedBoard.GetPiece(1, 1);
 
             var isBlackBishop = addedPiece.GetType() == typeof(Bishop) && !addedPiece.IsFirstPlayerPiece;
 
@@ -79,8 +74,8 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Generate_Board_With_Queen_When_WQ_Is_Added()
         {
-            Target.AddPiece(SomeCoordinate, "WQ");
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
+            Target.AddPiece(1, 1, "WQ");
+            var addedPiece = GeneratedBoard.GetPiece(1, 1);
 
             Assert.IsInstanceOfType(addedPiece, typeof(Queen));
         }
@@ -88,8 +83,8 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Generate_Board_With_King_When_BK_Is_Added()
         {
-            Target.AddPiece(SomeCoordinate, "BK");
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
+            Target.AddPiece(1, 1, "BK");
+            var addedPiece = GeneratedBoard.GetPiece(1, 1);
 
             Assert.IsInstanceOfType(addedPiece, typeof(King));
         }
@@ -97,8 +92,8 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Generate_Board_With_Rook_When_WR_Is_Added()
         {
-            Target.AddPiece(SomeCoordinate, "WR");
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
+            Target.AddPiece(1, 1, "WR");
+            var addedPiece = GeneratedBoard.GetPiece(1, 1);
 
             Assert.IsInstanceOfType(addedPiece, typeof(Rook));
         }
@@ -106,8 +101,8 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Generate_Board_With_Knight_When_BKn_Is_Added()
         {
-            Target.AddPiece(SomeCoordinate, "BKn");
-            var addedPiece = GeneratedBoard.GetPiece(SomeCoordinate.X, SomeCoordinate.Y);
+            Target.AddPiece(1, 1, "BKn");
+            var addedPiece = GeneratedBoard.GetPiece(1, 1);
 
             Assert.IsInstanceOfType(addedPiece, typeof(Knight));
         }
@@ -115,31 +110,31 @@ namespace Chess.Test.AsciiBoardBuilderTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_When_Color_Is_Not_Specified()
         {
-            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(SomeCoordinate, "P"));
+            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(1, 1, "P"));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_Exception_When_First_Character_Is_Not_B_Or_W()
         {
-            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(SomeCoordinate, "DD"));
+            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(1, 1, "DD"));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_NullArgumentException_On_Null_PieceString()
         {
-            ExtendedAssert.Throws<ArgumentNullException>(() => Target.AddPiece(SomeCoordinate, null));
+            ExtendedAssert.Throws<ArgumentNullException>(() => Target.AddPiece(1, 1, null));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_ArgumentException_On_Empty_PieceString()
         {
-            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(SomeCoordinate, string.Empty));
+            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(1, 1, string.Empty));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Throw_ArgumentException_For_Single_Character_Piece()
         {
-            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(SomeCoordinate, "1"));
+            ExtendedAssert.Throws<ArgumentException>(() => Target.AddPiece(1, 1, "1"));
         }
 
     }

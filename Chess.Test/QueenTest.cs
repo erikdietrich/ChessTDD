@@ -11,7 +11,7 @@ namespace Chess.Test
     {
         private Queen Target { get; set; }
 
-        private IEnumerable<BoardCoordinate> MovesFrom11;
+        private IEnumerable<int[]> MovesFrom11;
 
         [TestInitialize]
         public void BeforeEachTest()
@@ -28,25 +28,25 @@ namespace Chess.Test
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_1_2_For_1_1()
             {
-                Assert.IsTrue(MovesFrom11.Any(bc => bc.X == 1 && bc.Y == 2));
+                Assert.IsTrue(MovesFrom11.Any(bc => bc[0] == 1 && bc[1] == 2));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_2_2_For_1_1()
             {
-                Assert.IsTrue(MovesFrom11.Any(bc => bc.X == 2 && bc.Y == 2));
+                Assert.IsTrue(MovesFrom11.Any(bc => bc[0] == 2 && bc[1] == 2));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_3_3_For_1_1()
             {
-                Assert.IsTrue(MovesFrom11.Any(bc => bc.X == 3 && bc.Y == 3));
+                Assert.IsTrue(MovesFrom11.Any(bc => bc[0] == 3 && bc[1] == 3));
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Does_Not_Return_0_0_From_1_1()
             {
-                Assert.IsFalse(MovesFrom11.Any(bc => bc.X == 0 || bc.Y == 0));
+                Assert.IsFalse(MovesFrom11.Any(bc => bc[0] == 0 || bc[1] == 0));
             }
         }
     }

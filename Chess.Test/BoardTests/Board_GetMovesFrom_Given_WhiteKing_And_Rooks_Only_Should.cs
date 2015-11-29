@@ -47,7 +47,7 @@ namespace Chess.Test.BoardTests
 
             var kingMoves = Target.GetMovesFrom(KingStart.X, KingStart.Y);
 
-            Assert.IsFalse(kingMoves.Any(bc => bc.X == 7 && bc.Y == 1));
+            Assert.IsFalse(kingMoves.Any(bc => bc[0] == 7 && bc[1] == 1));
         }
 
     }

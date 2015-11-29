@@ -11,7 +11,7 @@ namespace Chess.Test
     {
         private Rook Target { get; set; }
 
-        private IEnumerable<BoardCoordinate> MovesFrom11;
+        private IEnumerable<int[]> MovesFrom11;
 
         [TestInitialize]
         public void BeforeEachTest()
@@ -26,19 +26,19 @@ namespace Chess.Test
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_7_Vertical_Moves_With_Board_Size_8()
             {
-                Assert.AreEqual<int>(7, MovesFrom11.Where(bc => bc.X == 1).ToList().Count());
+                Assert.AreEqual<int>(7, MovesFrom11.Where(bc => bc[0] == 1).ToList().Count());
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_7_Horizontal_Moves_With_Board_Size_8()
             {
-                Assert.AreEqual<int>(7, MovesFrom11.Where(bc => bc.Y == 1).Count());
+                Assert.AreEqual<int>(7, MovesFrom11.Where(bc => bc[1] == 1).Count());
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
             public void Returns_No_Moves_That_Contain_A_Zero()
             {
-                Assert.AreEqual<int>(0, MovesFrom11.Where(bc => bc.X == 0 || bc.Y == 0).Count());
+                Assert.AreEqual<int>(0, MovesFrom11.Where(bc => bc[0] == 0 || bc[1] == 0).Count());
             }
 
             [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -46,7 +46,7 @@ namespace Chess.Test
             {
                 var moves = Target.GetMovesFrom(7, 1);
 
-                Assert.IsTrue(moves.Any(bc => bc.X == 7 && bc.Y == 4));
+                Assert.IsTrue(moves.Any(bc => bc[0] == 7 && bc[1] == 4));
             }
         }
     }

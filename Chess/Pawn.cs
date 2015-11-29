@@ -12,20 +12,20 @@ namespace Chess
         public Pawn(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<int[]> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
         {
-            yield return new BoardCoordinate(startingLocationX, startingLocationY + DirectionalMultiplier);
+            yield return new int[] { startingLocationX, startingLocationY + DirectionalMultiplier };
             if (!HasMoved)
-                yield return new BoardCoordinate(startingLocationX, startingLocationY + 2 * DirectionalMultiplier);
-            yield return new BoardCoordinate(startingLocationX + 1, startingLocationY + DirectionalMultiplier);
-            yield return new BoardCoordinate(startingLocationX - 1, startingLocationY + DirectionalMultiplier);
+                yield return new int[] { startingLocationX, startingLocationY + 2 * DirectionalMultiplier };
+            yield return new int[] { startingLocationX + 1, startingLocationY + DirectionalMultiplier };
+            yield return new int[] { startingLocationX - 1, startingLocationY + DirectionalMultiplier };
         }
 
         public override bool IsCaptureAllowed(int originX, int originY, int destinationX, int destinationY)
         {
-            var diagonalMovesFromOrigin = GetRadialDiagonalFrom(BoardCoordinate.For(originX, originY), 1);
+            var diagonalMovesFromOrigin = GetRadialDiagonalFrom(originX, originY, 1);
 
-            return diagonalMovesFromOrigin.Any(d => d.X == destinationX && d.Y == destinationY) && 
+            return diagonalMovesFromOrigin.Any(d => d[0] == destinationX && d[1] == destinationY) && 
                 ((IsFirstPlayerPiece && originY < destinationY) || (!IsFirstPlayerPiece && originY > destinationY));
         }
 

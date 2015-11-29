@@ -9,11 +9,11 @@ namespace Chess
         public Bishop(bool isFirstPlayerPiece = true) : base(isFirstPlayerPiece)
         { }
 
-        public override IEnumerable<BoardCoordinate> GetMovesFrom(int startingLocationX, int startingLocationY, int boardSize = Board.DefaultBoardSize)
+        public override IEnumerable<int[]> GetMovesFrom(int x, int y, int boardSize = Board.DefaultBoardSize)
         {
             var allDistancesFromStart = Enumerable.Range(1, boardSize + 1);
-            var allPossibleBoardCoordinates = allDistancesFromStart.SelectMany(sp => GetRadialDiagonalFrom(BoardCoordinate.For(startingLocationX, startingLocationY), sp));
-            var legalBoardCoordinates = allPossibleBoardCoordinates.Where(bc => IsCoordinateValidForBoardSize(bc.X, bc.Y, boardSize));
+            var allPossibleBoardCoordinates = allDistancesFromStart.SelectMany(sp => GetRadialDiagonalFrom(x, y, sp));
+            var legalBoardCoordinates = allPossibleBoardCoordinates.Where(bc => IsCoordinateValidForBoardSize(bc[0], bc[1], boardSize));
             return legalBoardCoordinates;
         }
 

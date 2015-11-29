@@ -10,7 +10,7 @@ namespace Chess.Test.BoardTests
     {
         private Board Target { get; set; }
 
-        private IEnumerable<BoardCoordinate> MovesForLeftWhiteKnight
+        private IEnumerable<int[]> MovesForLeftWhiteKnight
         {
             get { return Target.GetMovesFrom(2, 1); }
         }
@@ -28,7 +28,7 @@ namespace Chess.Test.BoardTests
         {
             var moves = Target.GetMovesFrom(1, 2);
 
-            Assert.IsTrue(moves.Any(bc => bc.X == 1 && bc.Y == 3));
+            Assert.IsTrue(moves.Any(bc => bc[0] == 1 && bc[1] == 3));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -36,7 +36,7 @@ namespace Chess.Test.BoardTests
         {
             var moves = Target.GetMovesFrom(1, 2);
 
-            Assert.IsTrue(moves.Any(bc => bc.X == 1 && bc.Y == 4));
+            Assert.IsTrue(moves.Any(bc => bc[0] == 1 && bc[1] == 4));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -64,19 +64,19 @@ namespace Chess.Test.BoardTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Set_With_33_For_Knight_At_21()
         {
-            Assert.IsTrue(MovesForLeftWhiteKnight.Any(bc => bc.X == 3 && bc.Y == 3));
+            Assert.IsTrue(MovesForLeftWhiteKnight.Any(bc => bc[0] == 3 && bc[1] == 3));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Set_With_13_For_Knight_At_21()
         {
-            Assert.IsTrue(MovesForLeftWhiteKnight.Any(bc => bc.X == 1 && bc.Y == 3));
+            Assert.IsTrue(MovesForLeftWhiteKnight.Any(bc => bc[0] == 1 && bc[1] == 3));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Not_Return_42_For_Knight_At_21()
         {
-            Assert.IsFalse(MovesForLeftWhiteKnight.Any(bc => bc.X == 4 && bc.Y == 2));
+            Assert.IsFalse(MovesForLeftWhiteKnight.Any(bc => bc[0] == 4 && bc[1] == 2));
         }
 
     }

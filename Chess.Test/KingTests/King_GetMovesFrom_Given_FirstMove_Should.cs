@@ -12,7 +12,7 @@ namespace Chess.Test.KingTests
     {
         private King Target { get; set; }
 
-        private IEnumerable<BoardCoordinate> MovesFrom51
+        private IEnumerable<int[]> MovesFrom51
         {
             get { return Target.GetMovesFrom(5, 1); }
         }
@@ -26,13 +26,13 @@ namespace Chess.Test.KingTests
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Square_With_X_Coordinate_Two_Greater()
         {
-            Assert.IsTrue(MovesFrom51.Any(bc => bc.X == 7 && bc.Y == 1));
+            Assert.IsTrue(MovesFrom51.Any(bc => bc[0] == 7 && bc[1] == 1));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Square_With_X_Coordinate_2_Less()
         {
-            Assert.IsTrue(MovesFrom51.Any(bc => bc.X == 3 && bc.Y == 1));
+            Assert.IsTrue(MovesFrom51.Any(bc => bc[0] == 3 && bc[1] == 1));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -40,7 +40,7 @@ namespace Chess.Test.KingTests
         {
             Target.HasMoved = true;
 
-            Assert.IsFalse(MovesFrom51.Any(bc => bc.X == 3 && bc.Y == 1));
+            Assert.IsFalse(MovesFrom51.Any(bc => bc[0] == 3 && bc[1] == 1));
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
@@ -48,7 +48,7 @@ namespace Chess.Test.KingTests
         {
             Target.HasMoved = true;
 
-            Assert.IsFalse(MovesFrom51.Any(bc => bc.X == 7 && bc.Y == 1));
+            Assert.IsFalse(MovesFrom51.Any(bc => bc[0] == 7 && bc[1] == 1));
         }
 
     }
