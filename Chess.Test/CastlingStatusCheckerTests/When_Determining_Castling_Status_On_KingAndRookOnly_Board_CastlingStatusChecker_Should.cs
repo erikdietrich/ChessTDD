@@ -146,6 +146,25 @@ namespace Chess.Test.CastlingStatusCheckerTests
             Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(WhiteCastleMoveKingsSide)));
         }
 
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_13_Only_When_KingsRook_Is_Blocked()
+        {
+            Board.AddPiece(new Knight(), BoardCoordinate.For(7, 1));
+
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
+
+            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(WhiteCastleMoveQueensSide)));
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_17_Only_When_QueensRook_Is_Blocked()
+        {
+            Board.AddPiece(new Knight(), BoardCoordinate.For(2, 1));
+
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
+
+            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(WhiteCastleMoveKingsSide)));
+        }
     }
     
 }

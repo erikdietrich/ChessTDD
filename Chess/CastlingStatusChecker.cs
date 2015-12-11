@@ -8,6 +8,7 @@ namespace Chess
     {
         private const int QueensRookColumn = 1;
         private const int QueenCastleColumn = 3;
+        private const int KingColumn = 5;
         private const int KingCastleColumn = 7;
         private const int KingRookColumn = 8;
 
@@ -49,7 +50,14 @@ namespace Chess
         private IEnumerable<BoardCoordinate> GetCastleMoveIfAvailable(BoardCoordinate rookStart, BoardCoordinate moveIfSuccess)
         {
             var piece = _board.GetPiece(rookStart);
-            if (piece != null && !piece.HasMoved)
+
+            var kingCoordinate = BoardCoordinate.For(KingColumn, rookStart.Y);
+            var pathMaker = new PathMaker(kingCoordinate, rookStart);
+            var spacesBetweenKingAndRook = pathMaker.GetPathToDestination().Where(bc => bc.X != rookStart.X && bc.X != KingColumn);
+
+            var isBlocked = spacesBetweenKingAndRook.Any(bc => _board.GetPiece(bc) != null);
+
+            if (piece != null && !piece.HasMoved && !isBlocked)
                 yield return moveIfSuccess;
         }
     }

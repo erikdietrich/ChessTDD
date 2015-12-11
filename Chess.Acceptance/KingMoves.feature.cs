@@ -1008,6 +1008,360 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Castling if a piece is in between")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void CastlingIfAPieceIsInBetween()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Castling if a piece is in between", ((string[])(null)));
+#line 161
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table17.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table17.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table17.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table17.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table17.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table17.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table17.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table17.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "WKn",
+                        "WR"});
+#line 162
+ testRunner.When("there is a chess board set up as", ((string)(null)), table17, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table18.AddRow(new string[] {
+                        "4",
+                        "1"});
+            table18.AddRow(new string[] {
+                        "4",
+                        "2"});
+            table18.AddRow(new string[] {
+                        "5",
+                        "2"});
+            table18.AddRow(new string[] {
+                        "6",
+                        "2"});
+            table18.AddRow(new string[] {
+                        "6",
+                        "1"});
+            table18.AddRow(new string[] {
+                        "3",
+                        "1"});
+#line 172
+ testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table18, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Castling with both sides blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void CastlingWithBothSidesBlocked()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Castling with both sides blocked", ((string[])(null)));
+#line 181
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table19.AddRow(new string[] {
+                        "WR",
+                        "WKn",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "WKn",
+                        "WR"});
+#line 182
+ testRunner.When("there is a chess board set up as", ((string)(null)), table19, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table20.AddRow(new string[] {
+                        "4",
+                        "1"});
+            table20.AddRow(new string[] {
+                        "4",
+                        "2"});
+            table20.AddRow(new string[] {
+                        "5",
+                        "2"});
+            table20.AddRow(new string[] {
+                        "6",
+                        "2"});
+            table20.AddRow(new string[] {
+                        "6",
+                        "1"});
+#line 192
+ testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table20, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Castling for black with both sides blocked")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void CastlingForBlackWithBothSidesBlocked()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Castling for black with both sides blocked", ((string[])(null)));
+#line 200
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table21.AddRow(new string[] {
+                        "BR",
+                        "BKn",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "BKn",
+                        "WKn"});
+            table21.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table21.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table21.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table21.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table21.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table21.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table21.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+#line 201
+ testRunner.When("there is a chess board set up as", ((string)(null)), table21, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table22.AddRow(new string[] {
+                        "4",
+                        "8"});
+            table22.AddRow(new string[] {
+                        "4",
+                        "7"});
+            table22.AddRow(new string[] {
+                        "5",
+                        "7"});
+            table22.AddRow(new string[] {
+                        "6",
+                        "7"});
+            table22.AddRow(new string[] {
+                        "6",
+                        "8"});
+#line 211
+ testRunner.Then("the piece at (5,8) should have exactly the following moves", ((string)(null)), table22, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

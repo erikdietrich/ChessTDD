@@ -158,4 +158,60 @@ Scenario: Castling when king has moved
 	| 6 | 2 |
 	| 6 | 1 |
 
+Scenario: Castling if a piece is in between
+	When there is a chess board set up as
+	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	| WR  |     |     |     | WK  |     | WKn | WR  |
+	Then the piece at (5,1) should have exactly the following moves
+	| X | Y |
+	| 4 | 1 |
+	| 4 | 2 |
+	| 5 | 2 |
+	| 6 | 2 |
+	| 6 | 1 |
+	| 3 | 1 |
 
+Scenario: Castling with both sides blocked
+	When there is a chess board set up as
+	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	| WR  | WKn |     |     | WK  |     | WKn | WR  |
+	Then the piece at (5,1) should have exactly the following moves
+	| X | Y |
+	| 4 | 1 |
+	| 4 | 2 |
+	| 5 | 2 |
+	| 6 | 2 |
+	| 6 | 1 |
+
+Scenario: Castling for black with both sides blocked
+	When there is a chess board set up as
+	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+	|  BR | BKn |     |     | BK  |     | BKn | WKn |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	|     |     |     |     |     |     |     |     |
+	Then the piece at (5,8) should have exactly the following moves
+	| X | Y |
+	| 4 | 8 |
+	| 4 | 7 |
+	| 5 | 7 |
+	| 6 | 7 |
+	| 6 | 8 |
