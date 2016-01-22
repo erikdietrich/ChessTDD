@@ -19,7 +19,7 @@ namespace Chess
 
         public virtual bool IsCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
         {
-            return true;
+            return GetMovesFrom(origin).Any(m => m.Matches(destination));
         }
 
         public virtual bool IsNonCaptureAllowed(BoardCoordinate origin, BoardCoordinate destination)
