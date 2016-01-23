@@ -59,9 +59,14 @@ namespace Chess
             SetPiece(null, coordinateForRemoval);
         }
 
+        public T GetPiece<T>(BoardCoordinate coordinateToRetrieve) where T : Piece
+        {
+            return _pieces[coordinateToRetrieve.X - 1, coordinateToRetrieve.Y - 1] as T;
+        }
+
         public Piece GetPiece(BoardCoordinate coordinateToRetrieve)
         {
-            return _pieces[coordinateToRetrieve.X - 1, coordinateToRetrieve.Y - 1];
+            return GetPiece<Piece>(coordinateToRetrieve);
         }
 
         public bool DoesPieceExistAt(BoardCoordinate coordinateToCheck)
@@ -104,7 +109,7 @@ namespace Chess
         {
             if (enPassantTarget.IsCoordinateValidForBoardSize(_boardSize))
             {
-                var targetPawn = GetPiece(enPassantTarget) as Pawn;
+                var targetPawn = GetPiece<Pawn>(enPassantTarget);
                 if (targetPawn != null)
                     targetPawn.SetCanPerformEnPassantOn(destination);
             }
