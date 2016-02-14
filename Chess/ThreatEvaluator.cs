@@ -24,11 +24,13 @@ namespace Chess
             return coordinates.Any(c => DoesSquareAttack(c, victim, isFirstPlayerAttacking));
         }
 
-        private bool DoesSquareAttack(BoardCoordinate attacker, BoardCoordinate victim, bool isFirstPlayerAttacking)
+        private bool DoesSquareAttack(BoardCoordinate attackingCoordinate, BoardCoordinate victimCoordinate, bool isFirstPlayerAttacking)
         {
-            var piece = _board.GetPiece(attacker);
+            var attacker = _board.GetPiece(attackingCoordinate);
 
-            return piece != null && piece.IsCaptureAllowed(attacker, victim) && isFirstPlayerAttacking != piece.IsFirstPlayerPiece;
+            return attacker != null && _board.IsMoveLegal(attackingCoordinate, victimCoordinate) && 
+                attacker.IsCaptureAllowed(attackingCoordinate, victimCoordinate) && 
+                isFirstPlayerAttacking != attacker.IsFirstPlayerPiece;
         }
 
     }

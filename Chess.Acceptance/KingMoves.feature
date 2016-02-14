@@ -215,3 +215,23 @@ Scenario: Castling for black with both sides blocked
 	| 5 | 7 |
 	| 6 | 7 |
 	| 6 | 8 |
+
+Scenario: White king can't castle through check to queen's side
+	When there is a chess board set up as
+		|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+		|     |     |     | BQ  |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|  WR |     |     |     |  WK |     |     | WR  |
+	Then the piece at (5,1) should have exactly the following moves
+		| X | Y |
+		| 4 | 1 |
+		| 4 | 2 |
+		| 5 | 2 |
+		| 6 | 2 |
+		| 6 | 1 |
+		| 7 | 1 |

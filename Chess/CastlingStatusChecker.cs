@@ -50,15 +50,20 @@ namespace Chess
         private IEnumerable<BoardCoordinate> GetCastleMoveIfAvailable(BoardCoordinate rookStart, BoardCoordinate moveIfSuccess)
         {
             var piece = _board.GetPiece(rookStart);
+            if (piece != null)
+            {
+                var kingCoordinate = BoardCoordinate.For(KingColumn, rookStart.Y);
+                var pathMaker = new PathMaker(kingCoordinate, rookStart);
+                var spacesBetweenKingAndRook = pathMaker.GetPathToDestination().Where(bc => bc.X != rookStart.X && bc.X != KingColumn);
 
-            var kingCoordinate = BoardCoordinate.For(KingColumn, rookStart.Y);
-            var pathMaker = new PathMaker(kingCoordinate, rookStart);
-            var spacesBetweenKingAndRook = pathMaker.GetPathToDestination().Where(bc => bc.X != rookStart.X && bc.X != KingColumn);
+                var threatEvaluator = new ThreatEvaluator(_board);
+                var wouldKingBeThreatened = spacesBetweenKingAndRook.Any(bc => threatEvaluator.IsThreatened(bc, piece.IsFirstPlayerPiece));
 
-            var isBlocked = spacesBetweenKingAndRook.Any(bc => _board.GetPiece(bc) != null);
+                var isBlocked = spacesBetweenKingAndRook.Any(bc => _board.GetPiece(bc) != null);
 
-            if (piece != null && !piece.HasMoved && !isBlocked)
-                yield return moveIfSuccess;
+                if (!piece.HasMoved && !isBlocked && !wouldKingBeThreatened)
+                    yield return moveIfSuccess;
+            }
         }
     }
 }

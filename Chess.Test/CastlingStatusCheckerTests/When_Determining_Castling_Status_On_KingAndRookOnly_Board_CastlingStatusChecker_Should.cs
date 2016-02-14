@@ -43,6 +43,16 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Return_Only_WhiteCastleMoveKingSide_When_Black_Queen_Threatens_4_1()
+        {
+            Board.AddPiece(new Queen(false), BoardCoordinate.For(4, 8));
+
+            var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
+
+            Assert.IsTrue(movesForWhiteKing.All(bc => bc.Matches(WhiteCastleMoveKingsSide)));
+        }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
         public void Return_Two_CastlingMoves_For_Black_King_StartSquare_When_Nothing_Has_Moved()
         {
             var movesForBlackKing = Target.GetCastlingMovesFor(BlackKingStart);
@@ -51,7 +61,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_38_For_Black_King_StartSquare_When_Nothing_Has_Moved()
+        public void Return_BlackCastleMoveQueensSide_For_Black_King_StartSquare_When_Nothing_Has_Moved()
         {
             var movesForBlackKing = Target.GetCastlingMovesFor(BlackKingStart);
 
@@ -59,7 +69,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_78_Only_If_Queens_Rook_Has_Moved()
+        public void Return_BlackCastleMoveKingsSide_Only_If_Queens_Rook_Has_Moved()
         {
             Board.GetPiece(BlackQueensRookStart).HasMoved = true;
 
@@ -77,7 +87,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_31_For_KingStartSquare_When_Nothing_Has_Moved()
+        public void Return_WhiteCastleMoveQueensSide_For_KingStartSquare_When_Nothing_Has_Moved()
         {
             var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
@@ -85,7 +95,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_71_For_KingStartSquare_When_Nothing_Has_Moved()
+        public void Return_WhiteCastleMoveKingsSide_For_KingStartSquare_When_Nothing_Has_Moved()
         {
             var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
@@ -117,7 +127,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_71_Only_If_QueensRook_Has_Moved()
+        public void Return_WhiteCastleMoveKingsSide_Only_If_QueensRook_Has_Moved()
         {
             Board.GetPiece(WhiteQueensRookStart).HasMoved = true;
 
@@ -127,7 +137,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_31_Only_If_KingsRook_Is_Not_There()
+        public void Return_WhiteCastleMoveQueensSide_Only_If_KingsRook_Is_Not_There()
         {
             Board.RemovePiece(WhiteKingsRookStart);
 
@@ -137,7 +147,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Only_Return_71_If_QueensRook_Is_Not_There()
+        public void Only_Return_WhiteCastleMoveKingsSide_If_QueensRook_Is_Not_There()
         {
             Board.RemovePiece(WhiteQueensRookStart);
 
@@ -147,9 +157,9 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_31_Only_When_KingsRook_Is_Blocked()
+        public void Return_WhiteCastleMoveQueensSide_Only_When_KingsRook_Is_Blocked()
         {
-            Board.AddPiece(new Knight(), BoardCoordinate.For(7, 1));
+            Board.AddPiece(new Knight(), WhiteCastleMoveKingsSide);
 
             var movesForWhiteKing = Target.GetCastlingMovesFor(WhiteKingStart);
 
@@ -157,7 +167,7 @@ namespace Chess.Test.CastlingStatusCheckerTests
         }
 
         [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
-        public void Return_71_Only_When_QueensRook_Is_Blocked()
+        public void Return_WhiteCastleMoveKingsSide_Only_When_QueensRook_Is_Blocked()
         {
             Board.AddPiece(new Knight(), BoardCoordinate.For(2, 1));
 

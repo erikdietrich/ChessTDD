@@ -78,6 +78,17 @@ namespace Chess
             return allPossibleMoves.Where(move => IsMoveLegal(originCoordinate, move));
         }
 
+        public bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
+        {
+            var isCapture = destination.IsCoordinateValidForBoardSize(_boardSize) && GetPiece(destination) != null;
+
+            var isIllegalCapture = isCapture && !GetPiece(origin).IsCaptureAllowed(origin, destination);
+            var isIllegalNonCapture = !isCapture && !GetPiece(origin).IsNonCaptureAllowed(origin, destination);
+
+            return !isIllegalCapture && !isIllegalNonCapture && destination.IsCoordinateValidForBoardSize(_boardSize) &&
+                !IsBlocked(origin, destination) && !DoesFriendlyPieceExistAt(origin, destination);
+        }
+
         #region EnPassantStuff
         private void ReconcileEnPassant(BoardCoordinate origin, BoardCoordinate destination, Piece pieceToMove)
         {
@@ -120,16 +131,6 @@ namespace Chess
         }
         #endregion
 
-        private bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
-        {
-            var isCapture = destination.IsCoordinateValidForBoardSize(_boardSize) && GetPiece(destination) != null;
-
-            var isIllegalCapture = isCapture && !GetPiece(origin).IsCaptureAllowed(origin, destination);
-            var isIllegalNonCapture = !isCapture && !GetPiece(origin).IsNonCaptureAllowed(origin, destination);
-
-            return !isIllegalCapture && !isIllegalNonCapture && destination.IsCoordinateValidForBoardSize(_boardSize) &&
-                !IsBlocked(origin, destination) && !DoesFriendlyPieceExistAt(origin, destination);
-        }
         private bool DoesFriendlyPieceExistAt(BoardCoordinate origin, BoardCoordinate destination)
         {
             var piece = GetPiece(destination);
