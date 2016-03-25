@@ -75,7 +75,7 @@ namespace Chess
             var checker = new CastlingStatusChecker(this);
             var castlingMoves = checker.GetCastlingMovesFor(originCoordinate).ToList();
             var allPossibleMoves = piece.GetMovesFrom(originCoordinate).Union(castlingMoves);
-            return allPossibleMoves.Where(move => IsMoveLegal(originCoordinate, move));
+            return allPossibleMoves.Where(move => IsMoveLegal(originCoordinate, move) && !IsMoveThreatenedKing(piece, move));
         }
 
         public bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
@@ -161,5 +161,12 @@ namespace Chess
             return spacesAlongPath.Any(space => DoesFriendlyPieceExistAt(origin, space)) || spacesAlongPath.Any(space => DoesPieceExistAt(space) && !space.Equals(lastSpace));
         }
 
+        private bool IsMoveThreatenedKing(Piece moveCandidate, BoardCoordinate moveDestination)
+        {
+            var evaluator = new ThreatEvaluator(this);
+
+            return moveCandidate is King && 
+                evaluator.IsThreatened(moveDestination, moveCandidate.IsFirstPlayerPiece);
+        }
     }
 }

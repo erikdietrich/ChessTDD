@@ -1272,7 +1272,7 @@ this.ScenarioSetup(scenarioInfo);
                         "BK",
                         "",
                         "BKn",
-                        "WKn"});
+                        "BKn"});
             table21.AddRow(new string[] {
                         "",
                         "",
@@ -1460,12 +1460,6 @@ this.ScenarioSetup(scenarioInfo);
                         "X",
                         "Y"});
             table24.AddRow(new string[] {
-                        "4",
-                        "1"});
-            table24.AddRow(new string[] {
-                        "4",
-                        "2"});
-            table24.AddRow(new string[] {
                         "5",
                         "2"});
             table24.AddRow(new string[] {
@@ -1479,6 +1473,336 @@ this.ScenarioSetup(scenarioInfo);
                         "1"});
 #line 230
  testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table24, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White king can\'t move into check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void WhiteKingCanTMoveIntoCheck()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White king can\'t move into check", ((string[])(null)));
+#line 238
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table25.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BQ",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table25.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table25.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table25.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table25.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table25.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table25.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table25.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 239
+ testRunner.When("there is a chess board set up as", ((string)(null)), table25, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table26.AddRow(new string[] {
+                        "5",
+                        "2"});
+            table26.AddRow(new string[] {
+                        "6",
+                        "2"});
+            table26.AddRow(new string[] {
+                        "6",
+                        "1"});
+            table26.AddRow(new string[] {
+                        "7",
+                        "1"});
+#line 249
+ testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table26, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Black king can\'t move into check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void BlackKingCanTMoveIntoCheck()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black king can\'t move into check", ((string[])(null)));
+#line 256
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table27.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table27.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table27.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table27.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table27.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table27.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table27.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table27.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "WQ",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 257
+ testRunner.When("there is a chess board set up as", ((string)(null)), table27, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table28.AddRow(new string[] {
+                        "5",
+                        "7"});
+            table28.AddRow(new string[] {
+                        "6",
+                        "7"});
+            table28.AddRow(new string[] {
+                        "6",
+                        "8"});
+            table28.AddRow(new string[] {
+                        "7",
+                        "8"});
+#line 267
+ testRunner.Then("the piece at (5,8) should have exactly the following moves", ((string)(null)), table28, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Immobilized King")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void ImmobilizedKing()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Immobilized King", ((string[])(null)));
+#line 274
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BQ",
+                        "",
+                        "BR",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 275
+ testRunner.When("there is a chess board set up as", ((string)(null)), table29, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+#line 285
+ testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table30, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

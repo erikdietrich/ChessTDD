@@ -200,7 +200,7 @@ Scenario: Castling with both sides blocked
 Scenario: Castling for black with both sides blocked
 	When there is a chess board set up as
 	|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
-	|  BR | BKn |     |     | BK  |     | BKn | WKn |
+	|  BR | BKn |     |     | BK  |     | BKn | BKn |
 	|     |     |     |     |     |     |     |     |
 	|     |     |     |     |     |     |     |     |
 	|     |     |     |     |     |     |     |     |
@@ -229,9 +229,58 @@ Scenario: White king can't castle through check to queen's side
 		|  WR |     |     |     |  WK |     |     | WR  |
 	Then the piece at (5,1) should have exactly the following moves
 		| X | Y |
-		| 4 | 1 |
-		| 4 | 2 |
 		| 5 | 2 |
 		| 6 | 2 |
 		| 6 | 1 |
 		| 7 | 1 |
+
+
+Scenario: White king can't move into check
+	When there is a chess board set up as
+		|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+		|     |     |     | BQ  |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|  WR |     |     |     |  WK |     |     | WR  |
+	Then the piece at (5,1) should have exactly the following moves
+		| X | Y |
+		| 5 | 2 |
+		| 6 | 2 |
+		| 6 | 1 |
+		| 7 | 1 |
+
+Scenario: Black king can't move into check
+	When there is a chess board set up as
+		|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+		| BR  |     |     |     | BK  |     |     |  BR |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|  WR |     |     |  WQ |  WK |     |     | WR  |
+	Then the piece at (5,8) should have exactly the following moves
+		| X | Y |
+		| 5 | 7 |
+		| 6 | 7 |
+		| 6 | 8 |
+		| 7 | 8 |
+
+Scenario: Immobilized King
+	When there is a chess board set up as
+		|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+		|     |     |     | BQ  |     | BR  |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |  BR |     |     |     |     |     |     |
+		|  WR |     |     |     |  WK |     |     | WR  |
+	Then the piece at (5,1) should have exactly the following moves
+		| X | Y |
