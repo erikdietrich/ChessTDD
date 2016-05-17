@@ -1478,12 +1478,12 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White king can\'t move into check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White king can\'t castle through a piece")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
-        public virtual void WhiteKingCanTMoveIntoCheck()
+        public virtual void WhiteKingCanTCastleThroughAPiece()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White king can\'t move into check", ((string[])(null)));
-#line 238
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White king can\'t castle through a piece", ((string[])(null)));
+#line 237
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1499,7 +1499,7 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         "",
-                        "BQ",
+                        "",
                         "",
                         "",
                         "",
@@ -1562,17 +1562,20 @@ this.ScenarioSetup(scenarioInfo);
                         "WR",
                         "",
                         "",
-                        "",
+                        "WQ",
                         "WK",
                         "",
                         "",
                         "WR"});
-#line 239
+#line 238
  testRunner.When("there is a chess board set up as", ((string)(null)), table25, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
+            table26.AddRow(new string[] {
+                        "4",
+                        "2"});
             table26.AddRow(new string[] {
                         "5",
                         "2"});
@@ -1585,18 +1588,18 @@ this.ScenarioSetup(scenarioInfo);
             table26.AddRow(new string[] {
                         "7",
                         "1"});
-#line 249
+#line 248
  testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table26, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Black king can\'t move into check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White king can\'t castle onto a piece")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
-        public virtual void BlackKingCanTMoveIntoCheck()
+        public virtual void WhiteKingCanTCastleOntoAPiece()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black king can\'t move into check", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White king can\'t castle onto a piece", ((string[])(null)));
 #line 256
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -1610,14 +1613,14 @@ this.ScenarioSetup(scenarioInfo);
                         "7",
                         "8"});
             table27.AddRow(new string[] {
-                        "BR",
                         "",
                         "",
                         "",
-                        "BK",
                         "",
                         "",
-                        "BR"});
+                        "",
+                        "",
+                        ""});
             table27.AddRow(new string[] {
                         "",
                         "",
@@ -1675,8 +1678,8 @@ this.ScenarioSetup(scenarioInfo);
             table27.AddRow(new string[] {
                         "WR",
                         "",
+                        "WB",
                         "",
-                        "WQ",
                         "WK",
                         "",
                         "",
@@ -1688,30 +1691,36 @@ this.ScenarioSetup(scenarioInfo);
                         "X",
                         "Y"});
             table28.AddRow(new string[] {
+                        "4",
+                        "1"});
+            table28.AddRow(new string[] {
+                        "4",
+                        "2"});
+            table28.AddRow(new string[] {
                         "5",
-                        "7"});
+                        "2"});
             table28.AddRow(new string[] {
                         "6",
-                        "7"});
+                        "2"});
             table28.AddRow(new string[] {
                         "6",
-                        "8"});
+                        "1"});
             table28.AddRow(new string[] {
                         "7",
-                        "8"});
+                        "1"});
 #line 267
- testRunner.Then("the piece at (5,8) should have exactly the following moves", ((string)(null)), table28, "Then ");
+ testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table28, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Immobilized King")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("White king can\'t move into check")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
-        public virtual void ImmobilizedKing()
+        public virtual void WhiteKingCanTMoveIntoCheck()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Immobilized King", ((string[])(null)));
-#line 274
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("White king can\'t move into check", ((string[])(null)));
+#line 276
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1729,15 +1738,6 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "BQ",
                         "",
-                        "BR",
-                        "",
-                        ""});
-            table29.AddRow(new string[] {
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
                         "",
                         "",
                         ""});
@@ -1779,7 +1779,16 @@ this.ScenarioSetup(scenarioInfo);
                         ""});
             table29.AddRow(new string[] {
                         "",
-                        "BR",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table29.AddRow(new string[] {
+                        "",
+                        "",
                         "",
                         "",
                         "",
@@ -1795,14 +1804,242 @@ this.ScenarioSetup(scenarioInfo);
                         "",
                         "",
                         "WR"});
-#line 275
+#line 277
  testRunner.When("there is a chess board set up as", ((string)(null)), table29, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
                         "X",
                         "Y"});
-#line 285
+            table30.AddRow(new string[] {
+                        "5",
+                        "2"});
+            table30.AddRow(new string[] {
+                        "6",
+                        "2"});
+            table30.AddRow(new string[] {
+                        "6",
+                        "1"});
+            table30.AddRow(new string[] {
+                        "7",
+                        "1"});
+#line 287
  testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table30, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Black king can\'t move into check")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void BlackKingCanTMoveIntoCheck()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Black king can\'t move into check", ((string[])(null)));
+#line 294
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table31.AddRow(new string[] {
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "BK",
+                        "",
+                        "",
+                        "BR"});
+            table31.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table31.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table31.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table31.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table31.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table31.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table31.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "WQ",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 295
+ testRunner.When("there is a chess board set up as", ((string)(null)), table31, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table32.AddRow(new string[] {
+                        "5",
+                        "7"});
+            table32.AddRow(new string[] {
+                        "6",
+                        "7"});
+            table32.AddRow(new string[] {
+                        "6",
+                        "8"});
+            table32.AddRow(new string[] {
+                        "7",
+                        "8"});
+#line 305
+ testRunner.Then("the piece at (5,8) should have exactly the following moves", ((string)(null)), table32, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Immobilized King")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "King movement")]
+        public virtual void ImmobilizedKing()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Immobilized King", ((string[])(null)));
+#line 312
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8"});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "BQ",
+                        "",
+                        "BR",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "",
+                        "BR",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""});
+            table33.AddRow(new string[] {
+                        "WR",
+                        "",
+                        "",
+                        "",
+                        "WK",
+                        "",
+                        "",
+                        "WR"});
+#line 313
+ testRunner.When("there is a chess board set up as", ((string)(null)), table33, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+#line 323
+ testRunner.Then("the piece at (5,1) should have exactly the following moves", ((string)(null)), table34, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

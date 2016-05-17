@@ -49,12 +49,11 @@ namespace Chess
                 var yCoordinatesToCheck = Enumerable.Range(_origin.Y + 1, _destination.Y - _origin.Y);
                 return yCoordinatesToCheck.Select(y => BoardCoordinate.For(_origin.X, y));
             }
-            else if(_origin.Y > _destination.Y)
+            else
             {
                 var yCoordinatesToCheck = Enumerable.Range(_destination.Y, _origin.Y - _destination.Y).Reverse();
                 return yCoordinatesToCheck.Select(y => BoardCoordinate.For(_origin.X, y));
             }
-            return Enumerable.Empty<BoardCoordinate>();
         }
 
         private IEnumerable<BoardCoordinate> GetDiagonalPathSpaces()

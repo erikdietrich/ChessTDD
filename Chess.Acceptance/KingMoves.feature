@@ -234,6 +234,44 @@ Scenario: White king can't castle through check to queen's side
 		| 6 | 1 |
 		| 7 | 1 |
 
+Scenario: White king can't castle through a piece
+	When there is a chess board set up as
+		|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		| WR  |     |     | WQ  | WK  |     |     | WR  |
+	Then the piece at (5,1) should have exactly the following moves
+		| X | Y |
+		| 4 | 2 |
+		| 5 | 2 |
+		| 6 | 2 |
+		| 6 | 1 |
+		| 7 | 1 |
+
+Scenario: White king can't castle onto a piece
+	When there is a chess board set up as
+		|  1  |  2  |  3  |  4  |  5  |   6 |  7  |  8  |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		|     |     |     |     |     |     |     |     |
+		| WR  |     | WB  |     | WK  |     |     | WR  |
+	Then the piece at (5,1) should have exactly the following moves
+		| X | Y |
+		| 4 | 1 |
+		| 4 | 2 |
+		| 5 | 2 |
+		| 6 | 2 |
+		| 6 | 1 |
+		| 7 | 1 |
 
 Scenario: White king can't move into check
 	When there is a chess board set up as

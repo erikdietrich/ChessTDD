@@ -216,3 +216,5 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+/NDependOut
+/packages/SpecFlow.1.9.0

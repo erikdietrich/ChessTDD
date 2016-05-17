@@ -33,5 +33,11 @@ namespace Chess.Test
         {
             ExtendedAssert.Throws<ArgumentException>(() => Target.SetupStandardPawns(9), "row");
         }
+
+        [TestMethod, Owner("ebd"), TestCategory("Proven"), TestCategory("Unit")]
+        public void Throw_Exception_For_Zero_Row_To_SetupStandardPawns()
+        {
+            ExtendedAssert.Throws<ArgumentException>(() => Target.SetupStandardPawns(0));
+        }
     }
 }
