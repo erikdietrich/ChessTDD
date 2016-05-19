@@ -38,7 +38,7 @@ namespace Chess.Test
 
         private static void AssertExceptionMatch<TException>(Exception ex) where TException : Exception
         {
-            Assert.IsTrue(ex.GetType() == typeof(TException), String.Format("Expected exception of type {0} but got {1}", typeof(TException), ex.GetType()));
+            Assert.IsTrue(ex.GetType() == typeof(TException), $"Expected exception of type {typeof(TException)} but got {ex.GetType()}");
         }
         private static void FailNoException<TException>() where TException : Exception
         {

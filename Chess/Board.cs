@@ -8,24 +8,17 @@ namespace Chess
     {
         public const int DefaultBoardSize = 8;
 
-        private readonly int _boardSize;
         private readonly Piece[,] _pieces;
 
-        public int Size { get { return _boardSize; } }
+        public int Size { get; } = DefaultBoardSize;
 
-        public int PieceCount 
-        { 
-            get
-            {
-                return _pieces.Cast<Piece>().Count(p => p != null);
-            }
-        }
+        public int PieceCount => _pieces.Cast<Piece>().Count(p => p != null);
 
         public Board(int boardSize = DefaultBoardSize)
         {
             VerifyBoardSizeOrThrow(boardSize);
 
-            _boardSize = boardSize;
+            Size = boardSize;
             _pieces = new Piece[boardSize, boardSize];
         }
 
@@ -33,7 +26,7 @@ namespace Chess
         {
             if (piece == null)
                 throw new ArgumentNullException("piece");
-            if (!moveTarget.IsCoordinateValidForBoardSize(_boardSize))
+            if (!moveTarget.IsCoordinateValidForBoardSize(Size))
                 throw new ArgumentException("moveTarget");
 
             SetPiece(piece, moveTarget);
@@ -80,12 +73,12 @@ namespace Chess
 
         public bool IsMoveLegal(BoardCoordinate origin, BoardCoordinate destination)
         {
-            var isCapture = destination.IsCoordinateValidForBoardSize(_boardSize) && GetPiece(destination) != null;
+            var isCapture = destination.IsCoordinateValidForBoardSize(Size) && GetPiece(destination) != null;
 
             var isIllegalCapture = isCapture && !GetPiece(origin).IsCaptureAllowed(origin, destination);
             var isIllegalNonCapture = !isCapture && !GetPiece(origin).IsNonCaptureAllowed(origin, destination);
 
-            return !isIllegalCapture && !isIllegalNonCapture && destination.IsCoordinateValidForBoardSize(_boardSize) &&
+            return !isIllegalCapture && !isIllegalNonCapture && destination.IsCoordinateValidForBoardSize(Size) &&
                 !IsBlocked(origin, destination) && !DoesFriendlyPieceExistAt(origin, destination);
         }
 
@@ -113,11 +106,10 @@ namespace Chess
 
         private void SetEnPassantIfPawnExistsAtTarget(BoardCoordinate destination, BoardCoordinate enPassantTarget)
         {
-            if (enPassantTarget.IsCoordinateValidForBoardSize(_boardSize))
+            if (enPassantTarget.IsCoordinateValidForBoardSize(Size))
             {
                 var targetPawn = GetPiece(enPassantTarget) as Pawn;
-                if (targetPawn != null)
-                    targetPawn.SetCanPerformEnPassantOn(destination);
+                targetPawn?.SetCanPerformEnPassantOn(destination);
             }
         }
         private void CleanEnPassantForPlayerThatJustMoved(Piece pieceToMove)
@@ -149,7 +141,7 @@ namespace Chess
 
         private void VerifyCoordinatesOrThrow(params BoardCoordinate[] coordinates)
         {
-            if (coordinates.Any(bc => !bc.IsCoordinateValidForBoardSize(_boardSize)))
+            if (coordinates.Any(bc => !bc.IsCoordinateValidForBoardSize(Size)))
                 throw new ArgumentException("coordinate");
         }
 

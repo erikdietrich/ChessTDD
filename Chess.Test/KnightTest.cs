@@ -9,23 +9,11 @@ namespace Chess.Test
     [TestClass]
     public class KnightTest
     {
-        private Knight Target { get; set; }
+        private Knight Target { get; set; } = new Knight();
 
-        private IEnumerable<BoardCoordinate> MovesFrom33
-        {
-            get { return GetMoves(3, 3); }
-        }
+        private IEnumerable<BoardCoordinate> MovesFrom33 => GetMoves(3, 3); 
 
-        private IEnumerable<BoardCoordinate> GetMoves(int x, int y)
-        {
-            return Target.GetMovesFrom(new BoardCoordinate(x, y));
-        }
-
-        [TestInitialize]
-        public void BeforeEachTest()
-        {
-            Target = new Knight();
-        }
+        private IEnumerable<BoardCoordinate> GetMoves(int x, int y) => Target.GetMovesFrom(new BoardCoordinate(x, y));
 
         [TestClass]
         public class GetMovesFrom : KnightTest

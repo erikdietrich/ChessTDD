@@ -29,10 +29,10 @@ namespace Chess
         private static void VerifyNonEmptyPieceStringOrThrow(string piece)
         {
             if (piece == null)
-                throw new ArgumentNullException("piece");
+                throw new ArgumentNullException(nameof(piece));
 
             if (string.IsNullOrEmpty(piece))
-                throw new ArgumentException("piece");
+                throw new ArgumentException(nameof(piece));
         }
         private static bool DetermineIsFirstPlayer(char pieceColorCode)
         {
