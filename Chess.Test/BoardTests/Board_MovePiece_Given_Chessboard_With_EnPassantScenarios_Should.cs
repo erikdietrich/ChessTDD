@@ -24,7 +24,7 @@ namespace Chess.Test.BoardTests
         {
             Target.MovePiece(BoardCoordinate.For(1, 2), BoardCoordinate.For(1, 4));
 
-            var piece = Target.GetPiece(BoardCoordinate.For(2, 4)) as Pawn;
+            var piece = Target.GetPiece<Pawn>(BoardCoordinate.For(2, 4));
             
             Assert.IsTrue(piece.CanPerformEnPassantOn(BoardCoordinate.For(1, 4)));
         }
@@ -34,7 +34,7 @@ namespace Chess.Test.BoardTests
         {
             Target.MovePiece(BoardCoordinate.For(1, 2), BoardCoordinate.For(1, 4));
 
-            var piece = Target.GetPiece(BoardCoordinate.For(2, 4)) as Pawn;
+            var piece = Target.GetPiece<Pawn>(BoardCoordinate.For(2, 4));
 
             Assert.IsFalse(piece.CanPerformEnPassantOn(BoardCoordinate.For(3, 4)));
         }

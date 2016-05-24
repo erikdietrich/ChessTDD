@@ -43,7 +43,7 @@ namespace Chess
 
         private bool IsUnmovedKing(BoardCoordinate moveStart)
         {
-            var kingToMove = _board.GetPiece(moveStart) as King;
+            var kingToMove = _board.GetPiece<King>(moveStart);
             return kingToMove != null && !kingToMove.HasMoved;
         }
 
