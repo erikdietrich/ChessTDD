@@ -4,36 +4,57 @@ using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
 
+using static System.Linq.Enumerable;
+
 namespace Chess.Acceptance
 {
     [Binding]
     public class NormalBoardSetupScenarios
     {
+        private static Board Board
+        {
+            get { return GetFromContext<Board>(); }
+            set { SetInContext(value); }
+        }
+
         [When(@"there is a chess board set up as")]
         public void SetBoardInContextFromTable(Table table)
         {
-            var builderGenerateBoard = BuildBoardFromTable(table);
-
-            SetInContext(builderGenerateBoard);
+            Board = BuildBoardFromTable(table);
         }
 
         [When(@"there is a move from \((.*),(.*)\) to \((.*),(.*)\)")]
         public void ThereIsAMoveFrom(int startX, int startY, int destinationX, int destinationY)
         {
-            var board = GetFromContext<Board>();
-            board.MovePiece(BoardCoordinate.For(startX, startY), BoardCoordinate.For(destinationX, destinationY));
+            Board.MovePiece(BoardCoordinate.For(startX, startY), BoardCoordinate.For(destinationX, destinationY));
         }
                 
         [Then(@"the piece at \((.*),(.*)\) should have exactly the following moves")]
         public void ThenThePieceAtShouldHaveTheFollowingMoves(int xCoordinate, int yCoordinate, Table table)
         {
-            var board = GetFromContext<Board>();
-            var boardMoves = board.GetMovesFrom(BoardCoordinate.For(xCoordinate, yCoordinate)).ToList();
+            var boardMoves = Board.GetMovesFrom(BoardCoordinate.For(xCoordinate, yCoordinate)).ToList();
 
             var tableCoordinates = GetCoordinatesFromTable(table);
 
             CollectionAssert.AreEquivalent(tableCoordinates, boardMoves);
         }
+
+        [Then(@"all white non-knight pieces should have no moves")]
+        public void ThenAllNon_KnightPiecesShouldHaveNoMoves()
+        {
+            var nonKnightCoordinates = Range(1, 8).Where(i => i != 2 && i != 7);
+            var movesCount = nonKnightCoordinates.SelectMany(xCoordinate => BoardMoves(xCoordinate, 1)).Count();
+            Assert.AreEqual<int>(0, movesCount);
+        }
+
+
+        [Then(@"all white pawns should have two moves")]
+        public void ThenAllWhitePawnsShouldHaveTwoMoves()
+        {
+            var movesCount = Range(1, 8).SelectMany(xCoordinate => BoardMoves(xCoordinate, 2)).Count();
+            Assert.AreEqual<int>(16, movesCount);
+        }
+
 
         private Board BuildBoardFromTable(Table table)
         {
@@ -44,7 +65,7 @@ namespace Chess.Acceptance
             return builderGenerateBoard;
         }
 
-        private void AddNonEmptyPiece(AsciiBoardBuilder builder, Table table, int rowIndex, int columnIndex)
+        private static void AddNonEmptyPiece(AsciiBoardBuilder builder, Table table, int rowIndex, int columnIndex)
         {
             var xCoordinate = columnIndex + 1;
             var yCoordinate = 8 - rowIndex;
@@ -55,6 +76,10 @@ namespace Chess.Acceptance
 
         }
 
+        private static IEnumerable<BoardCoordinate> BoardMoves(int x, int y)
+        {
+            return Board.GetMovesFrom(BoardCoordinate.For(x, y));
+        }
 
         private static T GetFromContext<T>()
         {

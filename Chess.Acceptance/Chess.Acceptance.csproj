@@ -53,6 +53,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ActualGame.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActualGame.feature</DependentUpon>
+    </Compile>
     <Compile Include="BishopMoves.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,6 +92,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ActualGame.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ActualGame.feature.cs</LastGenOutput>
+    </None>
     <None Include="App.config" />
     <None Include="BishopMoves.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
