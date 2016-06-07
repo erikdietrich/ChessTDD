@@ -11,6 +11,8 @@ namespace Chess.Acceptance
     [Binding]
     public class NormalBoardSetupScenarios
     {
+        private static IEnumerable<int> NonKnightCoordinates => Range(1, 8).Where(i => i != 2 && i != 7);
+
         private static Board Board
         {
             get { return GetFromContext<Board>(); }
@@ -40,10 +42,9 @@ namespace Chess.Acceptance
         }
 
         [Then(@"all white non-knight pieces should have no moves")]
-        public void ThenAllNon_KnightPiecesShouldHaveNoMoves()
+        public void ThenAllWhiteNon_KnightPiecesShouldHaveNoMoves()
         {
-            var nonKnightCoordinates = Range(1, 8).Where(i => i != 2 && i != 7);
-            var movesCount = nonKnightCoordinates.SelectMany(xCoordinate => BoardMoves(xCoordinate, 1)).Count();
+            var movesCount = GetTotalMoves(NonKnightCoordinates, 1);
             Assert.AreEqual<int>(0, movesCount);
         }
 
@@ -51,12 +52,28 @@ namespace Chess.Acceptance
         [Then(@"all white pawns should have two moves")]
         public void ThenAllWhitePawnsShouldHaveTwoMoves()
         {
-            var movesCount = Range(1, 8).SelectMany(xCoordinate => BoardMoves(xCoordinate, 2)).Count();
+            var movesCount = GetTotalMoves(Range(1, 8), 2);
+            Assert.AreEqual<int>(16, movesCount);
+        }
+
+        [Then(@"all black non-knight pieces should have no moves")]
+        public void ThenAllBlackNon_KnightPiecesShouldHaveNoMoves()
+        {
+            var movesCount = GetTotalMoves(NonKnightCoordinates, 8);
+            Assert.AreEqual<int>(0, movesCount);
+        }
+
+        [Then(@"all black pawns should have two moves")]
+        public void ThenAllBlackPawnsShouldHaveTwoMoves()
+        {
+            var movesCount = GetTotalMoves(Range(1, 8), 7);
+
             Assert.AreEqual<int>(16, movesCount);
         }
 
 
-        private Board BuildBoardFromTable(Table table)
+
+        private static Board BuildBoardFromTable(Table table)
         {
             var builder = new AsciiBoardBuilder();
             var indeces = Enumerable.Range(0, 8).ToList();
@@ -76,21 +93,14 @@ namespace Chess.Acceptance
 
         }
 
-        private static IEnumerable<BoardCoordinate> BoardMoves(int x, int y)
-        {
-            return Board.GetMovesFrom(BoardCoordinate.For(x, y));
-        }
+        private static int GetTotalMoves(IEnumerable<int> xCoordinates, int row) => xCoordinates.SelectMany(x => BoardMoves(x, row)).Count();
 
-        private static T GetFromContext<T>()
-        {
-            return ScenarioContext.Current.Get<T>();
-        }
+        private static IEnumerable<BoardCoordinate> BoardMoves(int x, int y) => Board.GetMovesFrom(BoardCoordinate.For(x, y));
 
-        private static void SetInContext<T>(T data)
-        {
-            ScenarioContext.Current.Set<T>(data);
-        }
-
+        private static T GetFromContext<T>() => ScenarioContext.Current.Get<T>();
+        
+        private static void SetInContext<T>(T data) => ScenarioContext.Current.Set<T>(data);
+        
         private static List<BoardCoordinate> GetCoordinatesFromTable(Table tableOfBoardCoordinates)
         {
             return tableOfBoardCoordinates.Rows.Select(r => BoardCoordinate.For(int.Parse(r[0]), int.Parse(r[1]))).ToList();

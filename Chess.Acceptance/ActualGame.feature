@@ -21,3 +21,13 @@ Scenario: Initial board setup
         | 8 | 3 |
 	And all white non-knight pieces should have no moves
 	And all white pawns should have two moves
+	And the piece at (2,8) should have exactly the following moves
+        | X | Y |
+        | 1 | 6 |
+        | 3 | 6 |
+	And the piece at (7,8) should have exactly the following moves
+		| X | Y |
+		| 6 | 6 |
+		| 8 | 6 |
+	And all black non-knight pieces should have no moves
+	And all black pawns should have two moves

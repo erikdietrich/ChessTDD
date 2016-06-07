@@ -189,6 +189,34 @@ this.ScenarioSetup(scenarioInfo);
 #line 23
  testRunner.And("all white pawns should have two moves", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table4.AddRow(new string[] {
+                        "1",
+                        "6"});
+            table4.AddRow(new string[] {
+                        "3",
+                        "6"});
+#line 24
+ testRunner.And("the piece at (2,8) should have exactly the following moves", ((string)(null)), table4, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "X",
+                        "Y"});
+            table5.AddRow(new string[] {
+                        "6",
+                        "6"});
+            table5.AddRow(new string[] {
+                        "8",
+                        "6"});
+#line 28
+ testRunner.And("the piece at (7,8) should have exactly the following moves", ((string)(null)), table5, "And ");
+#line 32
+ testRunner.And("all black non-knight pieces should have no moves", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.And("all black pawns should have two moves", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
             this.ScenarioCleanup();
         }
     }
