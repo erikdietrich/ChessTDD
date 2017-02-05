@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AddPiece method">
+    <HelpKINode Title="AddPiece Method " Url="html/M-Chess.AsciiBoardBuilder.AddPiece.htm" />
+    <HelpKINode Title="AddPiece Method " Url="html/M-Chess.Board.AddPiece.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AsciiBoardBuilder class">
+    <HelpKINode Title="AsciiBoardBuilder Class" Url="html/T-Chess.AsciiBoardBuilder.htm" />
+    <HelpKINode Title="AsciiBoardBuilder Members" Url="html/AllMembers.T-Chess.AsciiBoardBuilder.htm" />
+    <HelpKINode Title="about AsciiBoardBuilder class" Url="html/T-Chess.AsciiBoardBuilder.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.AsciiBoardBuilder.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.AsciiBoardBuilder.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AsciiBoardBuilder.AddPiece method" Url="html/M-Chess.AsciiBoardBuilder.AddPiece.htm" />
+  <HelpKINode Title="AsciiBoardBuilder.GenerateBoard method" Url="html/M-Chess.AsciiBoardBuilder.GenerateBoard.htm" />
+  <HelpKINode Title="Bishop class">
+    <HelpKINode Title="Bishop Class" Url="html/T-Chess.Bishop.htm" />
+    <HelpKINode Title="Bishop Members" Url="html/AllMembers.T-Chess.Bishop.htm" />
+    <HelpKINode Title="about Bishop class" Url="html/T-Chess.Bishop.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.Bishop.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.Bishop.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.Bishop.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.Bishop.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Bishop.Bishop constructor" Url="html/M-Chess.Bishop.-ctor.htm" />
+  <HelpKINode Title="Bishop.GetMovesFrom method" Url="html/M-Chess.Bishop.GetMovesFrom.htm" />
+  <HelpKINode Title="Board class">
+    <HelpKINode Title="Board Class" Url="html/T-Chess.Board.htm" />
+    <HelpKINode Title="Board Members" Url="html/AllMembers.T-Chess.Board.htm" />
+    <HelpKINode Title="about Board class" Url="html/T-Chess.Board.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.Board.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.Board.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-Chess.Board.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.Board.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.Board.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Board.AddPiece method" Url="html/M-Chess.Board.AddPiece.htm" />
+  <HelpKINode Title="Board.Board constructor" Url="html/M-Chess.Board.-ctor.htm" />
+  <HelpKINode Title="Board.DefaultBoardSize field" Url="html/F-Chess.Board.DefaultBoardSize.htm" />
+  <HelpKINode Title="Board.DoesPieceExistAt method" Url="html/M-Chess.Board.DoesPieceExistAt.htm" />
+  <HelpKINode Title="Board.GetMovesFrom method" Url="html/M-Chess.Board.GetMovesFrom.htm" />
+  <HelpKINode Title="Board.GetPiece method" Url="html/M-Chess.Board.GetPiece.htm" />
+  <HelpKINode Title="Board.IsMoveLegal method" Url="html/M-Chess.Board.IsMoveLegal.htm" />
+  <HelpKINode Title="Board.MovePiece method" Url="html/M-Chess.Board.MovePiece.htm" />
+  <HelpKINode Title="Board.PieceCount property" Url="html/P-Chess.Board.PieceCount.htm" />
+  <HelpKINode Title="Board.RemovePiece method" Url="html/M-Chess.Board.RemovePiece.htm" />
+  <HelpKINode Title="Board.Size property" Url="html/P-Chess.Board.Size.htm" />
+  <HelpKINode Title="BoardCoordinate structure">
+    <HelpKINode Title="BoardCoordinate Members" Url="html/AllMembers.T-Chess.BoardCoordinate.htm" />
+    <HelpKINode Title="BoardCoordinate Structure" Url="html/T-Chess.BoardCoordinate.htm" />
+    <HelpKINode Title="about BoardCoordinate structure" Url="html/T-Chess.BoardCoordinate.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.BoardCoordinate.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.BoardCoordinate.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.BoardCoordinate.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.BoardCoordinate.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BoardCoordinate.BoardCoordinate constructor" Url="html/M-Chess.BoardCoordinate.-ctor.htm" />
+  <HelpKINode Title="BoardCoordinate.For method" Url="html/M-Chess.BoardCoordinate.For.htm" />
+  <HelpKINode Title="BoardCoordinate.IsCoordinateValidForBoardSize method" Url="html/M-Chess.BoardCoordinate.IsCoordinateValidForBoardSize.htm" />
+  <HelpKINode Title="BoardCoordinate.IsOnSameDiagonalPathAs method" Url="html/M-Chess.BoardCoordinate.IsOnSameDiagonalPathAs.htm" />
+  <HelpKINode Title="BoardCoordinate.IsOnSameHorizontalPathAs method" Url="html/M-Chess.BoardCoordinate.IsOnSameHorizontalPathAs.htm" />
+  <HelpKINode Title="BoardCoordinate.IsOnSameVerticalPathAs method" Url="html/M-Chess.BoardCoordinate.IsOnSameVerticalPathAs.htm" />
+  <HelpKINode Title="BoardCoordinate.Matches method" Url="html/Overload-Chess.BoardCoordinate.Matches.htm" />
+  <HelpKINode Title="BoardCoordinate.X property" Url="html/P-Chess.BoardCoordinate.X.htm" />
+  <HelpKINode Title="BoardCoordinate.Y property" Url="html/P-Chess.BoardCoordinate.Y.htm" />
+  <HelpKINode Title="CanPerformEnPassantOn method" Url="html/M-Chess.Pawn.CanPerformEnPassantOn.htm" />
+  <HelpKINode Title="CastlingStatusChecker class">
+    <HelpKINode Title="CastlingStatusChecker Class" Url="html/T-Chess.CastlingStatusChecker.htm" />
+    <HelpKINode Title="CastlingStatusChecker Members" Url="html/AllMembers.T-Chess.CastlingStatusChecker.htm" />
+    <HelpKINode Title="about CastlingStatusChecker class" Url="html/T-Chess.CastlingStatusChecker.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.CastlingStatusChecker.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.CastlingStatusChecker.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.CastlingStatusChecker.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CastlingStatusChecker.CastlingStatusChecker constructor" Url="html/M-Chess.CastlingStatusChecker.-ctor.htm" />
+  <HelpKINode Title="CastlingStatusChecker.GetCastlingMovesFor method" Url="html/M-Chess.CastlingStatusChecker.GetCastlingMovesFor.htm" />
+  <HelpKINode Title="Chess namespace" Url="html/N-Chess.htm" />
+  <HelpKINode Title="Chess.AsciiBoardBuilder class">
+    <HelpKINode Title="AsciiBoardBuilder Class" Url="html/T-Chess.AsciiBoardBuilder.htm" />
+    <HelpKINode Title="AsciiBoardBuilder Members" Url="html/AllMembers.T-Chess.AsciiBoardBuilder.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.Bishop class">
+    <HelpKINode Title="Bishop Class" Url="html/T-Chess.Bishop.htm" />
+    <HelpKINode Title="Bishop Members" Url="html/AllMembers.T-Chess.Bishop.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.Board class">
+    <HelpKINode Title="Board Class" Url="html/T-Chess.Board.htm" />
+    <HelpKINode Title="Board Members" Url="html/AllMembers.T-Chess.Board.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.BoardCoordinate structure">
+    <HelpKINode Title="BoardCoordinate Members" Url="html/AllMembers.T-Chess.BoardCoordinate.htm" />
+    <HelpKINode Title="BoardCoordinate Structure" Url="html/T-Chess.BoardCoordinate.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.CastlingStatusChecker class">
+    <HelpKINode Title="CastlingStatusChecker Class" Url="html/T-Chess.CastlingStatusChecker.htm" />
+    <HelpKINode Title="CastlingStatusChecker Members" Url="html/AllMembers.T-Chess.CastlingStatusChecker.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.King class">
+    <HelpKINode Title="King Class" Url="html/T-Chess.King.htm" />
+    <HelpKINode Title="King Members" Url="html/AllMembers.T-Chess.King.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.Knight class">
+    <HelpKINode Title="Knight Class" Url="html/T-Chess.Knight.htm" />
+    <HelpKINode Title="Knight Members" Url="html/AllMembers.T-Chess.Knight.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.PathMaker class">
+    <HelpKINode Title="PathMaker Class" Url="html/T-Chess.PathMaker.htm" />
+    <HelpKINode Title="PathMaker Members" Url="html/AllMembers.T-Chess.PathMaker.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.Pawn class">
+    <HelpKINode Title="Pawn Class" Url="html/T-Chess.Pawn.htm" />
+    <HelpKINode Title="Pawn Members" Url="html/AllMembers.T-Chess.Pawn.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.Piece class">
+    <HelpKINode Title="Piece Class" Url="html/T-Chess.Piece.htm" />
+    <HelpKINode Title="Piece Members" Url="html/AllMembers.T-Chess.Piece.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.PiecePositioner class">
+    <HelpKINode Title="PiecePositioner Class" Url="html/T-Chess.PiecePositioner.htm" />
+    <HelpKINode Title="PiecePositioner Members" Url="html/AllMembers.T-Chess.PiecePositioner.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.Queen class">
+    <HelpKINode Title="Queen Class" Url="html/T-Chess.Queen.htm" />
+    <HelpKINode Title="Queen Members" Url="html/AllMembers.T-Chess.Queen.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.Rook class">
+    <HelpKINode Title="Rook Class" Url="html/T-Chess.Rook.htm" />
+    <HelpKINode Title="Rook Members" Url="html/AllMembers.T-Chess.Rook.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Chess.ThreatEvaluator class">
+    <HelpKINode Title="ThreatEvaluator Class" Url="html/T-Chess.ThreatEvaluator.htm" />
+    <HelpKINode Title="ThreatEvaluator Members" Url="html/AllMembers.T-Chess.ThreatEvaluator.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ClearEnPassant method" Url="html/M-Chess.Pawn.ClearEnPassant.htm" />
+  <HelpKINode Title="DefaultBoardSize field" Url="html/F-Chess.Board.DefaultBoardSize.htm" />
+  <HelpKINode Title="DoesPieceExistAt method" Url="html/M-Chess.Board.DoesPieceExistAt.htm" />
+  <HelpKINode Title="For method" Url="html/M-Chess.BoardCoordinate.For.htm" />
+  <HelpKINode Title="GenerateBoard method" Url="html/M-Chess.AsciiBoardBuilder.GenerateBoard.htm" />
+  <HelpKINode Title="GetCastlingMovesFor method" Url="html/M-Chess.CastlingStatusChecker.GetCastlingMovesFor.htm" />
+  <HelpKINode Title="GetMovesFrom method">
+    <HelpKINode Title="GetMovesFrom Method " Url="html/M-Chess.Queen.GetMovesFrom.htm" />
+    <HelpKINode Title="GetMovesFrom Method " Url="html/M-Chess.Pawn.GetMovesFrom.htm" />
+    <HelpKINode Title="GetMovesFrom Method " Url="html/M-Chess.Board.GetMovesFrom.htm" />
+    <HelpKINode Title="GetMovesFrom Method " Url="html/M-Chess.Bishop.GetMovesFrom.htm" />
+    <HelpKINode Title="GetMovesFrom Method " Url="html/M-Chess.Piece.GetMovesFrom.htm" />
+    <HelpKINode Title="GetMovesFrom Method " Url="html/M-Chess.Knight.GetMovesFrom.htm" />
+    <HelpKINode Title="GetMovesFrom Method " Url="html/M-Chess.King.GetMovesFrom.htm" />
+    <HelpKINode Title="GetMovesFrom Method " Url="html/M-Chess.Rook.GetMovesFrom.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetPathToDestination method" Url="html/M-Chess.PathMaker.GetPathToDestination.htm" />
+  <HelpKINode Title="GetPiece method" Url="html/M-Chess.Board.GetPiece.htm" />
+  <HelpKINode Title="HasMoved property" Url="html/P-Chess.Piece.HasMoved.htm" />
+  <HelpKINode Title="IsCaptureAllowed method">
+    <HelpKINode Title="IsCaptureAllowed Method " Url="html/M-Chess.Pawn.IsCaptureAllowed.htm" />
+    <HelpKINode Title="IsCaptureAllowed Method " Url="html/M-Chess.Piece.IsCaptureAllowed.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsCoordinateValidForBoardSize method" Url="html/M-Chess.BoardCoordinate.IsCoordinateValidForBoardSize.htm" />
+  <HelpKINode Title="IsFirstPlayerPiece property" Url="html/P-Chess.Piece.IsFirstPlayerPiece.htm" />
+  <HelpKINode Title="IsMoveLegal method" Url="html/M-Chess.Board.IsMoveLegal.htm" />
+  <HelpKINode Title="IsNonCaptureAllowed method">
+    <HelpKINode Title="IsNonCaptureAllowed Method " Url="html/M-Chess.Piece.IsNonCaptureAllowed.htm" />
+    <HelpKINode Title="IsNonCaptureAllowed Method " Url="html/M-Chess.Pawn.IsNonCaptureAllowed.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsOnSameDiagonalPathAs method" Url="html/M-Chess.BoardCoordinate.IsOnSameDiagonalPathAs.htm" />
+  <HelpKINode Title="IsOnSameHorizontalPathAs method" Url="html/M-Chess.BoardCoordinate.IsOnSameHorizontalPathAs.htm" />
+  <HelpKINode Title="IsOnSameVerticalPathAs method" Url="html/M-Chess.BoardCoordinate.IsOnSameVerticalPathAs.htm" />
+  <HelpKINode Title="IsThreatened method" Url="html/M-Chess.ThreatEvaluator.IsThreatened.htm" />
+  <HelpKINode Title="King class">
+    <HelpKINode Title="King Class" Url="html/T-Chess.King.htm" />
+    <HelpKINode Title="King Members" Url="html/AllMembers.T-Chess.King.htm" />
+    <HelpKINode Title="about King class" Url="html/T-Chess.King.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.King.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.King.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.King.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.King.htm" />
+  </HelpKINode>
+  <HelpKINode Title="King.GetMovesFrom method" Url="html/M-Chess.King.GetMovesFrom.htm" />
+  <HelpKINode Title="King.King constructor" Url="html/M-Chess.King.-ctor.htm" />
+  <HelpKINode Title="Knight class">
+    <HelpKINode Title="Knight Class" Url="html/T-Chess.Knight.htm" />
+    <HelpKINode Title="Knight Members" Url="html/AllMembers.T-Chess.Knight.htm" />
+    <HelpKINode Title="about Knight class" Url="html/T-Chess.Knight.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.Knight.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.Knight.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.Knight.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.Knight.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Knight.GetMovesFrom method" Url="html/M-Chess.Knight.GetMovesFrom.htm" />
+  <HelpKINode Title="Knight.Knight constructor" Url="html/M-Chess.Knight.-ctor.htm" />
+  <HelpKINode Title="Matches method" Url="html/Overload-Chess.BoardCoordinate.Matches.htm" />
+  <HelpKINode Title="MovePiece method" Url="html/M-Chess.Board.MovePiece.htm" />
+  <HelpKINode Title="PathMaker class">
+    <HelpKINode Title="PathMaker Class" Url="html/T-Chess.PathMaker.htm" />
+    <HelpKINode Title="PathMaker Members" Url="html/AllMembers.T-Chess.PathMaker.htm" />
+    <HelpKINode Title="about PathMaker class" Url="html/T-Chess.PathMaker.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.PathMaker.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.PathMaker.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.PathMaker.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PathMaker.GetPathToDestination method" Url="html/M-Chess.PathMaker.GetPathToDestination.htm" />
+  <HelpKINode Title="PathMaker.PathMaker constructor" Url="html/M-Chess.PathMaker.-ctor.htm" />
+  <HelpKINode Title="Pawn class">
+    <HelpKINode Title="Pawn Class" Url="html/T-Chess.Pawn.htm" />
+    <HelpKINode Title="Pawn Members" Url="html/AllMembers.T-Chess.Pawn.htm" />
+    <HelpKINode Title="about Pawn class" Url="html/T-Chess.Pawn.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.Pawn.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.Pawn.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.Pawn.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.Pawn.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Pawn.CanPerformEnPassantOn method" Url="html/M-Chess.Pawn.CanPerformEnPassantOn.htm" />
+  <HelpKINode Title="Pawn.ClearEnPassant method" Url="html/M-Chess.Pawn.ClearEnPassant.htm" />
+  <HelpKINode Title="Pawn.GetMovesFrom method" Url="html/M-Chess.Pawn.GetMovesFrom.htm" />
+  <HelpKINode Title="Pawn.IsCaptureAllowed method" Url="html/M-Chess.Pawn.IsCaptureAllowed.htm" />
+  <HelpKINode Title="Pawn.IsNonCaptureAllowed method" Url="html/M-Chess.Pawn.IsNonCaptureAllowed.htm" />
+  <HelpKINode Title="Pawn.Pawn constructor" Url="html/M-Chess.Pawn.-ctor.htm" />
+  <HelpKINode Title="Pawn.SetCanPerformEnPassantOn method" Url="html/M-Chess.Pawn.SetCanPerformEnPassantOn.htm" />
+  <HelpKINode Title="Piece class">
+    <HelpKINode Title="Piece Class" Url="html/T-Chess.Piece.htm" />
+    <HelpKINode Title="Piece Members" Url="html/AllMembers.T-Chess.Piece.htm" />
+    <HelpKINode Title="about Piece class" Url="html/T-Chess.Piece.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.Piece.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.Piece.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.Piece.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.Piece.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Piece.GetMovesFrom method" Url="html/M-Chess.Piece.GetMovesFrom.htm" />
+  <HelpKINode Title="Piece.HasMoved property" Url="html/P-Chess.Piece.HasMoved.htm" />
+  <HelpKINode Title="Piece.IsCaptureAllowed method" Url="html/M-Chess.Piece.IsCaptureAllowed.htm" />
+  <HelpKINode Title="Piece.IsFirstPlayerPiece property" Url="html/P-Chess.Piece.IsFirstPlayerPiece.htm" />
+  <HelpKINode Title="Piece.IsNonCaptureAllowed method" Url="html/M-Chess.Piece.IsNonCaptureAllowed.htm" />
+  <HelpKINode Title="Piece.Piece constructor" Url="html/M-Chess.Piece.-ctor.htm" />
+  <HelpKINode Title="PieceCount property" Url="html/P-Chess.Board.PieceCount.htm" />
+  <HelpKINode Title="PiecePositioner class">
+    <HelpKINode Title="PiecePositioner Class" Url="html/T-Chess.PiecePositioner.htm" />
+    <HelpKINode Title="PiecePositioner Members" Url="html/AllMembers.T-Chess.PiecePositioner.htm" />
+    <HelpKINode Title="about PiecePositioner class" Url="html/T-Chess.PiecePositioner.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.PiecePositioner.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.PiecePositioner.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.PiecePositioner.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PiecePositioner.PiecePositioner constructor" Url="html/M-Chess.PiecePositioner.-ctor.htm" />
+  <HelpKINode Title="PiecePositioner.SetupStandardBoard method" Url="html/M-Chess.PiecePositioner.SetupStandardBoard.htm" />
+  <HelpKINode Title="PiecePositioner.SetupStandardPawns method" Url="html/M-Chess.PiecePositioner.SetupStandardPawns.htm" />
+  <HelpKINode Title="PiecePositioner.SetupStandardPieces method" Url="html/M-Chess.PiecePositioner.SetupStandardPieces.htm" />
+  <HelpKINode Title="Queen class">
+    <HelpKINode Title="Queen Class" Url="html/T-Chess.Queen.htm" />
+    <HelpKINode Title="Queen Members" Url="html/AllMembers.T-Chess.Queen.htm" />
+    <HelpKINode Title="about Queen class" Url="html/T-Chess.Queen.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.Queen.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.Queen.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.Queen.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.Queen.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Queen.GetMovesFrom method" Url="html/M-Chess.Queen.GetMovesFrom.htm" />
+  <HelpKINode Title="Queen.Queen constructor" Url="html/M-Chess.Queen.-ctor.htm" />
+  <HelpKINode Title="RemovePiece method" Url="html/M-Chess.Board.RemovePiece.htm" />
+  <HelpKINode Title="Rook class">
+    <HelpKINode Title="Rook Class" Url="html/T-Chess.Rook.htm" />
+    <HelpKINode Title="Rook Members" Url="html/AllMembers.T-Chess.Rook.htm" />
+    <HelpKINode Title="about Rook class" Url="html/T-Chess.Rook.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.Rook.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.Rook.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.Rook.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-Chess.Rook.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Rook.GetMovesFrom method" Url="html/M-Chess.Rook.GetMovesFrom.htm" />
+  <HelpKINode Title="Rook.Rook constructor" Url="html/M-Chess.Rook.-ctor.htm" />
+  <HelpKINode Title="SetCanPerformEnPassantOn method" Url="html/M-Chess.Pawn.SetCanPerformEnPassantOn.htm" />
+  <HelpKINode Title="SetupStandardBoard method" Url="html/M-Chess.PiecePositioner.SetupStandardBoard.htm" />
+  <HelpKINode Title="SetupStandardPawns method" Url="html/M-Chess.PiecePositioner.SetupStandardPawns.htm" />
+  <HelpKINode Title="SetupStandardPieces method" Url="html/M-Chess.PiecePositioner.SetupStandardPieces.htm" />
+  <HelpKINode Title="Size property" Url="html/P-Chess.Board.Size.htm" />
+  <HelpKINode Title="ThreatEvaluator class">
+    <HelpKINode Title="ThreatEvaluator Class" Url="html/T-Chess.ThreatEvaluator.htm" />
+    <HelpKINode Title="ThreatEvaluator Members" Url="html/AllMembers.T-Chess.ThreatEvaluator.htm" />
+    <HelpKINode Title="about ThreatEvaluator class" Url="html/T-Chess.ThreatEvaluator.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-Chess.ThreatEvaluator.htm" />
+    <HelpKINode Title="constructor" Url="html/M-Chess.ThreatEvaluator.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-Chess.ThreatEvaluator.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ThreatEvaluator.IsThreatened method" Url="html/M-Chess.ThreatEvaluator.IsThreatened.htm" />
+  <HelpKINode Title="ThreatEvaluator.ThreatEvaluator constructor" Url="html/M-Chess.ThreatEvaluator.-ctor.htm" />
+  <HelpKINode Title="X property" Url="html/P-Chess.BoardCoordinate.X.htm" />
+  <HelpKINode Title="Y property" Url="html/P-Chess.BoardCoordinate.Y.htm" />
+</HelpKI>

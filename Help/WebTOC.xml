@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="66894cb0-bebe-42fe-9f8c-e2971c51deb3" Title="Chess Namespace" Url="html/N-Chess.htm">
+    <HelpTOCNode Id="8e07b093-95c4-4a1d-89f7-6ccfc9af414e" Title="AsciiBoardBuilder Class" Url="html/T-Chess.AsciiBoardBuilder.htm">
+      <HelpTOCNode Title="AsciiBoardBuilder Members" Url="html/AllMembers.T-Chess.AsciiBoardBuilder.htm" />
+      <HelpTOCNode Id="8f9469a4-dfee-4b1e-94f3-3147e5c396b7" Title="AsciiBoardBuilder Methods" Url="html/Methods.T-Chess.AsciiBoardBuilder.htm">
+        <HelpTOCNode Title="AddPiece Method " Url="html/M-Chess.AsciiBoardBuilder.AddPiece.htm" />
+        <HelpTOCNode Title="GenerateBoard Method " Url="html/M-Chess.AsciiBoardBuilder.GenerateBoard.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6f6b2be8-d617-403b-89cc-1dfe668f946a" Title="Bishop Class" Url="html/T-Chess.Bishop.htm">
+      <HelpTOCNode Title="Bishop Members" Url="html/AllMembers.T-Chess.Bishop.htm" />
+      <HelpTOCNode Title="Bishop Constructor " Url="html/M-Chess.Bishop.-ctor.htm" />
+      <HelpTOCNode Id="71c2f0de-1992-4d6c-a331-cecb7b67d666" Title="Bishop Methods" Url="html/Methods.T-Chess.Bishop.htm">
+        <HelpTOCNode Title="GetMovesFrom Method " Url="html/M-Chess.Bishop.GetMovesFrom.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Bishop Properties" Url="html/Properties.T-Chess.Bishop.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="575b3927-9b78-4140-8202-b3d553b644bd" Title="Board Class" Url="html/T-Chess.Board.htm">
+      <HelpTOCNode Title="Board Members" Url="html/AllMembers.T-Chess.Board.htm" />
+      <HelpTOCNode Title="Board Constructor " Url="html/M-Chess.Board.-ctor.htm" />
+      <HelpTOCNode Id="4911fbae-1017-4d27-bfd0-e1f8d88b7790" Title="Board Fields" Url="html/Fields.T-Chess.Board.htm">
+        <HelpTOCNode Title="DefaultBoardSize Field" Url="html/F-Chess.Board.DefaultBoardSize.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="4ee86c7b-4035-42ce-a195-1e52ab0adc6c" Title="Board Methods" Url="html/Methods.T-Chess.Board.htm">
+        <HelpTOCNode Title="AddPiece Method " Url="html/M-Chess.Board.AddPiece.htm" />
+        <HelpTOCNode Title="DoesPieceExistAt Method " Url="html/M-Chess.Board.DoesPieceExistAt.htm" />
+        <HelpTOCNode Title="GetMovesFrom Method " Url="html/M-Chess.Board.GetMovesFrom.htm" />
+        <HelpTOCNode Title="GetPiece Method " Url="html/M-Chess.Board.GetPiece.htm" />
+        <HelpTOCNode Title="IsMoveLegal Method " Url="html/M-Chess.Board.IsMoveLegal.htm" />
+        <HelpTOCNode Title="MovePiece Method " Url="html/M-Chess.Board.MovePiece.htm" />
+        <HelpTOCNode Title="RemovePiece Method " Url="html/M-Chess.Board.RemovePiece.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="bc6f23d3-748c-4745-a2cf-d4a5a54b780a" Title="Board Properties" Url="html/Properties.T-Chess.Board.htm">
+        <HelpTOCNode Title="PieceCount Property " Url="html/P-Chess.Board.PieceCount.htm" />
+        <HelpTOCNode Title="Size Property " Url="html/P-Chess.Board.Size.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ff49e6b4-27c9-4897-b2b4-ba28b02174fc" Title="BoardCoordinate Structure" Url="html/T-Chess.BoardCoordinate.htm">
+      <HelpTOCNode Title="BoardCoordinate Members" Url="html/AllMembers.T-Chess.BoardCoordinate.htm" />
+      <HelpTOCNode Title="BoardCoordinate Constructor " Url="html/M-Chess.BoardCoordinate.-ctor.htm" />
+      <HelpTOCNode Id="123026da-236f-409f-81df-0ea046eab9d1" Title="BoardCoordinate Methods" Url="html/Methods.T-Chess.BoardCoordinate.htm">
+        <HelpTOCNode Title="For Method " Url="html/M-Chess.BoardCoordinate.For.htm" />
+        <HelpTOCNode Title="IsCoordinateValidForBoardSize Method " Url="html/M-Chess.BoardCoordinate.IsCoordinateValidForBoardSize.htm" />
+        <HelpTOCNode Title="IsOnSameDiagonalPathAs Method " Url="html/M-Chess.BoardCoordinate.IsOnSameDiagonalPathAs.htm" />
+        <HelpTOCNode Title="IsOnSameHorizontalPathAs Method " Url="html/M-Chess.BoardCoordinate.IsOnSameHorizontalPathAs.htm" />
+        <HelpTOCNode Title="IsOnSameVerticalPathAs Method " Url="html/M-Chess.BoardCoordinate.IsOnSameVerticalPathAs.htm" />
+        <HelpTOCNode Id="cd77b20e-e0e6-4976-a168-ceaaed4b8c60" Title="Matches Method " Url="html/Overload-Chess.BoardCoordinate.Matches.htm">
+          <HelpTOCNode Title="Matches Method (Int32, Int32)" Url="html/M-Chess.BoardCoordinate.Matches.htm" />
+          <HelpTOCNode Title="Matches Method (BoardCoordinate)" Url="html/M-Chess.BoardCoordinate.Matches_1.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="10ea07a4-3823-49e9-bd80-d8591ca0df64" Title="BoardCoordinate Properties" Url="html/Properties.T-Chess.BoardCoordinate.htm">
+        <HelpTOCNode Title="X Property " Url="html/P-Chess.BoardCoordinate.X.htm" />
+        <HelpTOCNode Title="Y Property " Url="html/P-Chess.BoardCoordinate.Y.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="788b2ef0-579b-40dc-a5e2-f493ec4ac484" Title="CastlingStatusChecker Class" Url="html/T-Chess.CastlingStatusChecker.htm">
+      <HelpTOCNode Title="CastlingStatusChecker Members" Url="html/AllMembers.T-Chess.CastlingStatusChecker.htm" />
+      <HelpTOCNode Title="CastlingStatusChecker Constructor " Url="html/M-Chess.CastlingStatusChecker.-ctor.htm" />
+      <HelpTOCNode Id="70abb2af-7d74-4ba5-8323-4720db1c2d80" Title="CastlingStatusChecker Methods" Url="html/Methods.T-Chess.CastlingStatusChecker.htm">
+        <HelpTOCNode Title="GetCastlingMovesFor Method " Url="html/M-Chess.CastlingStatusChecker.GetCastlingMovesFor.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="13ebec9c-4f4e-4f42-a2d3-85080ee3e052" Title="King Class" Url="html/T-Chess.King.htm">
+      <HelpTOCNode Title="King Members" Url="html/AllMembers.T-Chess.King.htm" />
+      <HelpTOCNode Title="King Constructor " Url="html/M-Chess.King.-ctor.htm" />
+      <HelpTOCNode Id="5a349882-7f3f-447c-84f9-6511d41be5a6" Title="King Methods" Url="html/Methods.T-Chess.King.htm">
+        <HelpTOCNode Title="GetMovesFrom Method " Url="html/M-Chess.King.GetMovesFrom.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="King Properties" Url="html/Properties.T-Chess.King.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="6426d7c4-2215-4972-819a-cc318ec97cb4" Title="Knight Class" Url="html/T-Chess.Knight.htm">
+      <HelpTOCNode Title="Knight Members" Url="html/AllMembers.T-Chess.Knight.htm" />
+      <HelpTOCNode Title="Knight Constructor " Url="html/M-Chess.Knight.-ctor.htm" />
+      <HelpTOCNode Id="d857fdd5-f0da-43cd-8cf5-45fe7e9b2df9" Title="Knight Methods" Url="html/Methods.T-Chess.Knight.htm">
+        <HelpTOCNode Title="GetMovesFrom Method " Url="html/M-Chess.Knight.GetMovesFrom.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Knight Properties" Url="html/Properties.T-Chess.Knight.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="8b68e7ad-368c-42a4-98e8-9822cfacd492" Title="PathMaker Class" Url="html/T-Chess.PathMaker.htm">
+      <HelpTOCNode Title="PathMaker Members" Url="html/AllMembers.T-Chess.PathMaker.htm" />
+      <HelpTOCNode Title="PathMaker Constructor " Url="html/M-Chess.PathMaker.-ctor.htm" />
+      <HelpTOCNode Id="eeb46c07-ba90-4432-b146-adc32f60e231" Title="PathMaker Methods" Url="html/Methods.T-Chess.PathMaker.htm">
+        <HelpTOCNode Title="GetPathToDestination Method " Url="html/M-Chess.PathMaker.GetPathToDestination.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0dac85dd-96bb-4271-a7e6-0b8ac86b3c91" Title="Pawn Class" Url="html/T-Chess.Pawn.htm">
+      <HelpTOCNode Title="Pawn Members" Url="html/AllMembers.T-Chess.Pawn.htm" />
+      <HelpTOCNode Title="Pawn Constructor " Url="html/M-Chess.Pawn.-ctor.htm" />
+      <HelpTOCNode Id="d6e721b8-2b2b-4ddc-927f-d915d83871fc" Title="Pawn Methods" Url="html/Methods.T-Chess.Pawn.htm">
+        <HelpTOCNode Title="CanPerformEnPassantOn Method " Url="html/M-Chess.Pawn.CanPerformEnPassantOn.htm" />
+        <HelpTOCNode Title="ClearEnPassant Method " Url="html/M-Chess.Pawn.ClearEnPassant.htm" />
+        <HelpTOCNode Title="GetMovesFrom Method " Url="html/M-Chess.Pawn.GetMovesFrom.htm" />
+        <HelpTOCNode Title="IsCaptureAllowed Method " Url="html/M-Chess.Pawn.IsCaptureAllowed.htm" />
+        <HelpTOCNode Title="IsNonCaptureAllowed Method " Url="html/M-Chess.Pawn.IsNonCaptureAllowed.htm" />
+        <HelpTOCNode Title="SetCanPerformEnPassantOn Method " Url="html/M-Chess.Pawn.SetCanPerformEnPassantOn.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Pawn Properties" Url="html/Properties.T-Chess.Pawn.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="21899d8d-a145-4a7f-b328-6a2748f21b79" Title="Piece Class" Url="html/T-Chess.Piece.htm">
+      <HelpTOCNode Title="Piece Members" Url="html/AllMembers.T-Chess.Piece.htm" />
+      <HelpTOCNode Title="Piece Constructor " Url="html/M-Chess.Piece.-ctor.htm" />
+      <HelpTOCNode Id="441d1365-26d3-4f75-9c7c-cfe692ba5a1d" Title="Piece Methods" Url="html/Methods.T-Chess.Piece.htm">
+        <HelpTOCNode Title="GetMovesFrom Method " Url="html/M-Chess.Piece.GetMovesFrom.htm" />
+        <HelpTOCNode Title="IsCaptureAllowed Method " Url="html/M-Chess.Piece.IsCaptureAllowed.htm" />
+        <HelpTOCNode Title="IsNonCaptureAllowed Method " Url="html/M-Chess.Piece.IsNonCaptureAllowed.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="718f6031-37b9-4d19-a921-3738d3f0e523" Title="Piece Properties" Url="html/Properties.T-Chess.Piece.htm">
+        <HelpTOCNode Title="HasMoved Property " Url="html/P-Chess.Piece.HasMoved.htm" />
+        <HelpTOCNode Title="IsFirstPlayerPiece Property " Url="html/P-Chess.Piece.IsFirstPlayerPiece.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2cbd6fae-e782-4111-9dad-0852ed2c9b38" Title="PiecePositioner Class" Url="html/T-Chess.PiecePositioner.htm">
+      <HelpTOCNode Title="PiecePositioner Members" Url="html/AllMembers.T-Chess.PiecePositioner.htm" />
+      <HelpTOCNode Title="PiecePositioner Constructor " Url="html/M-Chess.PiecePositioner.-ctor.htm" />
+      <HelpTOCNode Id="ef2b92f3-a416-401b-876d-fec9157e8bdc" Title="PiecePositioner Methods" Url="html/Methods.T-Chess.PiecePositioner.htm">
+        <HelpTOCNode Title="SetupStandardBoard Method " Url="html/M-Chess.PiecePositioner.SetupStandardBoard.htm" />
+        <HelpTOCNode Title="SetupStandardPawns Method " Url="html/M-Chess.PiecePositioner.SetupStandardPawns.htm" />
+        <HelpTOCNode Title="SetupStandardPieces Method " Url="html/M-Chess.PiecePositioner.SetupStandardPieces.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8da0e1ab-db4e-4495-964c-80b662a4088e" Title="Queen Class" Url="html/T-Chess.Queen.htm">
+      <HelpTOCNode Title="Queen Members" Url="html/AllMembers.T-Chess.Queen.htm" />
+      <HelpTOCNode Title="Queen Constructor " Url="html/M-Chess.Queen.-ctor.htm" />
+      <HelpTOCNode Id="7db8c808-f1a9-4bd7-a101-d642a6560197" Title="Queen Methods" Url="html/Methods.T-Chess.Queen.htm">
+        <HelpTOCNode Title="GetMovesFrom Method " Url="html/M-Chess.Queen.GetMovesFrom.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Queen Properties" Url="html/Properties.T-Chess.Queen.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="e21e149b-4d05-48f8-b8c4-120dc5292d8b" Title="Rook Class" Url="html/T-Chess.Rook.htm">
+      <HelpTOCNode Title="Rook Members" Url="html/AllMembers.T-Chess.Rook.htm" />
+      <HelpTOCNode Title="Rook Constructor " Url="html/M-Chess.Rook.-ctor.htm" />
+      <HelpTOCNode Id="a663f3ca-6ee8-4326-abb3-0aa661070a99" Title="Rook Methods" Url="html/Methods.T-Chess.Rook.htm">
+        <HelpTOCNode Title="GetMovesFrom Method " Url="html/M-Chess.Rook.GetMovesFrom.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Rook Properties" Url="html/Properties.T-Chess.Rook.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="d7eb99d2-e769-4b65-8e83-3c08f18ace67" Title="ThreatEvaluator Class" Url="html/T-Chess.ThreatEvaluator.htm">
+      <HelpTOCNode Title="ThreatEvaluator Members" Url="html/AllMembers.T-Chess.ThreatEvaluator.htm" />
+      <HelpTOCNode Title="ThreatEvaluator Constructor " Url="html/M-Chess.ThreatEvaluator.-ctor.htm" />
+      <HelpTOCNode Id="e65ff9dd-9867-4990-b55a-2cc376431cf8" Title="ThreatEvaluator Methods" Url="html/Methods.T-Chess.ThreatEvaluator.htm">
+        <HelpTOCNode Title="IsThreatened Method " Url="html/M-Chess.ThreatEvaluator.IsThreatened.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

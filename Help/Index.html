@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<title>ChessTDD - Table of Content</title>
+<link rel="stylesheet" href="TOC.css">
+<link rel="shortcut icon" href="favicon.ico"/>
+<script type="text/javascript" src="TOC.js"></script>
+</head>
+
+<body onload="javascript: Initialize('.aspx');" onresize="javascript: ResizeTree();">
+<form id="IndexForm" runat="server">
+
+<div id="TOCDiv" class="TOCDiv">
+
+<div id="divSearchOpts" class="SearchOpts" style="height: 90px; display: none;">
+	<img class="TOCLink" onclick="javascript: ShowHideSearch(false);"
+		src="Close.png" height="24" width="24" alt="Hide Search" title="Hide Search" style="float: right;"/>
+	<span class="Title">Keyword(s) to search:</span>
+	<input id="txtSearchText" type="text" style="width: 100%;" 
+		onkeypress="javascript: return OnSearchTextKeyPress(event);" /><br />
+	<input id="chkSortByTitle" type="checkbox" /><label for="chkSortByTitle">&nbsp;Sort results by title</label>
+	<input type="button" value="Search" onclick="javascript: return PerformSearch();" style="float: right;" />
+</div>
+
+<div id="divIndexOpts" class="IndexOpts" style="height: 28px; display: none;">
+	<img class="TOCLink" onclick="javascript: ShowHideIndex(false);"
+		src="Close.png" height="24" width="24" alt="Hide Keyword Index" title="Hide Keyword Index" style="float: right;"/>
+	<span class="Title">Keyword Index</span>
+</div>
+
+<div id="divNavOpts" class="NavOpts" style="height: 28px;">
+    <img class="TOCLink" onclick="javascript: SyncTOC();" src="SyncTOC.png"
+        height="24" width="24" alt="Sync to TOC" title="Sync to TOC" />
+    <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(true);"
+        src="ExpandAll.png" height="24" width="24" alt="Expand all" title="Expand all" />
+    <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(false);"
+        src="CollapseAll.png" height="24" width="24" alt="Collapse all" title="Collapse all" />
+    <img class="TOCLink" onclick="javascript: ShowDirectLink();"
+        src="Link.png" height="24" width="24" alt="Get direct link to the displayed topic" title="Get direct link to the displayed topic" />
+    <a href="#" onclick="javascript: TopicContent.history.go(-1); return false;">
+		<img class="TOCLink" style="float: right;" 
+        src="Back.png" height="24" width="24" alt="Previous page" title="Previous page" /></a>
+</div>
+
+<div class="Tree" id="divSearchResults" style="display: none;"
+    onselectstart="javascript: return false;">
+</div>
+
+<div class="Tree" id="divIndexResults" style="display: none;"
+    onselectstart="javascript: return false;">
+</div>
+
+<div class="Tree" id="divTree" onselectstart="javascript: return false;">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/N-Chess.htm" target="TopicContent">Chess Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.AsciiBoardBuilder.htm" target="TopicContent">AsciiBoardBuilder Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.AsciiBoardBuilder.htm" target="TopicContent">AsciiBoardBuilder Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.AsciiBoardBuilder.htm" target="TopicContent">AsciiBoardBuilder Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.AsciiBoardBuilder.AddPiece.htm" target="TopicContent">AddPiece Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.AsciiBoardBuilder.GenerateBoard.htm" target="TopicContent">GenerateBoard Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.Bishop.htm" target="TopicContent">Bishop Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.Bishop.htm" target="TopicContent">Bishop Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Bishop.-ctor.htm" target="TopicContent">Bishop Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.Bishop.htm" target="TopicContent">Bishop Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Bishop.GetMovesFrom.htm" target="TopicContent">GetMovesFrom Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-Chess.Bishop.htm" target="TopicContent">Bishop Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.Board.htm" target="TopicContent">Board Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.Board.htm" target="TopicContent">Board Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Board.-ctor.htm" target="TopicContent">Board Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Fields.T-Chess.Board.htm" target="TopicContent">Board Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/F-Chess.Board.DefaultBoardSize.htm" target="TopicContent">DefaultBoardSize Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.Board.htm" target="TopicContent">Board Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Board.AddPiece.htm" target="TopicContent">AddPiece Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Board.DoesPieceExistAt.htm" target="TopicContent">DoesPieceExistAt Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Board.GetMovesFrom.htm" target="TopicContent">GetMovesFrom Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Board.GetPiece.htm" target="TopicContent">GetPiece Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Board.IsMoveLegal.htm" target="TopicContent">IsMoveLegal Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Board.MovePiece.htm" target="TopicContent">MovePiece Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Board.RemovePiece.htm" target="TopicContent">RemovePiece Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-Chess.Board.htm" target="TopicContent">Board Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-Chess.Board.PieceCount.htm" target="TopicContent">PieceCount Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-Chess.Board.Size.htm" target="TopicContent">Size Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.BoardCoordinate.htm" target="TopicContent">BoardCoordinate Structure</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.BoardCoordinate.htm" target="TopicContent">BoardCoordinate Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.BoardCoordinate.-ctor.htm" target="TopicContent">BoardCoordinate Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.BoardCoordinate.htm" target="TopicContent">BoardCoordinate Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.BoardCoordinate.For.htm" target="TopicContent">For Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.BoardCoordinate.IsCoordinateValidForBoardSize.htm" target="TopicContent">IsCoordinateValidForBoardSize Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.BoardCoordinate.IsOnSameDiagonalPathAs.htm" target="TopicContent">IsOnSameDiagonalPathAs Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.BoardCoordinate.IsOnSameHorizontalPathAs.htm" target="TopicContent">IsOnSameHorizontalPathAs Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.BoardCoordinate.IsOnSameVerticalPathAs.htm" target="TopicContent">IsOnSameVerticalPathAs Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Overload-Chess.BoardCoordinate.Matches.htm" target="TopicContent">Matches Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.BoardCoordinate.Matches.htm" target="TopicContent">Matches Method (Int32, Int32)</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.BoardCoordinate.Matches_1.htm" target="TopicContent">Matches Method (BoardCoordinate)</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-Chess.BoardCoordinate.htm" target="TopicContent">BoardCoordinate Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-Chess.BoardCoordinate.X.htm" target="TopicContent">X Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-Chess.BoardCoordinate.Y.htm" target="TopicContent">Y Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.CastlingStatusChecker.htm" target="TopicContent">CastlingStatusChecker Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.CastlingStatusChecker.htm" target="TopicContent">CastlingStatusChecker Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.CastlingStatusChecker.-ctor.htm" target="TopicContent">CastlingStatusChecker Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.CastlingStatusChecker.htm" target="TopicContent">CastlingStatusChecker Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.CastlingStatusChecker.GetCastlingMovesFor.htm" target="TopicContent">GetCastlingMovesFor Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.King.htm" target="TopicContent">King Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.King.htm" target="TopicContent">King Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.King.-ctor.htm" target="TopicContent">King Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.King.htm" target="TopicContent">King Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.King.GetMovesFrom.htm" target="TopicContent">GetMovesFrom Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-Chess.King.htm" target="TopicContent">King Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.Knight.htm" target="TopicContent">Knight Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.Knight.htm" target="TopicContent">Knight Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Knight.-ctor.htm" target="TopicContent">Knight Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.Knight.htm" target="TopicContent">Knight Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Knight.GetMovesFrom.htm" target="TopicContent">GetMovesFrom Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-Chess.Knight.htm" target="TopicContent">Knight Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.PathMaker.htm" target="TopicContent">PathMaker Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.PathMaker.htm" target="TopicContent">PathMaker Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.PathMaker.-ctor.htm" target="TopicContent">PathMaker Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.PathMaker.htm" target="TopicContent">PathMaker Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.PathMaker.GetPathToDestination.htm" target="TopicContent">GetPathToDestination Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.Pawn.htm" target="TopicContent">Pawn Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.Pawn.htm" target="TopicContent">Pawn Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Pawn.-ctor.htm" target="TopicContent">Pawn Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.Pawn.htm" target="TopicContent">Pawn Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Pawn.CanPerformEnPassantOn.htm" target="TopicContent">CanPerformEnPassantOn Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Pawn.ClearEnPassant.htm" target="TopicContent">ClearEnPassant Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Pawn.GetMovesFrom.htm" target="TopicContent">GetMovesFrom Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Pawn.IsCaptureAllowed.htm" target="TopicContent">IsCaptureAllowed Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Pawn.IsNonCaptureAllowed.htm" target="TopicContent">IsNonCaptureAllowed Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Pawn.SetCanPerformEnPassantOn.htm" target="TopicContent">SetCanPerformEnPassantOn Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-Chess.Pawn.htm" target="TopicContent">Pawn Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.Piece.htm" target="TopicContent">Piece Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.Piece.htm" target="TopicContent">Piece Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Piece.-ctor.htm" target="TopicContent">Piece Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.Piece.htm" target="TopicContent">Piece Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Piece.GetMovesFrom.htm" target="TopicContent">GetMovesFrom Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Piece.IsCaptureAllowed.htm" target="TopicContent">IsCaptureAllowed Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Piece.IsNonCaptureAllowed.htm" target="TopicContent">IsNonCaptureAllowed Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Properties.T-Chess.Piece.htm" target="TopicContent">Piece Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-Chess.Piece.HasMoved.htm" target="TopicContent">HasMoved Property </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/P-Chess.Piece.IsFirstPlayerPiece.htm" target="TopicContent">IsFirstPlayerPiece Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.PiecePositioner.htm" target="TopicContent">PiecePositioner Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.PiecePositioner.htm" target="TopicContent">PiecePositioner Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.PiecePositioner.-ctor.htm" target="TopicContent">PiecePositioner Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.PiecePositioner.htm" target="TopicContent">PiecePositioner Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.PiecePositioner.SetupStandardBoard.htm" target="TopicContent">SetupStandardBoard Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.PiecePositioner.SetupStandardPawns.htm" target="TopicContent">SetupStandardPawns Method </a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.PiecePositioner.SetupStandardPieces.htm" target="TopicContent">SetupStandardPieces Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.Queen.htm" target="TopicContent">Queen Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.Queen.htm" target="TopicContent">Queen Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Queen.-ctor.htm" target="TopicContent">Queen Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.Queen.htm" target="TopicContent">Queen Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Queen.GetMovesFrom.htm" target="TopicContent">GetMovesFrom Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-Chess.Queen.htm" target="TopicContent">Queen Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.Rook.htm" target="TopicContent">Rook Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.Rook.htm" target="TopicContent">Rook Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Rook.-ctor.htm" target="TopicContent">Rook Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.Rook.htm" target="TopicContent">Rook Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.Rook.GetMovesFrom.htm" target="TopicContent">GetMovesFrom Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/Properties.T-Chess.Rook.htm" target="TopicContent">Rook Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/T-Chess.ThreatEvaluator.htm" target="TopicContent">ThreatEvaluator Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/AllMembers.T-Chess.ThreatEvaluator.htm" target="TopicContent">ThreatEvaluator Members</a>
+</div>
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.ThreatEvaluator.-ctor.htm" target="TopicContent">ThreatEvaluator Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="html/Methods.T-Chess.ThreatEvaluator.htm" target="TopicContent">ThreatEvaluator Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="html/M-Chess.ThreatEvaluator.IsThreatened.htm" target="TopicContent">IsThreatened Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="TOCSizer" class="TOCSizer" onmousedown="OnMouseDown(event)" onselectstart="javascript: return false;"></div>
+
+<iframe id="TopicContent" name="TopicContent" class="TopicContent" src="html/n-chess.htm">
+This page uses an IFRAME but your browser does not support it.
+</iframe>
+
+</form>
+
+</body>
+
+</html>
